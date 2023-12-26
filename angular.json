@@ -3,5 +3,135 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ngRhombus-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ng-rhombus-app",
+      "sourceRoot": "projects/ng-rhombus-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ng-rhombus-app",
+            "index": "projects/ng-rhombus-app/src/index.html",
+            "browser": "projects/ng-rhombus-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ng-rhombus-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ng-rhombus-app/src/favicon.ico",
+              "projects/ng-rhombus-app/src/assets"
+            ],
+            "styles": [
+              "projects/ng-rhombus-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ngRhombus-app:build:production"
+            },
+            "development": {
+              "buildTarget": "ngRhombus-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ngRhombus-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ng-rhombus-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ng-rhombus-app/src/favicon.ico",
+              "projects/ng-rhombus-app/src/assets"
+            ],
+            "styles": [
+              "projects/ng-rhombus-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ngRhombus": {
+      "projectType": "library",
+      "root": "projects/ng-rhombus",
+      "sourceRoot": "projects/ng-rhombus/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-rhombus/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-rhombus/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-rhombus/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ng-rhombus/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "ef4c2cb3-2f0b-43b2-ac14-21d6d873193d"
   }
 }

@@ -30,6 +30,7 @@
               "projects/ng-rhombus-app/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/ng-rhombus-app/src/styles.scss"
             ],
             "scripts": []

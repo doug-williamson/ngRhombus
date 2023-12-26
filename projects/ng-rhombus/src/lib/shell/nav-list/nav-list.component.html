@@ -1,0 +1,14 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let route of routeCollection" [routerLink]="route.route" routerLinkActive="active">
+    <mat-icon>{{ route.icon }}</mat-icon>
+  </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<!-- <div class="nav-toolbar">
+  <ng-container *ngFor="let route of routeCollection">
+    <button mat-icon-button [routerLink]="route.route" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+    </button>
+  </ng-container>
+</div> -->

@@ -1,0 +1,8 @@
+.header {
+    display: flex;
+}
+
+.header-flex {
+    display: flex;
+    flex: 1 100%;
+}

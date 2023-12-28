@@ -1,0 +1,29 @@
+<!-- <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let route of routeCollection" [routerLink]="route.route" routerLinkActive="active">
+    <mat-icon>{{ route.icon }}</mat-icon>
+  </a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel> -->
+
+<!-- <div class="nav-toolbar">
+  <ng-container *ngFor="let route of routeCollection">
+    <button mat-icon-button [routerLink]="route.route" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+    </button>
+  </ng-container>
+</div> -->
+<div class="flex flex-column justify-content-center">
+  <div class="flex flex-column" style="background-color: grey;">
+    Doug
+    <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">1</div>
+    <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">2</div>
+    <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">3</div>
+    Williamson      
+    <p-menu [model]="routeCollection">
+      <ng-template pTemplate="item" let-item>
+        Doug
+      </ng-template>
+    </p-menu>  
+  </div>
+</div>
+ 

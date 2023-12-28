@@ -1,34 +1,40 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
 import { NgRhombusNavItem } from '../../../ng-rhombus/src/lib/shell/nav-list/nav-list';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NgRhombusWrapperComponent],
+  imports: [RouterOutlet, NgRhombusWrapperComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  animations: []
 })
-export class AppComponent {
-  title = 'ngRhombusApp';
+export class AppComponent implements OnInit {
+	title = 'ngRhombusApp';
+	routeCollection: MenuItem[] | undefined;
 
-  routeCollection: NgRhombusNavItem[] = [
-		{
-			name: 'Home',
-			route: 'home',
-      icon: 'home',
-		},
-		{
-			name: 'Route1',
-			route: 'route1',
-      icon: 'rss_feed',
-		},
-    {
-			name: 'Route2',
-			route: 'route2',
-      icon: 'settings',
-		},
-	];
+	ngOnInit() {
+		this.routeCollection = [
+			{
+				label: 'Home',
+				icon: 'pi pi-home',
+				route: ''
+			},
+			{
+				label: 'Home',
+				icon: 'pi pi-home',
+				route: ''
+			},
+			{
+				label: 'Home',
+				icon: 'pi pi-home',
+				route: ''
+			},
+		];
+
+		console.log(this.routeCollection)
+	}
 }

@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatTabsModule } from '@angular/material/tabs';
-import { NgRhombusNavItem } from './nav-list';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MenuItem } from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
+import { NgRhombusNavItem } from './nav-list';
 
 @Component({
   selector: 'ng-rhombus-nav-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatIconModule, MatListModule, MatTabsModule],
+  imports: [CommonModule, RouterModule, MenuModule],
   templateUrl: './nav-list.component.html',
   styleUrl: './nav-list.component.css'
 })
@@ -17,9 +16,9 @@ export class NgRhombusNavListComponent implements OnInit {
     activeLink?: string;
 
     @Input()
-    routeCollection!: NgRhombusNavItem[];
+    routeCollection!: MenuItem[] | undefined;
 
     ngOnInit() {
-
+      console.log(this.routeCollection)
     }
 }

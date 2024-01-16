@@ -1,0 +1,7 @@
+:host {
+    display: flex;
+}
+
+.ng-nav-list {
+    min-width: 175px;
+}

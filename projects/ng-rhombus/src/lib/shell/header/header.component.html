@@ -1,6 +1,12 @@
-<p-toolbar>
+<!-- <p-toolbar>
     <div class="p-toolbar-group-start">
         <button pButton icon="pi pi-bars" (click)="toggleSidebar()"></button>
         <span>Doug Williamson Online</span>
     </div>
-</p-toolbar>
+</p-toolbar> -->
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Doug Williamson Online</span>
+</mat-toolbar>

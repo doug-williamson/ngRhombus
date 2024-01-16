@@ -1,49 +1,16 @@
-<!-- <mat-drawer-container class="wrapper-container" autosize>
+<div class="wrapper-container">
     <ng-rhombus-header (menuToggled)="drawer.toggle()"></ng-rhombus-header>
-    <mat-drawer #drawer>
-        <mat-toolbar color="primary">Doug Williamson Online</mat-toolbar>
-        <mat-nav-list class="wrapper-sidenav">            
-            @for (route of routeCollection; track route) {
-                <button mat-button [routerLink]="route.route" routerLinkActive="active">
-                    <mat-icon>{{ route.icon }}</mat-icon>
-                    <span>{{ route.name }}</span>
-                </button>
-            }
-        </mat-nav-list>
-    </mat-drawer>
-    <div class="wrapper">
+    <mat-drawer-container  autosize>        
+        <mat-drawer #drawer>
+            <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
+        </mat-drawer>
         <div class="wrapper-content">
-            <router-outlet #o="outlet"></router-outlet>
+            <!-- <router-outlet #o="outlet"></router-outlet> -->
+            <p>wrapper start!</p>
+            @for (content of fillerContent; track content) {
+                <p>{{content}}</p>
+            }
+            <p>wrapper end!</p>
         </div>
-    </div> 
-</mat-drawer-container> -->
-
-
-<p-sidebar [(visible)]="sidebarVisible">
-    <!-- <ng-template pTemplate="header">
-        <span>Doug Williamson Online</span>
-    </ng-template>
-    <ng-template pTemplate="content">
-        <div class="flex flex-column wrapper-container" style="background-color: grey;">
-            Doug
-            <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">1</div>
-            <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">2</div>
-            <div class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round m-2">3</div>
-            Williamson        
-        </div>
-    </ng-template> -->
-    <ng-template pTemplate="header">Doug Williamson Online</ng-template>
-    <ng-template pTemplate="content">
-        <div class="flex flex-column wrapper-container" style="background-color: grey;">
-            <ng-rhombus-nav-list></ng-rhombus-nav-list>    
-        </div>
-    </ng-template>
-    <ng-template pTemplate="footer">Footer</ng-template>
-    
-</p-sidebar>
-<div class="wrapper">
-    <ng-rhombus-header (sidebarToggled)="toggleSidebar()"></ng-rhombus-header>
-    <div class="wrapper-content">
-        <router-outlet #o="outlet"></router-outlet>
-    </div>
-</div> 
+    </mat-drawer-container>
+</div>

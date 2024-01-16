@@ -1,5 +1,5 @@
 export interface NgRhombusNavItem {
-    name: string;
+    label: string;
     route: string;
     icon: string;
   }

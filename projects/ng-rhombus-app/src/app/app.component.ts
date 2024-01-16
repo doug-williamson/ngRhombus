@@ -14,27 +14,25 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
 	title = 'ngRhombusApp';
-	routeCollection: MenuItem[] | undefined;
+	routeCollection: NgRhombusNavItem[] | undefined;
 
 	ngOnInit() {
 		this.routeCollection = [
 			{
 				label: 'Home',
-				icon: 'pi pi-home',
+				icon: 'home',
 				route: ''
 			},
 			{
-				label: 'Home',
-				icon: 'pi pi-home',
+				label: 'Blog',
+				icon: 'rss_feed',
 				route: ''
 			},
 			{
-				label: 'Home',
-				icon: 'pi pi-home',
+				label: 'About',
+				icon: 'info',
 				route: ''
 			},
 		];
-
-		console.log(this.routeCollection)
 	}
 }

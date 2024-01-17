@@ -20,9 +20,6 @@ import { NgRhombusNavItem } from '../nav-list/nav-list';
 })
 export class NgRhombusWrapperComponent {
 
-	sidebarVisible = true;
-	private _sidenavToggle = signal<boolean>(false);
-
     destroyed = new Subject<void>();
     isMobile: boolean = false;
     currentScreenSize?: string;
@@ -38,6 +35,9 @@ export class NgRhombusWrapperComponent {
     );
 
     @Input()
+    title!: string;
+
+    @Input()
     routeCollection!: NgRhombusNavItem[] | undefined;
 
     constructor(breakpointObserver: BreakpointObserver) {
@@ -48,11 +48,6 @@ export class NgRhombusWrapperComponent {
 				this.isMobile = result.matches;
 			});
     }
-
-    toggleSidebar() {
-		console.log('Doug')
-		this.sidebarVisible = !this.sidebarVisible;
-	}
 
     ngOnDestroy(): void {
 		this.destroyed.next();

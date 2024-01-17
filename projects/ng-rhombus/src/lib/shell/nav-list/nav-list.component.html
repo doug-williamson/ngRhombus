@@ -1,7 +1,6 @@
 <mat-nav-list class="ng-nav-list">
     @for (link of routeCollection; track link) {
         <a mat-list-item [routerLink]="link.route" routerLinkActive="active">
-            
             {{ link.label }}
         </a>
     }

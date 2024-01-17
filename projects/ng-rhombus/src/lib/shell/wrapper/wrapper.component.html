@@ -1,16 +1,12 @@
 <div class="wrapper-container">
-    <ng-rhombus-header (menuToggled)="drawer.toggle()"></ng-rhombus-header>
-    <mat-drawer-container  autosize>        
-        <mat-drawer #drawer>
+    <ng-rhombus-header [isMobile]="isMobile" [title]="title" (menuToggled)="drawer.toggle()"></ng-rhombus-header>
+    <mat-drawer-container autosize>        
+        <mat-drawer #drawer [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
         </mat-drawer>
         <div class="wrapper-content">
-            <!-- <router-outlet #o="outlet"></router-outlet> -->
-            <p>wrapper start!</p>
-            @for (content of fillerContent; track content) {
-                <p>{{content}}</p>
-            }
-            <p>wrapper end!</p>
+            <mat-toolbar>Home</mat-toolbar>
+            <router-outlet #o="outlet"></router-outlet>
         </div>
     </mat-drawer-container>
 </div>

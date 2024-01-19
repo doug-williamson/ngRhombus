@@ -13,7 +13,7 @@ import { MenuItem } from 'primeng/api';
   animations: []
 })
 export class AppComponent implements OnInit {
-	title = 'ngRhombusApp';
+	title = 'Doug Williamson Online';
 	routeCollection: NgRhombusNavItem[] | undefined;
 
 	ngOnInit() {
@@ -21,17 +21,17 @@ export class AppComponent implements OnInit {
 			{
 				label: 'Home',
 				icon: 'home',
-				route: ''
+				route: 'home'
 			},
 			{
 				label: 'Blog',
 				icon: 'rss_feed',
-				route: ''
+				route: 'blog'
 			},
 			{
 				label: 'About',
 				icon: 'info',
-				route: ''
+				route: 'about'
 			},
 		];
 	}

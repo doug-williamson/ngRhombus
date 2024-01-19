@@ -8,6 +8,10 @@
     right: 0;
 }
 
+.wrapper-flex {
+    flex: 1;
+}
+
 .wrapper-content {
     display: flex;
     flex-direction: column;

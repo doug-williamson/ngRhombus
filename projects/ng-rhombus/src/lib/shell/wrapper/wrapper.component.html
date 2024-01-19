@@ -1,6 +1,6 @@
 <div class="wrapper-container">
     <ng-rhombus-header [isMobile]="isMobile" [title]="title" (menuToggled)="drawer.toggle()"></ng-rhombus-header>
-    <mat-drawer-container autosize>        
+    <mat-drawer-container class="wrapper-flex">        
         <mat-drawer #drawer [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
         </mat-drawer>

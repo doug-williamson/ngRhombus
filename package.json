@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:ng-rhombus": "ng build @dougwilliamson/ng-rhombus",
+    "package:ng-rhombus": "npm pack ./dist/ng-rhombus",
+    "publish:ng-rhombus": "npm publish --access=public ./dist/ng-rhombus"
   },
   "private": true,
   "dependencies": {

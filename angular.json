@@ -99,16 +99,16 @@
         }
       }
     },
-    "@dougwilliamson/ng-rhombus": {
+    "@doug-williamson/ng-rhombus": {
       "projectType": "library",
       "root": "projects/ng-rhombus",
       "sourceRoot": "projects/ng-rhombus/src",
-      "prefix": "lib",
+      "prefix": "ng-rhombus",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-rhombus/ng-package.json",
+            "project": "projects/ng-rhombus/ng-package.json"
           },
           "configurations": {
             "production": {

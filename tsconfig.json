@@ -11,8 +11,8 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "ngRhombus": [
-        "./dist/ng-rhombus"
+      "@doug-williamson/ng-rhombus": [
+        "./dist/doug-williamson/ng-rhombus"
       ]
     },
     "esModuleInterop": true,

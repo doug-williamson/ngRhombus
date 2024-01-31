@@ -1,5 +1,5 @@
 {
-  "name": "ng-rhombus",
+  "name": "@dougwilliamson/ng-rhombus",
   "version": "0.0.0",
   "peerDependencies": {
     "@angular/common": "^17.0.0",

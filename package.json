@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:ng-rhombus": "ng build @dougwilliamson/ng-rhombus",
-    "package:ng-rhombus": "npm pack ./dist/ng-rhombus",
-    "publish:ng-rhombus": "npm publish --access=public ./dist/ng-rhombus"
+    "package:ng-rhombus": "npm pack ./dist/dougwilliamson/ng-rhombus",
+    "publish:ng-rhombus": "npm publish --access=public ./dist/dougwilliamson/ng-rhombus"
   },
   "private": true,
   "dependencies": {

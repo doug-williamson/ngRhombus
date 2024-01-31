@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
-import { NgRhombusNavItem } from '../../../ng-rhombus/src/lib/shell/nav-list/nav-list';
-import { MenuItem } from 'primeng/api';
+import { NgRhombusNavItem } from '../../../../dist/dougwilliamson/ng-rhombus';
 
 @Component({
   selector: 'app-root',

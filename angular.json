@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngRhombusApp": {
+    "ngRhombus-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngRhombusApp:build:production"
+              "buildTarget": "ngRhombus-app:build:production"
             },
             "development": {
-              "buildTarget": "ngRhombusApp:build:development"
+              "buildTarget": "ngRhombus-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ngRhombusApp:build"
+            "buildTarget": "ngRhombus-app:build"
           }
         },
         "test": {
@@ -103,12 +103,12 @@
       "projectType": "library",
       "root": "projects/ng-rhombus",
       "sourceRoot": "projects/ng-rhombus/src",
-      "prefix": "ng-rhombus",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-rhombus/ng-package.json"
+            "project": "projects/ng-rhombus/ng-package.json",
           },
           "configurations": {
             "production": {

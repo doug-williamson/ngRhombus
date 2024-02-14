@@ -12,7 +12,7 @@ import { NgRhombusNavItem } from '../../../../dist/doug-williamson/ng-rhombus';
   animations: []
 })
 export class AppComponent implements OnInit {
-	title = 'Doug Williamson Online';
+	title = 'Rhombus Software';
 	routeCollection: NgRhombusNavItem[] | undefined;
 
 	ngOnInit() {

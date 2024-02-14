@@ -5,7 +5,12 @@
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
         </mat-drawer>
         <div class="wrapper-content">
-            <mat-toolbar>Home</mat-toolbar>
+            <mat-toolbar>
+                <ng-container *ngFor="let breadcrumb of (wrapperService.breadcrumbs$ | async)">
+                    doug
+                    {{ breadcrumb }}
+                </ng-container>
+            </mat-toolbar>
             <router-outlet #o="outlet"></router-outlet>
         </div>
     </mat-drawer-container>

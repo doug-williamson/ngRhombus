@@ -4,17 +4,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { Subject, takeUntil } from 'rxjs';
 import { NgRhombusHeaderComponent } from '../header/header.component';
 import { NgRhombusNavListComponent } from '../nav-list/nav-list.component';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MenuItem } from 'primeng/api';
 import { NgRhombusNavItem } from '../nav-list/nav-list';
+import { WrapperService } from './wrapper.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ng-rhombus-wrapper',
   standalone: true,
-  imports: [MatSidenavModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
+  imports: [CommonModule, MatSidenavModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
   templateUrl: './wrapper.component.html',
   styleUrl: './wrapper.component.css'
 })
@@ -40,13 +42,14 @@ export class NgRhombusWrapperComponent {
     @Input()
     routeCollection!: NgRhombusNavItem[] | undefined;
 
-    constructor(breakpointObserver: BreakpointObserver) {
-		breakpointObserver
-			.observe([ Breakpoints.XSmall ])
-			.pipe(takeUntil(this.destroyed))
-			.subscribe(result => {
-				this.isMobile = result.matches;
-			});
+    constructor(breakpointObserver: BreakpointObserver, activeRoute: ActivatedRoute, public wrapperService: WrapperService) {
+      breakpointObserver
+        .observe([ Breakpoints.XSmall ])
+        .pipe(takeUntil(this.destroyed))
+        .subscribe(result => {
+          this.isMobile = result.matches;
+        });
+        console.log('ActivatedRoute: ', activeRoute);
     }
 
     ngOnDestroy(): void {

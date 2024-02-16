@@ -6,9 +6,8 @@
         </mat-drawer>
         <div class="wrapper-content">
             <mat-toolbar>
-                <ng-container *ngFor="let breadcrumb of (wrapperService.breadcrumbs$ | async)">
-                    doug
-                    {{ breadcrumb }}
+                <ng-container *ngFor="let breadcrumb of breadcrumbs">
+                    {{ breadcrumb.label }}
                 </ng-container>
             </mat-toolbar>
             <router-outlet #o="outlet"></router-outlet>

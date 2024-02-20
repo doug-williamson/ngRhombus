@@ -20,6 +20,6 @@ export class NgRhombusNavListComponent implements OnInit {
     routeCollection: NgRhombusNavItem[] | undefined;
 
     ngOnInit() {
-      // console.log(this.routeCollection)
+
     }
 }

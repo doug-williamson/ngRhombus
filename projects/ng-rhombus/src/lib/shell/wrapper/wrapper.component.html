@@ -6,7 +6,7 @@
         </mat-drawer>
         <div class="wrapper-content">
             <mat-toolbar>
-                <ng-container *ngFor="let breadcrumb of breadcrumbs">
+                <ng-container *ngFor="let breadcrumb of breadcrumbs()">
                     {{ breadcrumb.label }}
                 </ng-container>
             </mat-toolbar>

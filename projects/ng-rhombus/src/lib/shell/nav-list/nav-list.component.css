@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.active{ 
+    background-color: yellow;
+}
+
 .ng-nav-list {
     min-width: 175px;
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/dougwilliamson/ng-rhombus",
+  "dest": "../../dist/doug-williamson/ng-rhombus",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

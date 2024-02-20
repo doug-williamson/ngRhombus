@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
-import { NgRhombusNavItem } from '../../../ng-rhombus/src/lib/shell/nav-list/nav-list';
-import { MenuItem } from 'primeng/api';
+import { NgRhombusNavItem, NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +11,7 @@ import { MenuItem } from 'primeng/api';
   animations: []
 })
 export class AppComponent implements OnInit {
-	title = 'Doug Williamson Online';
+	title = 'Rhombus Software';
 	routeCollection: NgRhombusNavItem[] | undefined;
 
 	ngOnInit() {

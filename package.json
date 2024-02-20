@@ -1,15 +1,15 @@
 {
   "name": "ng-rhombus",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:ng-rhombus": "ng build @dougwilliamson/ng-rhombus",
-    "package:ng-rhombus": "npm pack ./dist/dougwilliamson/ng-rhombus",
-    "publish:ng-rhombus": "npm publish --access=public ./dist/dougwilliamson/ng-rhombus"
+    "build:ng-rhombus": "ng build @doug-williamson/ng-rhombus",
+    "package:ng-rhombus": "npm pack ./dist/doug-williamson/ng-rhombus",
+    "publish:ng-rhombus": "npm publish --access=public ./dist/doug-williamson/ng-rhombus"
   },
   "private": true,
   "dependencies": {

@@ -4,13 +4,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { Subject, takeUntil } from 'rxjs';
 import { NgRhombusHeaderComponent } from '../header/header.component';
 import { NgRhombusNavListComponent } from '../nav-list/nav-list.component';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgRhombusNavItem } from '../nav-list/nav-list';
 import { CommonModule } from '@angular/common';
 import { WrapperService } from './wrapper.service';
+import { MatButtonModule } from '@angular/material/button';
 
 export interface Breadcrumb{
   label: string;
@@ -20,7 +21,7 @@ export interface Breadcrumb{
 @Component({
   selector: 'ng-rhombus-wrapper',
   standalone: true,
-  imports: [CommonModule, MatSidenavModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
+  imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
   providers: [WrapperService],
   templateUrl: './wrapper.component.html',
   styleUrl: './wrapper.component.css'
@@ -65,5 +66,9 @@ export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
       this.destroyed.next();
       this.destroyed.complete();
+    }
+
+    clickedCreateNew() {
+      this.wrapperService.clickedCreateNew();
     }
 }

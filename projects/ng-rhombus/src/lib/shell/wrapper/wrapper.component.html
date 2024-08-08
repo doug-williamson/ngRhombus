@@ -9,6 +9,10 @@
                 <ng-container *ngFor="let breadcrumb of breadcrumbs()">
                     {{ breadcrumb.label }}
                 </ng-container>
+                <span class="flex"></span>
+                <button mat-icon-button (click)="clickedCreateNew()">
+                    <mat-icon>add</mat-icon>
+                </button>
             </mat-toolbar>
             <router-outlet #o="outlet"></router-outlet>
         </div>

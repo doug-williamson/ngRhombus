@@ -18,11 +18,18 @@ export class WrapperService {
     private _breadcrumbs = new BehaviorSubject<Breadcrumb[]>([]);
     breadcrumbs = toSignal(this._breadcrumbs.asObservable(), { initialValue: undefined });
 
+    private _triggerCreateNew = new BehaviorSubject<boolean>(false);
+    triggerCreateNew = toSignal(this._triggerCreateNew.asObservable(), { initialValue: false });
+
     constructor(private router: Router, private activatedRoute: ActivatedRoute) {
         this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
             //set breadcrumbs
              this._breadcrumbs.next(this.getBreadcrumbs(this.activatedRoute.root));
           })
+    }
+
+    clickedCreateNew() {
+      this._triggerCreateNew.next(true);
     }
 
     private getBreadcrumbs(route: ActivatedRoute, url: string = "", breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {

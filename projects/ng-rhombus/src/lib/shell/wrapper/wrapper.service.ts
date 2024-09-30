@@ -1,8 +1,8 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 export interface Breadcrumb {
@@ -19,7 +19,7 @@ export class WrapperService {
     breadcrumbs = toSignal(this._breadcrumbs.asObservable(), { initialValue: undefined });
 
     private _triggerCreateNew = new BehaviorSubject<boolean>(false);
-    triggerCreateNew = toSignal(this._triggerCreateNew.asObservable(), { initialValue: false });
+    triggerCreateNew = toSignal(this._triggerCreateNew.asObservable());
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute) {
         this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
@@ -30,6 +30,8 @@ export class WrapperService {
 
     clickedCreateNew() {
       this._triggerCreateNew.next(true);
+      setTimeout(() => this._triggerCreateNew.next(false), 1000)
+      
     }
 
     private getBreadcrumbs(route: ActivatedRoute, url: string = "", breadcrumbs: Breadcrumb[] = []): Breadcrumb[] {

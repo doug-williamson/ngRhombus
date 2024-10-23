@@ -68,7 +68,7 @@ export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
       this.destroyed.complete();
     }
 
-    clickedCreateNew() {
-      this.wrapperService.clickedCreateNew();
-    }
+    // clickedCreateNew() {
+    //   this.wrapperService.clickedCreateNew();
+    // }
 }

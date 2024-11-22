@@ -4,11 +4,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { WrapperService } from '../../../../../ng-rhombus/src/lib/shell/wrapper/wrapper.service';
 
 @Component({
-  selector: 'app-blog',
-  standalone: true,
-  imports: [MatDialogModule],
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
+    selector: 'app-blog',
+    imports: [MatDialogModule],
+    templateUrl: './blog.component.html',
+    styleUrl: './blog.component.scss'
 })
 export class BlogComponent {
 
@@ -16,12 +15,12 @@ export class BlogComponent {
   wrapperService = inject(WrapperService);
 
   constructor() {
-    effect(() => {
-      let triggeredCreateNew = this.wrapperService.triggerCreateNew();
-      if (triggeredCreateNew) {
-        this.openDialog();        
-      }
-    });
+    // effect(() => {
+    //   let triggeredCreateNew = this.wrapperService.triggerCreateNew();
+    //   if (triggeredCreateNew) {
+    //     this.openDialog();        
+    //   }
+    // });
   }
 
   openDialog() {

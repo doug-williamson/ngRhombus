@@ -19,11 +19,10 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-dialog',
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule],
-  templateUrl: './dialog.component.html',
-  styleUrl: './dialog.component.scss'
+    selector: 'app-dialog',
+    imports: [MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule],
+    templateUrl: './dialog.component.html',
+    styleUrl: './dialog.component.scss'
 })
 export class DialogComponent {
   readonly dialogRef = inject(MatDialogRef<DialogComponent>);

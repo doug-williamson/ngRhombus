@@ -19,12 +19,11 @@ export interface Breadcrumb{
 }
 
 @Component({
-  selector: 'ng-rhombus-wrapper',
-  standalone: true,
-  imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
-  providers: [WrapperService],
-  templateUrl: './wrapper.component.html',
-  styleUrl: './wrapper.component.css'
+    selector: 'ng-rhombus-wrapper',
+    imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
+    providers: [WrapperService],
+    templateUrl: './wrapper.component.html',
+    styleUrl: './wrapper.component.css'
 })
 export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
 

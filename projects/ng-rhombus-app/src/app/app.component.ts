@@ -3,12 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { NgRhombusNavItem, NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NgRhombusWrapperComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  animations: []
+    selector: 'app-root',
+    imports: [NgRhombusWrapperComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    animations: []
 })
 export class AppComponent implements OnInit {
 	title = 'Rhombus Software';

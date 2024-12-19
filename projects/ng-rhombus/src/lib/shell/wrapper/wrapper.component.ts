@@ -23,7 +23,7 @@ export interface Breadcrumb{
     imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
     providers: [WrapperService],
     templateUrl: './wrapper.component.html',
-    styleUrl: './wrapper.component.css'
+    styleUrl: './wrapper.component.scss'
 })
 export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
 

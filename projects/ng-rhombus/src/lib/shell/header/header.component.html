@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button *ngIf="isMobile" (click)="toggleSidebar()">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>{{ title }}</span>
+<mat-toolbar class="header-theme">
+    @if (isMobile) {
+        <button mat-icon-button (click)="toggleSidebar()" color="red">
+            <mat-icon>menu</mat-icon>
+        </button>
+    }
+    
+    <span class="flex">{{ title }}</span>
+    <button mat-stroked-button color="primary" (click)="toggleDarkMode()">Toggle Dark Mode</button>
 </mat-toolbar>

@@ -1,0 +1,15 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+.active{ 
+    background-color: var(--mat-sys-primary-container),    
+}
+
+.flex {
+    flex: 1 1 auto;
+}
+
+.ng-nav-list {
+    min-width: 175px;
+}

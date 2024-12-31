@@ -1,25 +1,27 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../services/authentication.service';
+import { NgRhombusAuthenticationService } from '../services/authentication.service';
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'ng-rhombus-login',
   imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class NgRhombusLoginComponent implements OnInit {
 
   public loginForm!: FormGroup;
 	authorizing: boolean = false;
 
-  authService = inject(AuthenticationService);
+  title = input<string>('');
+
+  authService = inject(NgRhombusAuthenticationService);
 
   constructor(private fb: FormBuilder, private router: Router) { }
 

@@ -1,7 +1,7 @@
 <div class="wrapper-container">
     <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-card class="mat-elevation-z12">
-            <mat-card-title>Doug Williamson Online - Admin</mat-card-title>
+            <mat-card-title>{{ title() }}</mat-card-title>
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <mat-label>Email Address</mat-label>

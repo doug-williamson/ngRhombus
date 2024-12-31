@@ -101,6 +101,11 @@
     },
     "@doug-williamson/ng-rhombus": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/ng-rhombus",
       "sourceRoot": "projects/ng-rhombus/src",
       "prefix": "ng-rhombus",
@@ -128,6 +133,109 @@
               "zone.js",
               "zone.js/testing"
             ]
+          }
+        }
+      }
+    },
+    "ngRhombusAdmin": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ng-rhombus-admin",
+      "sourceRoot": "projects/ng-rhombus-admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ng-rhombus-admin",
+            "index": "projects/ng-rhombus-admin/src/index.html",
+            "browser": "projects/ng-rhombus-admin/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ng-rhombus-admin/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ng-rhombus-admin/public"
+              }
+            ],
+            "styles": [
+              "projects/ng-rhombus-admin/src/theme-colors.scss",
+              "projects/ng-rhombus-admin/src/custom-theme.scss",
+              "projects/ng-rhombus-admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "projects/ng-rhombus-admin/src/environments/environment.ts",
+                  "with": "projects/ng-rhombus-admin/src/environments/environment.development.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ngRhombusAdmin:build:production"
+            },
+            "development": {
+              "buildTarget": "ngRhombusAdmin:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ng-rhombus-admin/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ng-rhombus-admin/public"
+              }
+            ],
+            "styles": [
+              "projects/ng-rhombus-admin/src/styles.scss"
+            ],
+            "scripts": []
           }
         }
       }

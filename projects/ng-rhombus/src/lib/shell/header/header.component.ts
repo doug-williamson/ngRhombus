@@ -2,7 +2,9 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Theme, WrapperService } from '../wrapper/wrapper.service';
+import { WrapperService } from '../wrapper/wrapper.service';
+import { NgRhombusAuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'ng-rhombus-header',
@@ -13,6 +15,11 @@ import { Theme, WrapperService } from '../wrapper/wrapper.service';
 export class NgRhombusHeaderComponent {
 
   wrapperService = inject(WrapperService);
+  authService  = inject(NgRhombusAuthenticationService);
+  router = inject(Router);
+  
+  darkMode = this.wrapperService.darkMode;
+  user = this.authService.currentUserProfile;
 
   @Input()
   isMobile: boolean = false;
@@ -28,5 +35,10 @@ export class NgRhombusHeaderComponent {
 
   toggleDarkMode() {
     this.wrapperService.toggleTheme();
+  }
+
+  async logout() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/login');
   }
 }

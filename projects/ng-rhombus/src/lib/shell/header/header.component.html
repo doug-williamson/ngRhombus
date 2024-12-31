@@ -6,5 +6,13 @@
     }
     
     <span class="flex">{{ title }}</span>
-    <button mat-stroked-button color="primary" (click)="toggleDarkMode()">Toggle Dark Mode</button>
+    <button mat-icon-button color="primary" (click)="toggleDarkMode()">
+        <mat-icon>{{ darkMode() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    </button>
+    
+    @if (user()) {
+        <button mat-raised-button color="primary" class="logout-button" (click)="logout()">
+            Logout
+        </button>
+    }
 </mat-toolbar>

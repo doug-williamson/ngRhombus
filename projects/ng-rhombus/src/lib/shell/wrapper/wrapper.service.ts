@@ -21,10 +21,13 @@ export type Theme = 'light' | 'dark';
   providedIn: 'root'
 })
 export class WrapperService {
-  private readonly document = inject(DOCUMENT);
-  private readonly currentTheme = signal<Theme>('light');
-  private readonly PREFERRED_THEME_COOKIE = 'preferred-theme';
-  
+    private readonly document = inject(DOCUMENT);
+    private readonly currentTheme = signal<Theme>('light');
+    private readonly PREFERRED_THEME_COOKIE = 'preferred-theme';
+    
+    private _darkModeSubject = new BehaviorSubject<boolean>(false);
+    darkMode = toSignal(this._darkModeSubject.asObservable(), { initialValue: false })
+
     private _breadcrumbs = new BehaviorSubject<Breadcrumb[]>([]);
     breadcrumbs = toSignal(this._breadcrumbs.asObservable(), { initialValue: undefined });
 
@@ -56,6 +59,8 @@ export class WrapperService {
       } else {
         this.document.documentElement.classList.remove('dark-mode');
       }
+
+      this._darkModeSubject.next(theme === 'light');
       this.setThemeInLocalStorage(theme);
     }
 

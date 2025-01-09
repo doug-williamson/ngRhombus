@@ -1,6 +1,6 @@
 {
   "name": "ng-rhombus",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "scripts": {
     "ng": "ng",
     "start:app": "ng serve ngRhombusApp --port 4201",

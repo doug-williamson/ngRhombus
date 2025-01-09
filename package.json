@@ -12,7 +12,9 @@
     "package:library": "npm pack ./dist/doug-williamson/ng-rhombus",
     "publish:library": "npm publish --access=public ./dist/doug-williamson/ng-rhombus",
     "build:app": "ng build ngRhombusApp",
-    "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js"
+    "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js",
+    "emulator-admin:start": "firebase emulators:start --only firestore,auth --import projects/ng-rhombus-admin/src/test-admin --export-on-exit projects/ng-rhombus-admin/src/test-admin --project rhombus-78977",
+    "emulator-admin:stop": "firebase emulators:export projects/ng-rhombus-admin/src/test-admin --project rhombus-78977"
   },
   "private": true,
   "dependencies": {

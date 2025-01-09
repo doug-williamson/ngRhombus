@@ -10,7 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     selector: 'ng-rhombus-nav-list',
     imports: [CommonModule, RouterModule, MatListModule, MatIconModule, MatTabsModule],
     templateUrl: './nav-list.component.html',
-    styleUrl: './nav-list.component.css'
+    styleUrl: './nav-list.component.scss'
 })
 export class NgRhombusNavListComponent implements OnInit {
     activeLink?: string;

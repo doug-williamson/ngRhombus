@@ -1,0 +1,35 @@
+import { Component } from '@angular/core';
+import { NgRhombusWrapperComponent } from '../../../../../ng-rhombus/src/lib/shell/wrapper/wrapper.component';
+import { NgRhombusNavItem } from '../../../../../ng-rhombus/src/lib/shell/nav-list/nav-list';
+
+
+@Component({
+  selector: 'app-wrapper',
+  imports: [NgRhombusWrapperComponent],
+  templateUrl: './wrapper.component.html',
+  styleUrl: './wrapper.component.scss'
+})
+export class WrapperComponent {
+  title = 'Rhombus Software | Admin';
+	routeCollection: NgRhombusNavItem[] | undefined;
+
+	ngOnInit() {
+		this.routeCollection = [
+			{
+				label: 'Home',
+				icon: 'home',
+				route: 'home'
+			},
+			{
+				label: 'Blog',
+				icon: 'rss_feed',
+				route: 'blog'
+			},
+			{
+				label: 'About',
+				icon: 'info',
+				route: 'about'
+			},
+		];
+	}
+}

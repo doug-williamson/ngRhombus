@@ -4,10 +4,25 @@
 @use '@angular/material' as mat;
 
 .header-theme {
-    @include mat.toolbar-overrides((
-      container-background-color: var(--mat-sys-primary-container),
-      container-text-color: var(--mat-sys-on-primary-container),
-    ));    
+  @include mat.toolbar-overrides((
+    container-background-color: var(--mat-sys-primary),
+    container-text-color: var(--mat-sys-on-primary),
+  )); 
+  
+  @include mat.icon-button-overrides(
+    (
+      icon-color: var(--mat-sys-on-primary),
+    )
+  );
+}
+
+.selected-theme {
+  @include mat.menu-overrides(
+    (
+      item-icon-color: var(--mat-sys-primary),
+      item-label-text-color: var(--mat-sys-primary),
+    )
+  );
 }
 
 .flex {

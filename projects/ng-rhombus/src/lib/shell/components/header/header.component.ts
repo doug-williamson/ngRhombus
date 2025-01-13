@@ -2,9 +2,9 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { WrapperService } from '../wrapper/wrapper.service';
-import { NgRhombusAuthenticationService } from '../../services/authentication.service';
+import { WrapperService } from '../../services/wrapper.service';
 import { Router } from '@angular/router';
+import { NgRhombusAuthenticationService } from '../../services/authentication.service';
 
 @Component({
     selector: 'ng-rhombus-header',

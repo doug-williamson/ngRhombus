@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { NgRhombusWrapperComponent } from '../../../../../ng-rhombus/src/lib/shell/wrapper/wrapper.component';
-import { NgRhombusNavItem } from '../../../../../ng-rhombus/src/lib/shell/nav-list/nav-list';
-
+import { NgRhombusNavItem, NgRhombusWrapperComponent } from '@doug-williamson/ng-rhombus';
 
 @Component({
   selector: 'app-wrapper',

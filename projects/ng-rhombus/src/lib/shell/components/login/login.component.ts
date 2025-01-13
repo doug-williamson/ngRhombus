@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { NgRhombusAuthenticationService } from '../services/authentication.service';
+import { NgRhombusAuthenticationService } from '../../services/authentication.service';
 
 
 @Component({

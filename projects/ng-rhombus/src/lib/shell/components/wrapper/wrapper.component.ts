@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgRhombusNavItem } from '../nav-list/nav-list';
 import { CommonModule } from '@angular/common';
-import { WrapperService } from './wrapper.service';
+import { WrapperService } from '../../services/wrapper.service';
 import { MatButtonModule } from '@angular/material/button';
 
 export interface Breadcrumb{

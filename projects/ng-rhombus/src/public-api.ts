@@ -1,8 +1,5 @@
 /*
- * Public API Surface of ng-rhombus
+ * Public API Surface of @doug-williamson/ng-rhombus
  */
 
-export * from './lib/shell/wrapper/wrapper.component';
-export * from './lib/shell/nav-list/public-api';
-
-export * from './lib/login/login.component';
+export * from './lib/shell/public-api';

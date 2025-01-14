@@ -10,14 +10,20 @@
 }
 
 mat-card {
-	// width: 400px;
-	padding: 32px;
+    // width: 400px;
+    padding: 32px;
 }
 
 mat-card-content {
+    display: flex;
     flex-direction: column;
 }
 
-.mat-card-title {
-	margin-bottom: 24px;
+mat-card-title {
+    margin-bottom: 24px;
+}
+
+mat-card-footer {
+    display: flex;
+    flex-direction: column;
 }

@@ -27,36 +27,36 @@ export interface UserCredentials {
 // }
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class NgRhombusAuthenticationService {
 
-  firestore = inject(Firestore);
-  firebaseAuth = inject(Auth);
-  currentUser$ = authState(this.firebaseAuth);
-  
-  login(email: string, password: string): Observable<void> {
-    const promise = signInWithEmailAndPassword(this.firebaseAuth, email, password).then(() => {});
-    return from(promise);
-  }
+	firestore = inject(Firestore);
+	firebaseAuth = inject(Auth);
+	currentUser$ = authState(this.firebaseAuth);
 
-  logout(): Promise<any> {
-    return this.firebaseAuth.signOut();
-  }
+	login(email: string, password: string): Observable<void> {
+		const promise = signInWithEmailAndPassword(this.firebaseAuth, email, password).then(() => { });
+		return from(promise);
+	}
 
-  private currentUserProfile$ = this.currentUser$.pipe(
-    switchMap((user) => {
-      console.log('Doug')
-      if (!user?.uid) {
-        return of(null);
-      }
-      console.log('User: ', user);
-      const ref = doc(this.firestore, 'users', user?.uid);
-      // console.log('docData(ref) as Observable<ProfileUser>: ', docData(ref) as Observable<ProfileUser>)
-      // return docData(ref) as Observable<ProfileUser>;
-      return of(user);
-    })
-  );
+	logout(): Promise<any> {
+		return this.firebaseAuth.signOut();
+	}
 
-  currentUserProfile = toSignal(this.currentUserProfile$);
+	private currentUserProfile$ = this.currentUser$.pipe(
+		switchMap((user) => {
+
+			if (!user?.uid) {
+				return of(null);
+			}
+			console.log('User: ', user);
+			const ref = doc(this.firestore, 'users', user?.uid);
+			// console.log('docData(ref) as Observable<ProfileUser>: ', docData(ref) as Observable<ProfileUser>)
+			// return docData(ref) as Observable<ProfileUser>;
+			return of(user);
+		})
+	);
+
+	currentUserProfile = toSignal(this.currentUserProfile$);
 }

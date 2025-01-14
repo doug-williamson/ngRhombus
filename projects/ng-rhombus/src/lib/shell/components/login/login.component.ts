@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,39 +9,42 @@ import { NgRhombusAuthenticationService } from '../../services/authentication.se
 
 
 @Component({
-  selector: 'ng-rhombus-login',
-  imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+	selector: 'ng-rhombus-login',
+	imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule],
+	templateUrl: './login.component.html',
+	styleUrl: './login.component.scss'
 })
 export class NgRhombusLoginComponent implements OnInit {
 
-  public loginForm!: FormGroup;
+	public loginForm!: FormGroup;
 	authorizing: boolean = false;
 
-  title = input<string>('');
+	title = input<string>('');
 
-  authService = inject(NgRhombusAuthenticationService);
+	errorMessage = signal<string>('');
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+	authService = inject(NgRhombusAuthenticationService);
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
+	constructor(private fb: FormBuilder, private router: Router) { }
+
+	ngOnInit(): void {
+		this.loginForm = this.fb.group({
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', [Validators.required, Validators.minLength(6)]],
 		});
-  }
+	}
 
-  onSubmit() {
-    const rawForm = this.loginForm.getRawValue();
-    this.authService.login(rawForm.email, rawForm.password)
-      .subscribe({
-        next: () => {
-          this.router.navigateByUrl('/');
-        },
-        error: () => {
-         // something here
-        }
-      });
-  }
+	onSubmit() {
+		const rawForm = this.loginForm.getRawValue();
+		this.authService.login(rawForm.email, rawForm.password)
+			.subscribe({
+				next: () => {
+					this.errorMessage.set('');
+					this.router.navigateByUrl('/');
+				},
+				error: (err) => {
+					this.errorMessage.set('The password is invalid or the user does not have a password.')
+				}
+			});
+	}
 }

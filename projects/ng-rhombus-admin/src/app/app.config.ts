@@ -7,29 +7,35 @@ import { provideFirestore, getFirestore, Firestore, connectFirestoreEmulator } f
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
 import { Auth, connectAuthEmulator, getAuth, provideAuth } from '@angular/fire/auth';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 
 export const appConfig: ApplicationConfig = {
-    providers: [
-      provideRouter(routes), 
-      provideAnimations(),
-      provideClientHydration(),
-      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-  
-      provideAuth(() => {
-        const auth: Auth = getAuth();
-        if (!environment.production) {
-          connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: false });
-        }
-        return auth;
-      }),
-      provideFirestore(() => {
-        const firestore: Firestore = getFirestore();
-        if (!environment.production) {
-          connectFirestoreEmulator(firestore, 'localhost', 8080);
-        }
-        return firestore;
-      }),
-    ]
-  };
-  
+  providers: [
+    provideRouter(routes),
+    provideAnimations(),
+    provideClientHydration(),
+    provideStore(),
+    provideStoreDevtools({
+      maxAge: 25,
+      autoPause: true
+    }),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+
+    provideAuth(() => {
+      const auth: Auth = getAuth();
+      if (!environment.production) {
+        connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: false });
+      }
+      return auth;
+    }),
+    provideFirestore(() => {
+      const firestore: Firestore = getFirestore();
+      if (!environment.production) {
+        connectFirestoreEmulator(firestore, 'localhost', 8080);
+      }
+      return firestore;
+    }),
+  ]
+};

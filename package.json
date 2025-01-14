@@ -13,8 +13,7 @@
     "publish:library": "npm publish --access=public ./dist/doug-williamson/ng-rhombus",
     "build:app": "ng build ngRhombusApp",
     "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js",
-    "emulator-admin:start": "firebase emulators:start --only firestore,auth --import projects/ng-rhombus-admin/src/test-admin --export-on-exit projects/ng-rhombus-admin/src/test-admin --project rhombus-78977",
-    "emulator-admin:stop": "firebase emulators:export projects/ng-rhombus-admin/src/test-admin --project rhombus-78977"
+    "emulator-admin": "firebase emulators:start --only firestore,auth --import projects/ng-rhombus-admin/src/test-admin --export-on-exit projects/ng-rhombus-admin/src/test-admin --project rhombus-78977"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +28,9 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@ngrx/signals": "^19.0.0",
+    "@ngrx/store": "^19.0.0",
+    "@ngrx/store-devtools": "^19.0.0",
     "firebase": "^10.9.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

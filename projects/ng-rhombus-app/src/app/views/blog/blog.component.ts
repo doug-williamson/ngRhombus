@@ -1,7 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
-import { WrapperService } from '../../../../../ng-rhombus/src/lib/shell/wrapper/wrapper.service';
+import { WrapperService } from '../../../../../ng-rhombus/src/lib/shell/services/wrapper.service';
 
 @Component({
     selector: 'app-blog',

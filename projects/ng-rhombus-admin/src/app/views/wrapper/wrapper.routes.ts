@@ -4,7 +4,7 @@ import { WrapperComponent } from './wrapper.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
-export const wrapperRoutes: Routes = [
+export const WRAPPER_ROUTES: Routes = [
     {
         path: '',
         component: WrapperComponent,
@@ -15,7 +15,7 @@ export const wrapperRoutes: Routes = [
             {
                 path: 'home',
                 loadComponent: () => import('../../views/home/home.component').then(m => m.HomeComponent),
-                canActivate: [AuthGuard],
+
                 data: {
                     breadcrumb: 'Home',
                     authGuardPipe: redirectUnauthorizedToLogin
@@ -23,17 +23,15 @@ export const wrapperRoutes: Routes = [
             },
             {
                 path: 'blog',
-                loadComponent: () => import('../../views/blog/blog.component').then(m => m.BlogComponent),
-                canActivate: [AuthGuard],
+                loadChildren: () => import('../blog/blog.routes').then(routes => routes.BLOG_ROUTES),
                 data: {
                     breadcrumb: 'Blog',
                     authGuardPipe: redirectUnauthorizedToLogin
-                }
+                },
             },
             {
                 path: 'about',
                 loadComponent: () => import('../../views/about/about.component').then(m => m.AboutComponent),
-                canActivate: [AuthGuard],
                 data: {
                     breadcrumb: 'About',
                     authGuardPipe: redirectUnauthorizedToLogin
@@ -41,5 +39,4 @@ export const wrapperRoutes: Routes = [
             }
         ]
     }
-    
 ];

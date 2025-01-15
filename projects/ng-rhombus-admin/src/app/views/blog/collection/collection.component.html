@@ -1,0 +1,4 @@
+<div class="wrapper">
+    <button mat-stroked-button>Create New Blog Post</button>
+    <ng-rhombus-blog-table [dataSource]="dataSource()" (clickEvent)="routeToBlogPost($event)"></ng-rhombus-blog-table>
+</div>

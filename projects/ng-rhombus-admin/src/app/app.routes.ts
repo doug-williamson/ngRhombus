@@ -5,8 +5,8 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 export const routes: Routes = [
     {
-        path: '', 
-        loadChildren: () => import('./views/wrapper/wrapper.routes').then(routes => routes.wrapperRoutes),
+        path: '',
+        loadChildren: () => import('./views/wrapper/wrapper.routes').then(routes => routes.WRAPPER_ROUTES),
         canActivate: [AuthGuard],
         data: {
             authGuardPipe: redirectUnauthorizedToLogin

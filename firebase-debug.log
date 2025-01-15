@@ -1,0 +1,53 @@
+[debug] [2025-01-14T22:09:01.941Z] ----------------------------------------------------------------------
+[debug] [2025-01-14T22:09:01.943Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only firestore,auth --import projects/ng-rhombus-admin/src/test-admin --export-on-exit projects/ng-rhombus-admin/src/test-admin --project rhombus-78977
+[debug] [2025-01-14T22:09:01.943Z] CLI Version:   13.29.1
+[debug] [2025-01-14T22:09:01.943Z] Platform:      win32
+[debug] [2025-01-14T22:09:01.943Z] Node Version:  v20.11.1
+[debug] [2025-01-14T22:09:01.943Z] Time:          Tue Jan 14 2025 17:09:01 GMT-0500 (Eastern Standard Time)
+[debug] [2025-01-14T22:09:01.943Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-14T22:09:01.971Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-14T22:09:01.971Z] > authorizing via signed-in user (douglasmwilliamson@gmail.com)
+[warn] !  Could not find config (firebase.json) so using defaults. 
+[debug] [2025-01-14T22:09:02.025Z] java version "23.0.1" 2024-10-15
+
+[debug] [2025-01-14T22:09:02.025Z] Java(TM) SE Runtime Environment (build 23.0.1+11-39)
+Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
+
+[debug] [2025-01-14T22:09:02.042Z] Parsed Java major version: 23
+[info] i  emulators: Starting emulators: auth, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore"}}
+[debug] [2025-01-14T22:09:02.048Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-14T22:09:02.048Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-14T22:09:02.048Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-14T22:09:02.048Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-01-14T22:09:02.049Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-01-14T22:09:02.051Z] [hub] writing locator at C:\Users\dougl\AppData\Local\Temp\hub-rhombus-78977.json
+[info] i  firestore: Importing data from C:\GitHub\ngRhombus\projects\ng-rhombus-admin\src\test-admin\firestore_export\firestore_export.overall_export_metadata {"metadata":{"emulator":{"name":"firestore"},"message":"Importing data from C:\\GitHub\\ngRhombus\\projects\\ng-rhombus-admin\\src\\test-admin\\firestore_export\\firestore_export.overall_export_metadata"}}
+[warn] !  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] !  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2025-01-14T22:09:02.058Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-01-14T22:09:02.058Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-01-14T22:09:02.058Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\dougl\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","rhombus-78977","--seed_from_export","C:\\GitHub\\ngRhombus\\projects\\ng-rhombus-admin\\src\\test-admin\\firestore_export\\firestore_export.overall_export_metadata","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\dougl\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"rhombus-78977\",\"--seed_from_export\",\"C:\\\\GitHub\\\\ngRhombus\\\\projects\\\\ng-rhombus-admin\\\\src\\\\test-admin\\\\firestore_export\\\\firestore_export.overall_export_metadata\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[info] i  auth: Importing config from C:\GitHub\ngRhombus\projects\ng-rhombus-admin\src\test-admin\auth_export\config.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing config from C:\\GitHub\\ngRhombus\\projects\\ng-rhombus-admin\\src\\test-admin\\auth_export\\config.json"}}
+[info] i  auth: Importing accounts from C:\GitHub\ngRhombus\projects\ng-rhombus-admin\src\test-admin\auth_export\accounts.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing accounts from C:\\GitHub\\ngRhombus\\projects\\ng-rhombus-admin\\src\\test-admin\\auth_export\\accounts.json"}}
+[debug] [2025-01-14T22:09:06.240Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

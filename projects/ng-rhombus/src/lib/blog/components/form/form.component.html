@@ -1,1 +1,17 @@
-<p>form works!</p>
+@if (selectedBlogPost() !== undefined) {
+<div [formGroup]="blogForm" class="form-wrapper">
+    <h2>{{ selectedBlogPost()?.title }}</h2>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="title">
+    </mat-form-field>
+    <ng-rhombus-thumbnail-control></ng-rhombus-thumbnail-control>
+</div>
+
+} @else {
+<span>undefined</span>
+}

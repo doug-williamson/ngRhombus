@@ -15,7 +15,7 @@ export const BLOG_ROUTES: Routes = [
             },
             {
                 path: ':id',
-                loadComponent: () => import('./add-edit/add-edit.component').then(m => m.NgRhombusAdminBlogAddEditComponent),
+                loadComponent: () => import('./post/post.component').then(m => m.NgRhombusAdminBlogPostComponent),
                 data: {
                     breadcrumb: 'Blog'
                 }

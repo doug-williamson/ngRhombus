@@ -19,3 +19,8 @@
     padding: 12px 24px;
     overflow-y: auto !important;
 }
+
+.mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+}

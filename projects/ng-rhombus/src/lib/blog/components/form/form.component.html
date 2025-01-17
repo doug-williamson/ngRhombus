@@ -1,18 +1,19 @@
 @if (selectedBlogPost() !== undefined) {
-<div [formGroup]="blogPostForm" class="form-wrapper">
-    <h2>{{ selectedBlogPost()?.title }}</h2>
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="title">
-    </mat-form-field>
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Description</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="description">
-    </mat-form-field>
-    <ng-rhombus-thumbnail-control [width]="200" [height]="112"></ng-rhombus-thumbnail-control>
-    <button mat-raised-button>Submit</button>
-</div>
-
+    <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+        <h2>Add/Edit Blog Post</h2>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="title">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="description">
+        </mat-form-field>
+        <ng-rhombus-thumbnail-control [width]="200" [height]="112"></ng-rhombus-thumbnail-control>
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        <span class="flex"></span>
+        <button mat-raised-button type="submit">Submit</button>
+    </form>
 } @else {
-    <span>undefined</span>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 }

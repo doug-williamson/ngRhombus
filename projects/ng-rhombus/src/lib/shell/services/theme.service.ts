@@ -10,6 +10,7 @@ export interface AppTheme {
 })
 export class ThemeService {
   private appTheme = signal<string>('system');
+  private readonly PREFERRED_THEME_COOKIE = 'preferred-theme';
 
   private themes: AppTheme[] = [
     { name: 'light', icon: 'light_mode' },
@@ -27,13 +28,26 @@ export class ThemeService {
 
   setTheme(theme: string) {
     this.appTheme.set(theme);
+
+    const colorScheme = theme === 'system' ? 'light dark' : theme;
+      document.body.style.setProperty('color-scheme', colorScheme);
+
+      this.setThemeInLocalStorage(theme);
+  }
+
+  setThemeInLocalStorage(theme: string) {
+    localStorage.setItem(this.PREFERRED_THEME_COOKIE, theme);
+  }
+
+  getThemeFromLocalStorage() {
+    return localStorage.getItem(this.PREFERRED_THEME_COOKIE) as string;
   }
 
   constructor() {
     effect(() => {
       const appTheme = this.appTheme();
-      const colorScheme = appTheme === 'system' ? 'light dark' : appTheme;
-      document.body.style.setProperty('color-scheme', colorScheme);
+      
     });
+    this.setTheme(this.getThemeFromLocalStorage());
   }
 }

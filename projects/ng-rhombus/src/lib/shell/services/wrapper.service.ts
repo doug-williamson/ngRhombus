@@ -1,6 +1,5 @@
 
-import { DOCUMENT } from '@angular/common';
-import { inject, Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -21,9 +20,6 @@ export type Theme = 'light' | 'dark';
   providedIn: 'root'
 })
 export class WrapperService {
-    private readonly document = inject(DOCUMENT);
-    private readonly currentTheme = signal<Theme>('light');
-    private readonly PREFERRED_THEME_COOKIE = 'preferred-theme';
     
     private _darkModeSubject = new BehaviorSubject<boolean>(false);
     darkMode = toSignal(this._darkModeSubject.asObservable(), { initialValue: false })
@@ -39,37 +35,6 @@ export class WrapperService {
         //     //set breadcrumbs
         //      this._breadcrumbs.next(this.getBreadcrumbs(this.activatedRoute.root));
         //   })
-
-        this.setTheme(this.getThemeFromLocalStorage());
-    }
-
-    toggleTheme() {
-      if (this.currentTheme() === ThemeEnum.LIGHT) {
-        this.setTheme(ThemeEnum.DARK);
-      } else {
-        this.setTheme(ThemeEnum.LIGHT);
-      }
-    }
-
-    private setTheme(theme: Theme) {
-      this.currentTheme.set(theme);
-
-      if (theme === ThemeEnum.DARK) {
-        this.document.documentElement.classList.add('dark-mode');
-      } else {
-        this.document.documentElement.classList.remove('dark-mode');
-      }
-
-      this._darkModeSubject.next(theme === 'light');
-      this.setThemeInLocalStorage(theme);
-    }
-
-    setThemeInLocalStorage(theme: Theme) {
-      localStorage.setItem(this.PREFERRED_THEME_COOKIE, theme);
-    }
-
-    getThemeFromLocalStorage() {
-      return localStorage.getItem(this.PREFERRED_THEME_COOKIE) as Theme ?? ThemeEnum.LIGHT;
     }
 
     // clickedCreateNew() {

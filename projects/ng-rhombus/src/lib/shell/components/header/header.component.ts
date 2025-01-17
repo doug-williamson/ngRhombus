@@ -37,10 +37,6 @@ export class NgRhombusHeaderComponent {
 		this.menuToggled.emit();
 	}
 
-  toggleDarkMode() {
-    this.wrapperService.toggleTheme();
-  }
-
   async logout() {
     await this.authService.logout();
     this.router.navigateByUrl('/login');

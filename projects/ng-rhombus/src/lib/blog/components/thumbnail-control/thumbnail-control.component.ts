@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'ng-rhombus-thumbnail-control',
-  imports: [],
+  imports: [CommonModule, MatButton],
   templateUrl: './thumbnail-control.component.html',
   styleUrl: './thumbnail-control.component.scss'
 })

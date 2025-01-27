@@ -17,10 +17,10 @@ export class ThumbnailControlComponent {
 
   placeholder = computed(() => `https://placehold.co/${this.width()}x${this.height()}`);
 
-  onThumbnailSelected(input: HTMLInputElement) {
-	if (!input.files || input.files.length <= 0) {
-		return;
-	}
-	const file: File = input.files[0];
+  onThumbnailSelected() {
+    // if (!input.files || input.files.length <= 0) {
+    // 	return;
+    // }
+    // const file: File = input.files[0];
   }
 }

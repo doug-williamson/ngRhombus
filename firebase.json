@@ -21,7 +21,7 @@
     }
   ],
   "hosting": {
-    "public": "dist/ng-rhombus-admin",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -38,6 +38,11 @@
     "rules": "storage.rules"
   },
   "emulators": {
+    "apphosting": {
+      "port": 5002,
+      "rootDirectory": "./",
+      "startCommand": "npm run dev"
+    },
     "auth": {
       "port": 9099
     },

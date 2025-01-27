@@ -23,11 +23,12 @@ export class NgRhombusBlogAddEditComponent {
 	contentData = signal<string>('');
 	blogPostForm!: FormGroup;
 
+	formBuilder = inject(FormBuilder);
 	router = inject(Router);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
 
-	constructor(private formBuilder: FormBuilder) { }
+	constructor() { }
 
 	ngOnInit(): void {
 		this.blogPostForm = this.formBuilder.group({
@@ -36,7 +37,7 @@ export class NgRhombusBlogAddEditComponent {
 			thumbnail: ['', Validators.required],
 			content: ['', Validators.required]
 		});
-	} 
+	}
 
 	onContentChange() {
 		this.contentData.set(this.blogPostForm.getRawValue().content);
@@ -46,7 +47,7 @@ export class NgRhombusBlogAddEditComponent {
 		this.router.navigateByUrl('/blog');
 	}
 
-    onSubmit() {
-        console.log(this.blogPostForm);
-    }
+	onSubmit() {
+		console.log(this.blogPostForm);
+	}
 }

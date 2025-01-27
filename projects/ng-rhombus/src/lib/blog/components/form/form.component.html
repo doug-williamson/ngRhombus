@@ -1,4 +1,4 @@
-<div novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+<form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
 	<div class="blog-form">
 		<div class="wrapper-content">
 			<h2>Create Blog Post</h2>
@@ -14,24 +14,19 @@
 			<div class="textarea-class">
 				<mat-form-field class="content-class" appearance="outline">
 					<mat-label>Content</mat-label>
-					<textarea matInput required
-						cdkTextareaAutosize
-						#autosize="cdkTextareaAutosize"
-						cdkAutosizeMinRows="1"
-						cdkAutosizeMaxRows="20" 
-						formControlName="content"
+					<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="20" formControlName="content"
 						(keyup)="onContentChange()"></textarea>
 				</mat-form-field>
 			</div>
 
 			<div class="button-wrapper">
 				<button mat-raised-button class="cancel-button" (click)="onCancelClick()">Cancel</button>
-				<button mat-flat-button type="submit" [disabled]="!blogPostForm.valid">Submit</button>
+				<button mat-flat-button type="submit" [disabled]="false && !blogPostForm.valid">Submit</button>
 			</div>
 		</div>
 	</div>
 	<div class="blog-preview">
 		<markdown [data]="contentData()" />
 	</div>
-</div>
- 
+</form>

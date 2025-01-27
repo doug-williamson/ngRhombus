@@ -9,7 +9,7 @@ import { NgRhombusBlogStore } from '../../../../../../ng-rhombus/src/lib/blog/bl
 
 @Component({
   selector: 'app-post',
-  imports: [NgRhombusBlogAddEditComponent, MatButtonModule, MatIconModule],
+  imports: [NgRhombusBlogAddEditComponent],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })
@@ -24,13 +24,12 @@ export class NgRhombusAdminBlogPostComponent implements OnInit {
   blogStore = inject(NgRhombusBlogStore);
 
   ngOnInit(): void {
-    console.log('DOUG')
     this.route.params.subscribe(params => {
       const blogPostID = params['id'];
-      this.loadBlogPosts().then(() => {
-        const selectedPost = this.blogStore.blogPosts().find(x => x.id === blogPostID);
-        this.selectedBlogPost.set(selectedPost);
-      });
+    //   this.loadBlogPosts().then(() => {
+    //     const selectedPost = this.blogStore.blogPosts().find(x => x.id === blogPostID);
+    //     this.selectedBlogPost.set(selectedPost);
+    //   });
     });
   }
 

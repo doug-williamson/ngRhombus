@@ -1,14 +1,65 @@
 :host {
     display: flex;
     flex-direction: column;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	padding: 12px;
 }
 
 .form-wrapper {
     display: flex;
-    flex-direction: column;
-    padding: 16px;
+    flex-direction: row;
+	flex: 1 1 100%;
 }
 
+.blog-form {
+	flex: 50%;
+	padding: 12px;
+	border-style: solid;
+	// background-color: red;
+}
+
+.blog-preview {
+	flex: 50%;
+	border-style: solid;
+	// background-color: yellow;
+}
 .flex {
     flex: 1 1 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	flex: 1 1 100%;
+}
+
+.content-class {
+	flex: 1 1 100%;
+}
+
+.textarea-class {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: space-between;
 }

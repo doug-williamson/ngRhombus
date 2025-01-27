@@ -1,19 +1,37 @@
-@if (selectedBlogPost() !== undefined) {
-    <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
-        <h2>Add/Edit Blog Post</h2>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="title">
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="description">
-        </mat-form-field>
-        <ng-rhombus-thumbnail-control [width]="200" [height]="112"></ng-rhombus-thumbnail-control>
-        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        <span class="flex"></span>
-        <button mat-raised-button type="submit">Submit</button>
-    </form>
-} @else {
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-}
+<div novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+	<div class="blog-form">
+		<div class="wrapper-content">
+			<h2>Create Blog Post</h2>
+			<mat-form-field appearance="outline">
+				<mat-label>Title</mat-label>
+				<input matInput placeholder="Placeholder" formControlName="title">
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Description</mat-label>
+				<input matInput placeholder="Placeholder" formControlName="description">
+			</mat-form-field>
+			<ng-rhombus-thumbnail-control [width]="200" [height]="112"></ng-rhombus-thumbnail-control>
+			<div class="textarea-class">
+				<mat-form-field class="content-class" appearance="outline">
+					<mat-label>Content</mat-label>
+					<textarea matInput required
+						cdkTextareaAutosize
+						#autosize="cdkTextareaAutosize"
+						cdkAutosizeMinRows="1"
+						cdkAutosizeMaxRows="20" 
+						formControlName="content"
+						(keyup)="onContentChange()"></textarea>
+				</mat-form-field>
+			</div>
+
+			<div class="button-wrapper">
+				<button mat-raised-button class="cancel-button" (click)="onCancelClick()">Cancel</button>
+				<button mat-flat-button type="submit" [disabled]="!blogPostForm.valid">Submit</button>
+			</div>
+		</div>
+	</div>
+	<div class="blog-preview">
+		<markdown [data]="contentData()" />
+	</div>
+</div>
+ 

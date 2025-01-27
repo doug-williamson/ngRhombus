@@ -1,5 +1,6 @@
 <div class="thumbnail-control-wrapper">
-    <button mat-stroked-button>Select Photo</button>
+	<input #thumbnailInput class="hidden" type="file" (change)="onThumbnailSelected($event)" />
+    <button mat-stroked-button (click)="thumbnailInput.click()">Select Photo</button>
     <div class="flex"></div>
     <div [style.width]="width() + 'px'" class="mat-elevation-z5">
         <img [src]="placeholder()" [width]="width()" [height]="height()" />

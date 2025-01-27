@@ -1,9 +1,1 @@
-<button mat-stroked-button (click)="goToBlogPosts()">
-    <mat-icon>arrow_back</mat-icon>
-    Back to Blog Posts
-</button>
-@if (this.selectedBlogPost()) {
-<ng-rhombus-blog-form [selectedBlogPost]="selectedBlogPost()"></ng-rhombus-blog-form>
-} @else {
-<span>undefined</span>
-}
+<ng-rhombus-blog-form></ng-rhombus-blog-form>

@@ -11,6 +11,7 @@ import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { NgRhombusBlogService } from '../../blog.service';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
@@ -24,6 +25,7 @@ export class NgRhombusBlogAddEditComponent {
 
 	formBuilder = inject(FormBuilder);
 	router = inject(Router);
+	blogService = inject(NgRhombusBlogService);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
 
@@ -54,5 +56,15 @@ export class NgRhombusBlogAddEditComponent {
 
 	onSubmit() {
 		console.log(this.blogPostForm);
+		if (this.blogPostForm.invalid) {
+			return;
+		}
+
+		this.blogService.createBlogPost(
+			this.blogPostForm.getRawValue().title,
+			this.blogPostForm.getRawValue().content,
+			this.blogPostForm.getRawValue().description,
+			this.blogPostForm.getRawValue().thumbnail
+		)
 	}
 }

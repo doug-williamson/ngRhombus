@@ -21,11 +21,11 @@ export class ThumbnailControlComponent {
   onFileUploaded = output<string>();
 
   placeholder = computed(() => `https://placehold.co/${this.width()}x${this.height()}`);
-	uploadedFile = signal<string | undefined>(undefined);
-	imageSource = computed(() => {
-		return this.uploadedFile() ?? this.placeholder();
-	})
-  thumbnailSource = computed(() => {});
+  uploadedFile = signal<string | undefined>(undefined);
+  imageSource = computed(() => {
+    return this.uploadedFile() ?? this.placeholder();
+  })
+  thumbnailSource = computed(() => { });
 
   onThumbnailSelected(input: HTMLInputElement) {
     if (!input.files || input.files.length <= 0) {
@@ -35,13 +35,13 @@ export class ThumbnailControlComponent {
 
     this.thumbnailService.uploadImage(file.name, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadUrl) => {
-		this.uploadedFile.set(downloadUrl);
-		this.onFileUploaded.emit(downloadUrl);
+        this.uploadedFile.set(downloadUrl);
+        this.onFileUploaded.emit(downloadUrl);
       })
     })
   }
 
   onThumbnailDeleted() {
-	
+    // this.thumbnailService.deleteImage
   }
 }

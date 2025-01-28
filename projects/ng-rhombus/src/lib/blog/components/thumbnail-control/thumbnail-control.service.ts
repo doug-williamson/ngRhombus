@@ -11,4 +11,8 @@ export class ThumbnailControlService {
 		const storageRef = ref(this.firebaseStorage, `thumbnails/${imageName}`);
 		return uploadBytesResumable(storageRef, image);
 	}
+
+	deleteImage(filePath: string) {
+		// const storageRef = this.firebaseStorage.ref(filePath);
+	}
 }

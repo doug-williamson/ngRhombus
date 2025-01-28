@@ -26,10 +26,10 @@ export class NgRhombusAdminBlogPostComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const blogPostID = params['id'];
-    //   this.loadBlogPosts().then(() => {
-    //     const selectedPost = this.blogStore.blogPosts().find(x => x.id === blogPostID);
-    //     this.selectedBlogPost.set(selectedPost);
-    //   });
+      //   this.loadBlogPosts().then(() => {
+      //     const selectedPost = this.blogStore.blogPosts().find(x => x.id === blogPostID);
+      //     this.selectedBlogPost.set(selectedPost);
+      //   });
     });
   }
 
@@ -37,10 +37,10 @@ export class NgRhombusAdminBlogPostComponent implements OnInit {
     this.router.navigateByUrl('/blog');
   }
 
-  async loadBlogPosts() {
-    if (this.blogStore.blogPosts().length === 0) {
-      await this.blogStore.loadAll();
-    }
-  }
+  // async loadBlogPosts() {
+  //   if (this.blogStore.blogPosts().length === 0) {
+  //     await this.blogStore.loadAll();
+  //   }
+  // }
 
 }

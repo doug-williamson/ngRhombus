@@ -15,7 +15,7 @@ import { NgRhombusBlogStore } from '../../blog.store';
 export class NgRhombusBlogTableComponent {
   @Output() clickEvent = new EventEmitter<string>();
 
-  dataSource = input<IBlog[]>([]);
+  dataSource = input<IBlog[] | undefined>([]);
   displayedColumns: string[] = ['timestamp', 'title', 'description', 'star'];
 
   blogStore = inject(NgRhombusBlogStore);

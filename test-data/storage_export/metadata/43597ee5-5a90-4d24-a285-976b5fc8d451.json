@@ -1,0 +1,19 @@
+{
+  "name": "thumbnails/pexels-photo-1020315.jpeg",
+  "bucket": "rhombus-78977.firebasestorage.app",
+  "metageneration": 1,
+  "generation": 1738069183710,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "5743af59-e2d8-43b1-8bf9-d38ace8c6b82"
+  ],
+  "etag": "FJUGs97Y4iYlrqFrpu8Xx4yOS2I",
+  "customMetadata": {},
+  "timeCreated": "2025-01-28T12:59:43.710Z",
+  "updated": "2025-01-28T12:59:43.710Z",
+  "size": 174343,
+  "md5Hash": "I6uEuUHJGVs3t6+vBFc7Fg==",
+  "crc32c": "1223956908"
+}

@@ -1,6 +1,5 @@
-import { Component, inject, input, signal, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormArray, FormControl } from '@angular/forms';
-import { IBlog } from '../../models/blog';
+import { Component, inject, signal, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-control.component";
@@ -41,6 +40,12 @@ export class NgRhombusBlogAddEditComponent {
 
 	onContentChange() {
 		this.contentData.set(this.blogPostForm.getRawValue().content);
+	}
+
+	onFileUploaded(downloadUrl: string) {
+		this.blogPostForm.patchValue({
+			thumbnail: downloadUrl
+		});
 	}
 
 	onCancelClick() {

@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-control.component";
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,10 +14,13 @@ import { Router } from '@angular/router';
 import { NgRhombusBlogService } from '../../blog.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.component';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, NgOptimizedImage, NgRhombusBlogThumbnailComponent, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })

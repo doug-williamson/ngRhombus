@@ -4,7 +4,9 @@
 	</button>
 	<span class="flex">Add / Edit Blog Post</span>
 </mat-toolbar>
+
 <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+
 	<div class="blog-form">
 		<div class="wrapper-content">
 			<mat-form-field appearance="outline">
@@ -27,13 +29,28 @@
 			</div>
 
 			<div class="button-wrapper">
-				<button mat-raised-button class="cancel-button" (click)="onCancelClick()">Cancel</button>
+				<button mat-raised-button class="cancel-button" [disabled]="blogPostForm.dirty"
+					(click)="onCancelClick()">Cancel</button>
 				<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid">Submit</button>
 			</div>
 		</div>
 	</div>
+	<mat-divider [vertical]="true"></mat-divider>
 	<div class="blog-preview">
+		<div class="doug">
+			<mat-card>
+				<mat-card-header>
+					<mat-card-title>{{ blogPostForm.getRawValue().title }}</mat-card-title>
+					<mat-card-subtitle>{{ blogPostForm.getRawValue().description }}</mat-card-subtitle>
+				</mat-card-header>
+				<ng-rhombus-blog-thumbnail [width]="476" [height]="266" mat-card-image
+					[imageSource]="blogPostForm.getRawValue().thumbnail" class="flex-image"></ng-rhombus-blog-thumbnail>
+				<mat-card-content>
+					<markdown [data]="contentData()" />
+				</mat-card-content>
+			</mat-card>
+		</div>
 
-		<markdown [data]="contentData()" />
+
 	</div>
 </form>

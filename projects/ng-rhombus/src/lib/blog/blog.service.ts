@@ -39,7 +39,8 @@ export class NgRhombusBlogService {
       title: title,
       description: description,
       thumbnail: thumbnail,
-      content: content
+      content: content,
+      timestamp: new Date()
     });
   }
 }

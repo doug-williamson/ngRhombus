@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { IBlog } from '../../models/blog';
-import { NgRhombusBlogStore } from '../../blog.store';
 
 @Component({
   selector: 'ng-rhombus-blog-table',
@@ -15,12 +14,11 @@ import { NgRhombusBlogStore } from '../../blog.store';
 export class NgRhombusBlogTableComponent {
   @Output() clickEvent = new EventEmitter<string>();
 
-  dataSource = input<IBlog[] | undefined>([]);
+  dataSource = input<IBlog[]>([]);
   displayedColumns: string[] = ['timestamp', 'title', 'description', 'star'];
 
-  blogStore = inject(NgRhombusBlogStore);
-
   goToBlogPost(id: string) {
+    console.log('ID: ', id);
     this.clickEvent.emit(id);
   }
 

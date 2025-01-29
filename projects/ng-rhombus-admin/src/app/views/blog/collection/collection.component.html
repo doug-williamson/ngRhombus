@@ -1,4 +1,11 @@
 <div class="wrapper">
-    <button mat-stroked-button (click)="createNewBlogPost()">Create New Blog Post</button>
-    <ng-rhombus-blog-table [dataSource]="dataSource" (clickEvent)="routeToBlogPost($event)"></ng-rhombus-blog-table>
+    <!-- <button mat-stroked-button (click)="createNewBlogPost()">Create New Blog Post</button> -->
+    <mat-toolbar>
+        <span class="flex">Blog</span>
+        <button mat-icon-button (click)="createNewBlogPost()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-toolbar>
+    <ng-rhombus-blog-table [dataSource]="blogStore.blogPosts()"
+        (clickEvent)="routeToBlogPost($event)"></ng-rhombus-blog-table>
 </div>

@@ -2,13 +2,13 @@ import { Injectable, inject, signal } from '@angular/core';
 import {
   CollectionReference,
   Firestore,
-  addDoc,
   collection,
   collectionData,
   doc,
+  getDocs,
+  query,
   setDoc
 } from '@angular/fire/firestore';
-import { getDocs } from 'firebase/firestore';
 import { IBlog } from './models/blog';
 import { Observable } from 'rxjs';
 
@@ -23,16 +23,15 @@ export class NgRhombusBlogService {
   blogPosts = signal<IBlog[]>([]);
   selectedBlogPost = signal<IBlog | undefined>(undefined);
 
-  // async fetchBlogPosts() {
-  //   const data = await getDocs(this.blogCollection);
-
-  //   return [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
-  // }
-
-  getBlogPosts(): Observable<IBlog[]> {
-    console.log('Doug: ', collectionData(this.blogCollectionRef) as Observable<IBlog[]>)
-    return collectionData(this.blogCollectionRef) as Observable<IBlog[]>;
+  async fetchBlogPosts() {
+    const data = await getDocs(query(this.blogCollectionRef));
+    return [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
   }
+
+  // getBlogPosts(): Observable<IBlog[]> {
+  //   const blogPostCollectionRef = collection(this.firestore, 'blog') as CollectionReference<IBlog>;
+  //   return collectionData(blogPostCollectionRef, {}) as Observable<IBlog[]>;
+  // }
 
   async createBlogPost(title: string, description: string, thumbnail: string, content: string) {
     const blogPostDocumentRef = doc(this.firestore, 'blog', title);

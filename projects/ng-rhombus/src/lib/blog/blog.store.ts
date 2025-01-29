@@ -19,12 +19,12 @@ export const NgRhombusBlogStore = signalStore(
     withMethods(
         (store, blogService = inject(NgRhombusBlogService)) => ({
 
-            // async loadAll() {
-            //     // patchState(store, { loading: true });
+            async loadAll() {
+                patchState(store, { loading: true });
 
-            //     // const posts = await blogService.fetchBlogPosts();
-            //     // patchState(store, { blogPosts: posts, loading: false });
-            // }
+                const posts = await blogService.fetchBlogPosts();
+                patchState(store, { blogPosts: posts, loading: false });
+            }
         })
     )
 )

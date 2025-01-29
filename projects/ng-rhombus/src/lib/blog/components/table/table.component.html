@@ -1,8 +1,5 @@
 @if (dataSource()) {
-<table mat-table [dataSource]="blogStore.blogPosts()" class="mat-elevation-z2">
-	<!--- Note that these columns can be defined in any order.
-				The actual rendered columns are set as a property on the row definition" -->
-
+<table mat-table [dataSource]="dataSource()" class="mat-elevation-z2">
 	<!-- Timestamp Column -->
 	<ng-container matColumnDef="timestamp">
 		<th mat-header-cell *matHeaderCellDef>Date</th>

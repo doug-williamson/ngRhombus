@@ -36,25 +36,14 @@ export class NgRhombusAuthenticationService {
 	currentUser$ = authState(this.firebaseAuth);
 
 	login(email: string, password: string): Observable<void> {
-		const promise = signInWithEmailAndPassword(this.firebaseAuth, email, password).then(() => { });
-		return from(promise);
+		return from(signInWithEmailAndPassword(this.firebaseAuth, email, password).then(() => { }));
 	}
 
-	logout(): Promise<any> {
-		return this.firebaseAuth.signOut();
-	}
+	logout(): Promise<any> { return this.firebaseAuth.signOut(); }
 
 	private currentUserProfile$ = this.currentUser$.pipe(
 		switchMap((user) => {
-
-			if (!user?.uid) {
-				return of(null);
-			}
-			console.log('User: ', user);
-			const ref = doc(this.firestore, 'users', user?.uid);
-			// console.log('docData(ref) as Observable<ProfileUser>: ', docData(ref) as Observable<ProfileUser>)
-			// return docData(ref) as Observable<ProfileUser>;
-			return of(user);
+			return !user?.uid ? of(user) : of(null);
 		})
 	);
 

@@ -15,27 +15,14 @@ export const WRAPPER_ROUTES: Routes = [
             {
                 path: 'home',
                 loadComponent: () => import('../home/home.component').then(m => m.HomeComponent),
-
-                data: {
-                    breadcrumb: 'Home',
-                    authGuardPipe: redirectUnauthorizedToLogin
-                },
             },
             {
                 path: 'blog',
                 loadChildren: () => import('../blog/blog.routes').then(routes => routes.BLOG_ROUTES),
-                data: {
-                    breadcrumb: 'Blog',
-                    authGuardPipe: redirectUnauthorizedToLogin
-                },
             },
             {
                 path: 'about',
                 loadComponent: () => import('../about/about.component').then(m => m.AboutComponent),
-                data: {
-                    breadcrumb: 'About',
-                    authGuardPipe: redirectUnauthorizedToLogin
-                }
             }
         ]
     }

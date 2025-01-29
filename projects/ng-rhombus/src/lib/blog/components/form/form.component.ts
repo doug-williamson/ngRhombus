@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-control.component";
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
@@ -12,10 +12,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { NgRhombusBlogService } from '../../blog.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MarkdownModule, CommonModule, MatButton, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent],
+	imports: [MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })
@@ -62,9 +64,9 @@ export class NgRhombusBlogAddEditComponent {
 
 		this.blogService.createBlogPost(
 			this.blogPostForm.getRawValue().title,
-			this.blogPostForm.getRawValue().content,
 			this.blogPostForm.getRawValue().description,
-			this.blogPostForm.getRawValue().thumbnail
+			this.blogPostForm.getRawValue().thumbnail,
+			this.blogPostForm.getRawValue().content
 		)
 	}
 }

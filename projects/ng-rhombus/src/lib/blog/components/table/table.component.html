@@ -1,4 +1,4 @@
-@if (dataSource()) {
+@if (dataSource().length > 0) {
 <table mat-table [dataSource]="dataSource()" class="mat-elevation-z2">
 	<!-- Timestamp Column -->
 	<ng-container matColumnDef="timestamp">
@@ -32,5 +32,8 @@
 	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 } @else {
-<span>No blog posts created yet.</span>
+<div class="empty-set">
+	<span>No blog posts created yet.</span>
+</div>
+
 }

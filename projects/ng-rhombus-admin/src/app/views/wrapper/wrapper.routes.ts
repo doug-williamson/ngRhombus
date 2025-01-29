@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
-import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { WrapperComponent } from './wrapper.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 export const WRAPPER_ROUTES: Routes = [
     {
@@ -15,6 +13,9 @@ export const WRAPPER_ROUTES: Routes = [
             {
                 path: 'home',
                 loadComponent: () => import('../home/home.component').then(m => m.HomeComponent),
+                data: {
+                    breadcrumb: 'Home'
+                }
             },
             {
                 path: 'blog',
@@ -23,6 +24,9 @@ export const WRAPPER_ROUTES: Routes = [
             {
                 path: 'about',
                 loadComponent: () => import('../about/about.component').then(m => m.AboutComponent),
+                data: {
+                    breadcrumb: 'About'
+                }
             }
         ]
     }

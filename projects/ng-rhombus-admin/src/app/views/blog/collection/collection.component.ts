@@ -1,11 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { NgRhombusBlogService, NgRhombusBlogTableComponent } from '../../../../../../ng-rhombus/src/lib/blog/public-api';
+import { NgRhombusBlogTableComponent } from '../../../../../../ng-rhombus/src/lib/blog/public-api';
 import { Router } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { NgRhombusBlogStore } from '../../../../../../ng-rhombus/src/lib/blog/blog.store';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { WrapperService } from '../../../../../../ng-rhombus/src/lib/shell/services/wrapper.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
 	selector: 'ng-rhombus-admin-blog-collection',
@@ -14,8 +15,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 	styleUrl: './collection.component.scss'
 })
 export class NgRhombusAdminBlogCollectionComponent implements OnInit {
-	blogService = inject(NgRhombusBlogService);
-	// protected blogPosts = toSignal(this.blogService.getBlogPosts());
+	destroyed = new Subject<void>();
+
+	wrapperService = inject(WrapperService);
 	blogStore = inject(NgRhombusBlogStore);
 
 	router = inject(Router);
@@ -26,6 +28,11 @@ export class NgRhombusAdminBlogCollectionComponent implements OnInit {
 			this.blogStore.loadAll();
 		}
 
+		this.wrapperService.triggerCreateNew
+			.pipe(takeUntil(this.destroyed))
+			.subscribe((value) => {
+				console.log('DOUG: ', value)
+			})
 	}
 
 	createNewBlogPost() {

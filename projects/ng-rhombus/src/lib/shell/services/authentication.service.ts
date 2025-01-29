@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Auth, authState, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { doc, Firestore } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 import { from, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -9,22 +9,6 @@ export interface AuthenticationResponse {
 	token: string;
 	expiration: string;
 }
-
-export interface UserCredentials {
-	email: string;
-	password: string;
-}
-
-// export interface ProfileUser {
-//   uid: string;
-//   email?: string;
-//   firstName?: string;
-//   lastName?: string;
-//   displayName?: string;
-//   phone?: string;
-//   address?: string;
-//   photoURL?: string;
-// }
 
 @Injectable({
 	providedIn: 'root'

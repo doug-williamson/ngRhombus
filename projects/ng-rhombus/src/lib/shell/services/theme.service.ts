@@ -30,9 +30,9 @@ export class ThemeService {
     this.appTheme.set(theme);
 
     const colorScheme = theme === 'system' ? 'light dark' : theme;
-      document.body.style.setProperty('color-scheme', colorScheme);
+    document.body.style.setProperty('color-scheme', colorScheme);
 
-      this.setThemeInLocalStorage(theme);
+    this.setThemeInLocalStorage(theme);
   }
 
   setThemeInLocalStorage(theme: string) {
@@ -44,10 +44,6 @@ export class ThemeService {
   }
 
   constructor() {
-    effect(() => {
-      const appTheme = this.appTheme();
-      
-    });
     this.setTheme(this.getThemeFromLocalStorage());
   }
 }

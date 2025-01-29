@@ -1,16 +1,17 @@
 <div class="wrapper-container">
     <ng-rhombus-header [isMobile]="isMobile" [title]="title" (menuToggled)="drawer.toggle()"></ng-rhombus-header>
-    <mat-drawer-container class="wrapper-flex">        
+    <mat-drawer-container class="wrapper-flex">
         <mat-drawer #drawer [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
         </mat-drawer>
         <mat-drawer-content>
             <div class="wrapper-content">
-                <!-- <mat-toolbar>
-                    <ng-container *ngFor="let breadcrumb of breadcrumbs()">
-                        {{ breadcrumb.label }}
-                    </ng-container>
-                    <span class="flex"></span>
+                <!-- <mat-toolbar class="header-theme">
+                    <span class="wrapper-flex">
+                        <ng-container *ngFor="let breadcrumb of breadcrumbs()">
+                            {{ breadcrumb.label }}
+                        </ng-container>
+                    </span>
                     <button mat-icon-button (click)="clickedCreateNew()">
                         <mat-icon>add</mat-icon>
                     </button>
@@ -18,6 +19,6 @@
                 <router-outlet #o="outlet"></router-outlet>
             </div>
         </mat-drawer-content>
-        
+
     </mat-drawer-container>
 </div>

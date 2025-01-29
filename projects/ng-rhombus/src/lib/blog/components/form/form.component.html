@@ -1,7 +1,12 @@
+<mat-toolbar class="header-theme">
+	<button mat-icon-button (click)="onCancelClick()">
+		<mat-icon>arrow_back</mat-icon>
+	</button>
+	<span class="flex">Add / Edit Blog Post</span>
+</mat-toolbar>
 <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
 	<div class="blog-form">
 		<div class="wrapper-content">
-			<h2>Create Blog Post</h2>
 			<mat-form-field appearance="outline">
 				<mat-label>Title</mat-label>
 				<input matInput placeholder="Placeholder" formControlName="title">
@@ -28,6 +33,7 @@
 		</div>
 	</div>
 	<div class="blog-preview">
+
 		<markdown [data]="contentData()" />
 	</div>
 </form>

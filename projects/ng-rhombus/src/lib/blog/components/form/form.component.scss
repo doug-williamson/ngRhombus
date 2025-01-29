@@ -1,33 +1,51 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
 :host {
     display: flex;
     flex-direction: column;
-	position: absolute;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-	padding: 12px;
+    margin: 12px;
+
+    @include mat.elevation(6);
+}
+
+.header-theme {
+    @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary),
+            container-text-color: var(--mat-sys-on-primary),
+        ));
+
+    @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary),
+        ));
 }
 
 .form-wrapper {
     display: flex;
     flex-direction: row;
-	flex: 1 1 100%;
+    flex: 1 1 100%;
 }
 
 .blog-form {
-	flex: 50%;
-	padding: 12px;
-	border-style: solid;
-	// background-color: red;
+    flex: 50%;
+    padding: 12px;
+    margin-right: 12px;
+    // background-color: red;
 }
 
 .blog-preview {
-	flex: 50%;
-	border-style: solid;
-	// background-color: yellow;
+    flex: 50%;
+    margin: 12px;
+    @include mat.elevation(2);
+    // background-color: yellow;
 }
+
 .flex {
+    padding-left: 16px;
     flex: 1 1 auto;
 }
 
@@ -43,14 +61,14 @@
 }
 
 .wrapper-content {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1 1 100%;
 }
 
 .content-class {
-	flex: 1 1 100%;
+    flex: 1 1 100%;
 }
 
 .textarea-class {
@@ -60,6 +78,6 @@
 }
 
 .button-wrapper {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }

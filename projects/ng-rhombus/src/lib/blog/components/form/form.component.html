@@ -17,8 +17,8 @@
 				<mat-label>Description</mat-label>
 				<input matInput placeholder="Placeholder" formControlName="description">
 			</mat-form-field>
-			<ng-rhombus-thumbnail-control [width]="200" [height]="112"
-				(onFileUploaded)="onFileUploaded($event)"></ng-rhombus-thumbnail-control>
+			<ng-rhombus-thumbnail-control [width]="200" [height]="112" (onFileUploaded)="onFileUploaded($event)"
+				(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
 			<div class="textarea-class">
 				<mat-form-field class="content-class" appearance="outline">
 					<mat-label>Content</mat-label>

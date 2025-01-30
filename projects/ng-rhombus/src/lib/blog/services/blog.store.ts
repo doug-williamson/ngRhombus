@@ -1,7 +1,7 @@
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
 import { NgRhombusBlogService } from "./blog.service"
 import { inject } from "@angular/core";
-import { IBlog } from "./models/blog";
+import { IBlog } from "../models/blog";
 
 type BlogState = {
     blogPosts: IBlog[];

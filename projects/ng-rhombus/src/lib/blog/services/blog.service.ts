@@ -3,14 +3,14 @@ import {
   CollectionReference,
   Firestore,
   collection,
-  collectionData,
+  deleteDoc,
   doc,
   getDocs,
   query,
   setDoc
 } from '@angular/fire/firestore';
-import { IBlog } from './models/blog';
-import { Observable } from 'rxjs';
+import { IBlog } from '../models/blog';
+import { NgRhombusBlogPostHelper } from '../helpers/blog-post-helper';
 
 @Injectable({
   providedIn: 'root',
@@ -28,13 +28,8 @@ export class NgRhombusBlogService {
     return [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
   }
 
-  // getBlogPosts(): Observable<IBlog[]> {
-  //   const blogPostCollectionRef = collection(this.firestore, 'blog') as CollectionReference<IBlog>;
-  //   return collectionData(blogPostCollectionRef, {}) as Observable<IBlog[]>;
-  // }
-
   async createBlogPost(title: string, description: string, thumbnail: string, content: string) {
-    const blogPostDocumentRef = doc(this.firestore, 'blog', title);
+    const blogPostDocumentRef = doc(this.firestore, 'blog', NgRhombusBlogPostHelper.createSlug(title));
     setDoc(blogPostDocumentRef, {
       title: title,
       description: description,
@@ -42,5 +37,10 @@ export class NgRhombusBlogService {
       content: content,
       timestamp: new Date()
     });
+  }
+
+  deleteBlogPost(id: string) {
+    const blogPostDocumentRef = doc(this.firestore, 'blog', id);
+    return deleteDoc(blogPostDocumentRef);
   }
 }

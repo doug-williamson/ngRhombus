@@ -11,12 +11,12 @@ import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { NgRhombusBlogService } from '../../blog.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.component';
 import { MatListModule } from '@angular/material/list';
+import { NgRhombusBlogService } from '../../services/blog.service';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
@@ -53,6 +53,12 @@ export class NgRhombusBlogAddEditComponent {
 		this.blogPostForm.patchValue({
 			thumbnail: downloadUrl
 		});
+	}
+
+	onFileDeleted() {
+		this.blogPostForm.patchValue({
+			thumbnail: ''
+		})
 	}
 
 	onCancelClick() {

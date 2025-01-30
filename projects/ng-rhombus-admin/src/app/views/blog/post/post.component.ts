@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NgRhombusBlogAddEditComponent } from '../../../../../../ng-rhombus/src/lib/blog/components/form/form.component';
-import { NgRhombusBlogService } from '../../../../../../ng-rhombus/src/lib/blog/blog.service';
 import { IBlog } from '../../../../../../ng-rhombus/src/lib/blog/models/blog';
+import { NgRhombusBlogService } from '../../../../../../ng-rhombus/src/lib/blog/public-api';
 
 @Component({
   selector: 'app-post',

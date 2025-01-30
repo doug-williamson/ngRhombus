@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, input, output, signal, ViewChild } from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ThumbnailControlService } from './thumbnail-control.service';
@@ -17,10 +17,13 @@ export class ThumbnailControlComponent {
   width = input<number>(0);
   height = input<number>(0);
 
+  @ViewChild('thumbnailInput') thumbnailInput!: ElementRef;
+
   thumbnailService = inject(ThumbnailControlService);
   dialog = inject(MatDialog);
 
   onFileUploaded = output<string>();
+  onFileDeleted = output<void>();
 
   uploadedFile = signal<string | undefined>(undefined);
   placeholder = computed(() => `https://placehold.co/${this.width()}x${this.height()}`);
@@ -43,6 +46,8 @@ export class ThumbnailControlComponent {
   onThumbnailDeleted() {
     this.thumbnailService.deleteImage(this.uploadedFile()).then(() => {
       this.uploadedFile.set(undefined);
+      this.thumbnailInput.nativeElement.value = '';
+      this.onFileDeleted.emit();
     })
   }
 }

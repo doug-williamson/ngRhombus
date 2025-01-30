@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, ElementRef, inject, input, output, signal, ViewChild } from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { ThumbnailControlService } from './thumbnail-control.service';
+import { NgRhombusBlogPostThumbnailService } from '../../services/thumbnail.service';
 import { getDownloadURL } from '@angular/fire/storage';
 import { MatIconModule } from '@angular/material/icon';
 import { NgRhombusBlogThumbnailComponent } from "../thumbnail/thumbnail.component";
@@ -20,7 +20,7 @@ export class ThumbnailControlComponent {
 
   @ViewChild('thumbnailInput') thumbnailInput!: ElementRef;
 
-  thumbnailService = inject(ThumbnailControlService);
+  thumbnailService = inject(NgRhombusBlogPostThumbnailService);
   dialog = inject(MatDialog);
 
   onFileUploaded = output<string>();

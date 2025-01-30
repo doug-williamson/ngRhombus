@@ -7,7 +7,8 @@ import {
   doc,
   getDocs,
   query,
-  setDoc
+  setDoc,
+  updateDoc
 } from '@angular/fire/firestore';
 import { IBlog } from '../models/blog';
 import { NgRhombusBlogPostHelper } from '../helpers/blog-post-helper';
@@ -28,15 +29,25 @@ export class NgRhombusBlogService {
     return [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
   }
 
-  async createBlogPost(title: string, description: string, thumbnail: string, content: string) {
-    const blogPostDocumentRef = doc(this.firestore, 'blog', NgRhombusBlogPostHelper.createSlug(title));
+  async createBlogPost(blogPost: IBlog) {
+    const blogPostDocumentRef = doc(this.firestore, 'blog', NgRhombusBlogPostHelper.createSlug(blogPost.title));
     setDoc(blogPostDocumentRef, {
-      title: title,
-      description: description,
-      thumbnail: thumbnail,
-      content: content,
+      title: blogPost.title,
+      description: blogPost.description,
+      thumbnail: blogPost.thumbnail,
+      content: blogPost.content,
       timestamp: new Date()
     });
+  }
+
+  async updateBlogPost(blogPost: IBlog) {
+    const blogPostDocumentRef = doc(this.firestore, 'blog', blogPost.id);
+    updateDoc(blogPostDocumentRef, {
+      title: blogPost.title,
+      description: blogPost.description,
+      thumbnail: blogPost.thumbnail,
+      content: blogPost.content,
+    })
   }
 
 

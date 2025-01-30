@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteThumbnailComponent } from './delete-thumbnail.component';
+import { NgRhombusBlogDeleteThumbnailComponent } from './delete-thumbnail.component';
 
-describe('DeleteThumbnailComponent', () => {
-  let component: DeleteThumbnailComponent;
-  let fixture: ComponentFixture<DeleteThumbnailComponent>;
+describe('NgRhombusBlogDeleteThumbnailComponent', () => {
+  let component: NgRhombusBlogDeleteThumbnailComponent;
+  let fixture: ComponentFixture<NgRhombusBlogDeleteThumbnailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeleteThumbnailComponent]
+      imports: [NgRhombusBlogDeleteThumbnailComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(DeleteThumbnailComponent);
+    fixture = TestBed.createComponent(NgRhombusBlogDeleteThumbnailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

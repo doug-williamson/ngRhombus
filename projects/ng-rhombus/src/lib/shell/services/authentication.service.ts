@@ -27,7 +27,7 @@ export class NgRhombusAuthenticationService {
 
 	private currentUserProfile$ = this.currentUser$.pipe(
 		switchMap((user) => {
-			return !user?.uid ? of(user) : of(null);
+			return user?.uid ? of(user) : of(null);
 		})
 	);
 

@@ -1,7 +1,8 @@
 
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, filter } from 'rxjs';
 
 export interface Breadcrumb {
@@ -20,6 +21,8 @@ export type Theme = 'light' | 'dark';
   providedIn: 'root'
 })
 export class WrapperService {
+
+  snackbar = inject(MatSnackBar);
 
   private _darkModeSubject = new BehaviorSubject<boolean>(false);
   darkMode = toSignal(this._darkModeSubject.asObservable(), { initialValue: false })
@@ -81,5 +84,9 @@ export class WrapperService {
       return this.getBreadcrumbs(child, url, breadcrumbs);
     }
     return breadcrumbs;
+  }
+
+  openSnackbar(message: string) {
+    this.snackbar.open(message, undefined, { duration: 3000 });
   }
 }

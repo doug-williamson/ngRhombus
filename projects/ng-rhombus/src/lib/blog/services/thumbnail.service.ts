@@ -5,7 +5,7 @@ import { deleteObject } from "firebase/storage";
 @Injectable({
 	providedIn: 'root'
 })
-export class ThumbnailControlService {
+export class NgRhombusBlogPostThumbnailService {
 	firebaseStorage = inject(Storage);
 
 	uploadImage(imageName: string, image: File): UploadTask {

@@ -1,36 +1,36 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, inject, output, signal, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-control.component";
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
-import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.component';
 import { MatListModule } from '@angular/material/list';
-import { NgRhombusBlogService } from '../../services/blog.service';
+import { IBlog } from '../../models/blog';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, NgOptimizedImage, NgRhombusBlogThumbnailComponent, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, NgRhombusBlogThumbnailComponent, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })
 export class NgRhombusBlogAddEditComponent {
+	cancelEvent = output<void>();
+	submitEvent = output<IBlog>();
+
 	contentData = signal<string>('');
 	blogPostForm!: FormGroup;
 
 	formBuilder = inject(FormBuilder);
-	router = inject(Router);
-	blogService = inject(NgRhombusBlogService);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
 
@@ -62,7 +62,7 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onCancelClick() {
-		this.router.navigateByUrl('/blog');
+		this.cancelEvent.emit();
 	}
 
 	onSubmit() {
@@ -71,11 +71,12 @@ export class NgRhombusBlogAddEditComponent {
 			return;
 		}
 
-		this.blogService.createBlogPost(
-			this.blogPostForm.getRawValue().title,
-			this.blogPostForm.getRawValue().description,
-			this.blogPostForm.getRawValue().thumbnail,
-			this.blogPostForm.getRawValue().content
-		)
+		let submittedBlogPost = new IBlog();
+		submittedBlogPost.title = this.blogPostForm.getRawValue().title;
+		submittedBlogPost.description = this.blogPostForm.getRawValue().description;
+		submittedBlogPost.thumbnail = this.blogPostForm.getRawValue().thumbnail;
+		submittedBlogPost.content = this.blogPostForm.getRawValue().content;
+
+		this.submitEvent.emit(submittedBlogPost);
 	}
 }

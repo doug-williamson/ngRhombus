@@ -5,6 +5,6 @@
             <mat-icon>add</mat-icon>
         </button>
     </mat-toolbar>
-    <ng-rhombus-blog-table [dataSource]="blogStore.blogPosts()"
-        (clickEvent)="routeToBlogPost($event)"></ng-rhombus-blog-table>
+    <ng-rhombus-blog-table [dataSource]="blogStore.blogPosts()" (editEvent)="routeToBlogPost($event)"
+        (deleteEvent)="onDeleteBlogPost($event)"></ng-rhombus-blog-table>
 </div>

@@ -43,7 +43,7 @@ export class NgRhombusLoginComponent implements OnInit {
 					this.router.navigateByUrl('/');
 				},
 				error: (err) => {
-					this.errorMessage.set('The password is invalid or the user does not have a password.')
+					this.errorMessage.set(err.code)
 				}
 			});
 	}

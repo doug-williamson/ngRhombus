@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="button-wrapper">
-				<button mat-raised-button class="cancel-button" [disabled]="blogPostForm.dirty"
+				<button mat-raised-button class="cancel-button" [disabled]="blogPostForm.touched"
 					(click)="onCancelClick()">Cancel</button>
 				<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid">Submit</button>
 			</div>

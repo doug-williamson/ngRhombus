@@ -6,6 +6,7 @@ import { ThumbnailControlService } from './thumbnail-control.service';
 import { getDownloadURL } from '@angular/fire/storage';
 import { MatIconModule } from '@angular/material/icon';
 import { NgRhombusBlogThumbnailComponent } from "../thumbnail/thumbnail.component";
+import { NgRhombusBlogDeleteThumbnailComponent } from '../dialogs/delete-thumbnail/delete-thumbnail.component';
 
 @Component({
   selector: 'ng-rhombus-thumbnail-control',
@@ -44,10 +45,16 @@ export class ThumbnailControlComponent {
   }
 
   onThumbnailDeleted() {
-    this.thumbnailService.deleteImage(this.uploadedFile()).then(() => {
-      this.uploadedFile.set(undefined);
-      this.thumbnailInput.nativeElement.value = '';
-      this.onFileDeleted.emit();
-    })
+    const dialogRef = this.dialog.open(NgRhombusBlogDeleteThumbnailComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.thumbnailService.deleteImage(this.uploadedFile()).then(() => {
+          this.uploadedFile.set(undefined);
+          this.thumbnailInput.nativeElement.value = '';
+          this.onFileDeleted.emit();
+        })
+      }
+    });
   }
 }

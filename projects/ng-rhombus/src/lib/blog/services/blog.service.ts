@@ -39,6 +39,7 @@ export class NgRhombusBlogService {
     });
   }
 
+
   deleteBlogPost(id: string) {
     const blogPostDocumentRef = doc(this.firestore, 'blog', id);
     return deleteDoc(blogPostDocumentRef);

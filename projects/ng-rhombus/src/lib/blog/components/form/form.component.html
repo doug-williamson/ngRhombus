@@ -1,13 +1,53 @@
-<mat-toolbar class="header-theme">
-	<button mat-icon-button (click)="onCancelClick()">
-		<mat-icon>arrow_back</mat-icon>
-	</button>
-	<span class="flex">Add / Edit Blog Post</span>
-</mat-toolbar>
-
 <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+	<mat-drawer-container autosize>
+		<mat-drawer-content>
+			<div class="blog-form">
+				<mat-form-field appearance="outline">
+					<mat-label>Title</mat-label>
+					<input matInput placeholder="Placeholder" formControlName="title">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>Description</mat-label>
+					<input matInput placeholder="Placeholder" formControlName="description">
+				</mat-form-field>
+				<ng-rhombus-thumbnail-control [width]="200" [height]="112" (onFileUploaded)="onFileUploaded($event)"
+					(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
+				<div class="textarea-class">
+					<mat-form-field class="content-class" appearance="outline">
+						<mat-label>Content</mat-label>
+						<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+							cdkAutosizeMinRows="1" cdkAutosizeMaxRows="20" formControlName="content"
+							(keyup)="onContentChange()"></textarea>
+					</mat-form-field>
+				</div>
 
-	<div class="blog-form">
+				<div class="button-wrapper">
+					<button mat-raised-button class="cancel-button" [disabled]="blogPostForm.touched"
+						(click)="onCancelClick()">Cancel</button>
+					<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid">Submit</button>
+				</div>
+			</div>
+		</mat-drawer-content>
+		<mat-drawer opened [mode]="'side'" position="end">
+			<div class="blog-preview">
+				<div class="doug">
+					<mat-card>
+						<mat-card-header>
+							<mat-card-title>{{ blogPostForm.getRawValue().title }}</mat-card-title>
+							<mat-card-subtitle>{{ blogPostForm.getRawValue().description }}</mat-card-subtitle>
+						</mat-card-header>
+						<ng-rhombus-blog-thumbnail [width]="450" [height]="252" mat-card-image
+							[imageSource]="blogPostForm.getRawValue().thumbnail"
+							class="flex-image"></ng-rhombus-blog-thumbnail>
+						<mat-card-content>
+							<markdown [data]="contentData()" />
+						</mat-card-content>
+					</mat-card>
+				</div>
+			</div>
+		</mat-drawer>
+	</mat-drawer-container>
+	<!-- <div class="blog-form">
 		<div class="wrapper-content">
 			<mat-form-field appearance="outline">
 				<mat-label>Title</mat-label>
@@ -23,7 +63,7 @@
 				<mat-form-field class="content-class" appearance="outline">
 					<mat-label>Content</mat-label>
 					<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="20" formControlName="content"
+						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="content"
 						(keyup)="onContentChange()"></textarea>
 				</mat-form-field>
 			</div>
@@ -52,5 +92,5 @@
 		</div>
 
 
-	</div>
+	</div> -->
 </form>

@@ -27,7 +27,7 @@ export class NgRhombusAdminBlogPostAddComponent implements OnInit {
   onSubmitEvent(submittedBlogPost: IBlog) {
     this.blogService.createBlogPost(submittedBlogPost).then(() => {
       // display 'New Blog Post Added' alert, redirect back to collection
-      this.wrapperService.openSnackbar('');
+      this.wrapperService.openSnackbar('Blog Post added!');
       this.routeToBlogCollection();
     });
   }

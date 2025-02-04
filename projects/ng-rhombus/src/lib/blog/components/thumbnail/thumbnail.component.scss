@@ -5,3 +5,8 @@
 .image-placeholder {
     @include mat.elevation(6);
 }
+
+img {
+    width: 100%;
+    height: auto;
+}

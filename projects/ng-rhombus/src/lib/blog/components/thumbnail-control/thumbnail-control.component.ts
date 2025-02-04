@@ -17,6 +17,7 @@ import { NgRhombusBlogDeleteThumbnailComponent } from '../dialogs/delete-thumbna
 export class ThumbnailControlComponent {
   width = input<number>(0);
   height = input<number>(0);
+  thumbnailSrc = input<string>('');
 
   @ViewChild('thumbnailInput') thumbnailInput!: ElementRef;
 
@@ -53,7 +54,7 @@ export class ThumbnailControlComponent {
           this.uploadedFile.set(undefined);
           this.thumbnailInput.nativeElement.value = '';
           this.onFileDeleted.emit();
-        })
+        });
       }
     });
   }

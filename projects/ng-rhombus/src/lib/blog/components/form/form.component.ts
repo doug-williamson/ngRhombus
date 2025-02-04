@@ -1,4 +1,4 @@
-import { Component, inject, output, signal, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, input, output, signal, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.component';
 import { MatListModule } from '@angular/material/list';
 import { IBlog } from '../../models/blog';
+import { NgRhombusBlogPostThumbnailService } from '../../public-api';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
@@ -24,29 +25,51 @@ import { IBlog } from '../../models/blog';
 	styleUrl: './form.component.scss'
 })
 export class NgRhombusBlogAddEditComponent {
+	blogPost = input<IBlog | undefined>(undefined);
 	cancelEvent = output<void>();
 	submitEvent = output<IBlog>();
 
 	contentData = signal<string>('');
 	blogPostForm!: FormGroup;
 
+	thumbnailService = inject(NgRhombusBlogPostThumbnailService);
+
 	formBuilder = inject(FormBuilder);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
+	@ViewChild('blogPost') blogPostPreview!: ElementRef
 
-	constructor() { }
+	constructor() {
+		effect(() => {
+			console.log(this.blogPost())
+			if (this.blogPost()) {
+				this.blogPostForm.patchValue({
+					title: this.blogPost()?.title,
+					description: this.blogPost()?.description,
+					thumbnail: this.blogPost()?.thumbnail,
+					content: this.blogPost()?.content,
+				});
+			}
+			this.onContentChange();
+		})
+	}
 
 	ngOnInit(): void {
+		console.log(this.blogPost());
 		this.blogPostForm = this.formBuilder.group({
-			title: ['', Validators.required],
-			description: ['', Validators.required],
-			thumbnail: ['', Validators.required],
-			content: ['', Validators.required]
+			title: [this.blogPost()?.title, Validators.required],
+			description: [this.blogPost()?.description, Validators.required],
+			thumbnail: [this.blogPost()?.thumbnail, Validators.required],
+			content: [this.blogPost()?.content, Validators.required]
 		});
 	}
 
 	onContentChange() {
 		this.contentData.set(this.blogPostForm.getRawValue().content);
+	}
+
+	get thumbnailSource() {
+		return this.blogPostForm.getRawValue().thumbnail;
 	}
 
 	onFileUploaded(downloadUrl: string) {
@@ -62,20 +85,34 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onCancelClick() {
+		// Display modal to confirm that all changes are about to be lost
+		if (this.blogPostForm.dirty) {
+
+		}
+		if (this.blogPostForm.getRawValue().thumbnail) {
+			this.thumbnailService.deleteImage(this.blogPostForm.getRawValue().thumbnail).then(() => {
+				this.onFileDeleted();
+				this.cancelEvent.emit();
+			});
+		}
 		this.cancelEvent.emit();
 	}
 
 	onSubmit() {
-		console.log(this.blogPostForm);
 		if (this.blogPostForm.invalid) {
 			return;
 		}
 
+		const rawData: IBlog = this.blogPostForm.getRawValue();
 		let submittedBlogPost = new IBlog();
-		submittedBlogPost.title = this.blogPostForm.getRawValue().title;
-		submittedBlogPost.description = this.blogPostForm.getRawValue().description;
-		submittedBlogPost.thumbnail = this.blogPostForm.getRawValue().thumbnail;
-		submittedBlogPost.content = this.blogPostForm.getRawValue().content;
+		if (this.blogPost()) {
+			submittedBlogPost.id = this.blogPost()!.id;
+		}
+
+		submittedBlogPost.title = rawData.title;
+		submittedBlogPost.description = rawData.description;
+		submittedBlogPost.thumbnail = rawData.thumbnail;
+		submittedBlogPost.content = rawData.content;
 
 		this.submitEvent.emit(submittedBlogPost);
 	}

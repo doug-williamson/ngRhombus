@@ -1,19 +1,21 @@
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
-import { NgRhombusBlogService } from "./blog.service"
+import { NgRhombusBlogService } from "../../../../../ng-rhombus/src/lib/blog/services/blog.service"
 import { inject } from "@angular/core";
-import { IBlog } from "../models/blog";
+import { IBlog } from "../../../../../ng-rhombus/src/lib/blog/models/blog";
 
 type BlogState = {
     blogPosts: IBlog[];
+    blogPost: IBlog,
     loading: boolean;
 }
 
 const initialBlogState: BlogState = {
     blogPosts: [],
+    blogPost: new IBlog(),
     loading: false
 }
 
-export const NgRhombusBlogStore = signalStore(
+export const NgRhombusAdminBlogStore = signalStore(
     { providedIn: 'root', protectedState: false },
     withState(initialBlogState),
     withMethods(
@@ -24,6 +26,12 @@ export const NgRhombusBlogStore = signalStore(
 
                 const posts = await blogService.fetchBlogPosts();
                 patchState(store, { blogPosts: posts, loading: false });
+            },
+            async load(id: string) {
+                patchState(store, { loading: true });
+
+                const post = await blogService.fetchBlogPost(id);
+                patchState(store, { blogPost: post, loading: false });
             }
         })
     )

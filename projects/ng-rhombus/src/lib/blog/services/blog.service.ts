@@ -5,6 +5,8 @@ import {
   collection,
   deleteDoc,
   doc,
+  docData,
+  getDoc,
   getDocs,
   query,
   setDoc,
@@ -25,8 +27,26 @@ export class NgRhombusBlogService {
   selectedBlogPost = signal<IBlog | undefined>(undefined);
 
   async fetchBlogPosts() {
-    const data = await getDocs(query(this.blogCollectionRef));
-    return [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
+    const data = await getDocs(this.blogCollectionRef);
+    const returnData = [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
+    this.blogPosts.set(returnData);
+    return returnData;
+  }
+
+  async fetchBlogPost(id: string) {
+    const blogPostDocumentRef = doc(this.firestore, 'blog', id);
+    // const docSnap = (await getDoc(blogPostDocumentRef)).data() as IBlog
+    // this.selectedBlogPost.set(docSnap);
+    // return docSnap;
+    const docSnap = await getDoc(blogPostDocumentRef);
+    if (docSnap.exists()) {
+      const docData = { ...docSnap.data(), id: id } as IBlog;
+      console.log('Doug data: ', docData);
+      this.selectedBlogPost.set(docData);
+      return docData;
+    } else {
+      return;
+    }
   }
 
   async createBlogPost(blogPost: IBlog) {
@@ -41,6 +61,7 @@ export class NgRhombusBlogService {
   }
 
   async updateBlogPost(blogPost: IBlog) {
+    console.log(blogPost);
     const blogPostDocumentRef = doc(this.firestore, 'blog', blogPost.id);
     updateDoc(blogPostDocumentRef, {
       title: blogPost.title,

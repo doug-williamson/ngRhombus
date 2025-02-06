@@ -1,19 +1,51 @@
-@if (selectedBlogPost() !== undefined) {
-    <form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
-        <h2>Add/Edit Blog Post</h2>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="title">
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="description">
-        </mat-form-field>
-        <ng-rhombus-thumbnail-control [width]="200" [height]="112"></ng-rhombus-thumbnail-control>
-        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        <span class="flex"></span>
-        <button mat-raised-button type="submit">Submit</button>
-    </form>
-} @else {
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-}
+<form novalidate class="form-wrapper" [formGroup]="blogPostForm" (ngSubmit)="onSubmit()">
+	<mat-drawer-container autosize>
+		<mat-drawer-content>
+			<div class="blog-form">
+				Touched: {{ blogPostForm.touched }}
+				Dirty: {{ blogPostForm.dirty }}
+				Touched: {{ blogPostForm.touched }}
+				<mat-form-field appearance="outline">
+					<mat-label>Title</mat-label>
+					<input matInput placeholder="Placeholder" formControlName="title">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>Description</mat-label>
+					<input matInput placeholder="Placeholder" formControlName="description">
+				</mat-form-field>
+				<ng-rhombus-thumbnail-control [thumbnailSrc]="thumbnailSource" [width]="200" [height]="112"
+					[disabled]="blogPost() !== undefined" (onFileUploaded)="onFileUploaded($event)"
+					(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
+				<div class="textarea-class">
+					<mat-form-field class="content-class" appearance="outline">
+						<mat-label>Content</mat-label>
+						<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+							cdkAutosizeMinRows="1" cdkAutosizeMaxRows="28" formControlName="content"
+							(keyup)="onContentChange()"></textarea>
+					</mat-form-field>
+				</div>
+
+				<div class="button-wrapper">
+					<button mat-raised-button class="cancel-button" (click)="onCancelClick()"
+						type="button">Cancel</button>
+					<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid"
+						type="button">Submit</button>
+				</div>
+			</div>
+		</mat-drawer-content>
+		<mat-drawer opened [mode]="'side'" position="end">
+			<div class="blog-post-preview">
+				<mat-card>
+					<mat-card-header>
+						<mat-card-title>{{ blogPostForm.getRawValue().title }}</mat-card-title>
+						<mat-card-subtitle>{{ blogPostForm.getRawValue().description }}</mat-card-subtitle>
+					</mat-card-header>
+					<img [src]="blogPostForm.getRawValue().thumbnail" />
+					<mat-card-content>
+						<markdown [data]="contentData()" />
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</mat-drawer>
+	</mat-drawer-container>
+</form>

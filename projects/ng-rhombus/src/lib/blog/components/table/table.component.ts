@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { IBlog } from '../../models/blog';
-import { NgRhombusBlogStore } from '../../blog.store';
+import { MatDialog } from '@angular/material/dialog';
+import { NgRhombusBlogService } from '../../services/blog.service';
+import { NgRhombusBlogPostThumbnailService } from '../../services/thumbnail.service';
 
 @Component({
   selector: 'ng-rhombus-blog-table',
@@ -13,15 +15,22 @@ import { NgRhombusBlogStore } from '../../blog.store';
   styleUrl: './table.component.scss'
 })
 export class NgRhombusBlogTableComponent {
-  @Output() clickEvent = new EventEmitter<string>();
+  @Output() editEvent = new EventEmitter<string>();
+  @Output() deleteEvent = new EventEmitter<IBlog>();
+
+  readonly thumbnailService = inject(NgRhombusBlogPostThumbnailService);
+  readonly blogService = inject(NgRhombusBlogService);
+  readonly dialog = inject(MatDialog);
 
   dataSource = input<IBlog[]>([]);
-  displayedColumns: string[] = ['timestamp', 'title', 'description', 'star'];
-
-  blogStore = inject(NgRhombusBlogStore);
+  displayedColumns: string[] = ['timestamp', 'title', 'description', 'edit', 'delete'];
 
   goToBlogPost(id: string) {
-    this.clickEvent.emit(id);
+    this.editEvent.emit(id);
+  }
+
+  onDeleteBlogPost(blogPost: IBlog) {
+    this.deleteEvent.emit(blogPost);
   }
 
 }

@@ -1,9 +1,0 @@
-<button mat-stroked-button (click)="routeToBlogPosts()">
-    <mat-icon>back</mat-icon>
-    Back To Blog Posts
-</button>
-@if (this.selectedBlogPost()) {
-<ng-portfolio-blog-form [selectedBlogPost]="selectedBlogPost()"></ng-portfolio-blog-form>
-} @else {
-<span>undefined</span>
-}

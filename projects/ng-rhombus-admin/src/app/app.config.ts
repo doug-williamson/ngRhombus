@@ -9,7 +9,8 @@ import { environment } from '../environments/environment';
 import { Auth, connectAuthEmulator, getAuth, provideAuth } from '@angular/fire/auth';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-
+import { connectStorageEmulator, getStorage, provideStorage, Storage } from '@angular/fire/storage';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,5 +38,13 @@ export const appConfig: ApplicationConfig = {
       }
       return firestore;
     }),
+    provideStorage(() => {
+      const storage: Storage = getStorage();
+      if (!environment.production) {
+        connectStorageEmulator(storage, 'localhost', 9199);
+      }
+      return storage;
+    }),
+    provideMarkdown()
   ]
 };

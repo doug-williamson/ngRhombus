@@ -1,0 +1,6 @@
+@if (blogStore.blogPost()) {
+<ng-rhombus-blog-form [blogPost]="blogStore.blogPost()" (cancelEvent)="onCancelEvent()"
+    (submitEvent)="onSubmitEvent($event)"></ng-rhombus-blog-form>
+} @else {
+<mat-progress-spinner></mat-progress-spinner>
+}

@@ -1,23 +1,23 @@
-<div class="wrapper-container">
-    <ng-rhombus-header [isMobile]="isMobile" [title]="title" (menuToggled)="drawer.toggle()"></ng-rhombus-header>
-    <mat-drawer-container class="wrapper-flex">        
-        <mat-drawer #drawer [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+<ng-rhombus-header class="header-wrapper" [isMobile]="isMobile" [title]="title"
+    (menuToggled)="sidenav.toggle()"></ng-rhombus-header>
+<mat-sidenav-container class="wrapper-flex">
+    <mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+        <div class="nav-list-wrapper">
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
-        </mat-drawer>
-        <mat-drawer-content>
-            <div class="wrapper-content">
-                <!-- <mat-toolbar>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- <mat-toolbar class="header-theme">
+                <span class="wrapper-flex">
                     <ng-container *ngFor="let breadcrumb of breadcrumbs()">
                         {{ breadcrumb.label }}
                     </ng-container>
-                    <span class="flex"></span>
-                    <button mat-icon-button (click)="clickedCreateNew()">
-                        <mat-icon>add</mat-icon>
-                    </button>
-                </mat-toolbar> -->
-                <router-outlet #o="outlet"></router-outlet>
-            </div>
-        </mat-drawer-content>
-        
-    </mat-drawer-container>
-</div>
+                </span>
+                <button mat-icon-button (click)="clickedCreateNew()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </mat-toolbar> -->
+        <router-outlet #o="outlet"></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

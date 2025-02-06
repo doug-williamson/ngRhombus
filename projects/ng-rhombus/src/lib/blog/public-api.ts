@@ -5,5 +5,5 @@
 export * from './components/list/list.component';
 export * from './components/table/table.component';
 
-export * from './blog.service';
-export * from './blog.store';
+export * from './services/blog.service';
+export * from './services/thumbnail.service';

@@ -1,25 +1,25 @@
 import { Routes } from "@angular/router";
-import { BlogComponent } from "./blog.component";
 
 export const BLOG_ROUTES: Routes = [
-    {
-        path: '',
-        component: BlogComponent,
-        children: [
-            {
-                path: '',
-                loadComponent: () => import('./collection/collection.component').then(m => m.NgRhombusAdminBlogCollectionComponent),
-                data: {
-                    breadcrumb: 'Blog'
-                }
-            },
-            {
-                path: ':id',
-                loadComponent: () => import('./post/post.component').then(m => m.NgRhombusAdminBlogPostComponent),
-                data: {
-                    breadcrumb: 'Blog'
-                }
-            }
-        ]
-    }
+	{
+		path: '',
+		loadComponent: () => import('./collection/collection.component').then(m => m.NgRhombusAdminBlogCollectionComponent),
+		data: {
+			breadcrumb: 'Blog'
+		}
+	},
+	{
+		path: 'add',
+		loadComponent: () => import('./add/add.component').then(m => m.NgRhombusAdminBlogPostAddComponent),
+		data: {
+			breadcrumb: 'Blog'
+		}
+	},
+	{
+		path: 'edit/:id',
+		loadComponent: () => import('./edit/edit.component').then(m => m.NgRhombusAdminBlogPostEditComponent),
+		data: {
+			breadcrumb: 'Blog'
+		}
+	}
 ]

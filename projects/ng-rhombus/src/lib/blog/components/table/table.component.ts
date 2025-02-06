@@ -31,17 +31,6 @@ export class NgRhombusBlogTableComponent {
 
   onDeleteBlogPost(blogPost: IBlog) {
     this.deleteEvent.emit(blogPost);
-    // const dialogRef = this.dialog.open(NgRhombusBlogDeletePostComponent);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.thumbnailService.deleteImage(thumbnail).then(() => {
-    //       this.blogService.deleteBlogPost(id).then(() => {
-
-    //       })
-    //     })
-    //   }
-    // })
   }
 
 }

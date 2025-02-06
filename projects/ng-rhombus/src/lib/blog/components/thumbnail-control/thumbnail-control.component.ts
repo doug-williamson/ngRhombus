@@ -18,6 +18,7 @@ export class ThumbnailControlComponent {
   width = input<number>(0);
   height = input<number>(0);
   thumbnailSrc = input<string>('');
+  disabled = input<boolean>(false);
 
   @ViewChild('thumbnailInput') thumbnailInput!: ElementRef;
 
@@ -39,6 +40,7 @@ export class ThumbnailControlComponent {
 
     this.thumbnailService.uploadImage(file.name, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadUrl) => {
+        console.log('DownloadUrl: ', downloadUrl);
         this.uploadedFile.set(downloadUrl);
         this.onFileUploaded.emit(downloadUrl);
       })

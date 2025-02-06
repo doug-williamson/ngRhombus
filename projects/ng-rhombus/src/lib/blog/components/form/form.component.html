@@ -14,7 +14,7 @@
 					<input matInput placeholder="Placeholder" formControlName="description">
 				</mat-form-field>
 				<ng-rhombus-thumbnail-control [thumbnailSrc]="thumbnailSource" [width]="200" [height]="112"
-					(onFileUploaded)="onFileUploaded($event)"
+					[disabled]="blogPost() !== undefined" (onFileUploaded)="onFileUploaded($event)"
 					(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
 				<div class="textarea-class">
 					<mat-form-field class="content-class" appearance="outline">
@@ -26,8 +26,10 @@
 				</div>
 
 				<div class="button-wrapper">
-					<button mat-raised-button class="cancel-button" (click)="onCancelClick()">Cancel</button>
-					<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid">Submit</button>
+					<button mat-raised-button class="cancel-button" (click)="onCancelClick()"
+						type="button">Cancel</button>
+					<button mat-flat-button type="submit" [disabled]="blogPostForm.invalid"
+						type="button">Submit</button>
 				</div>
 			</div>
 		</mat-drawer-content>

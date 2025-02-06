@@ -1,9 +1,10 @@
 <div class="thumbnail-control-wrapper">
     <input #thumbnailInput hidden type="file" (change)="onThumbnailSelected(thumbnailInput)" />
-    <button mat-icon-button [disabled]="uploadedFile()" (click)="thumbnailInput.click()">
+    <button mat-icon-button [disabled]="uploadedFile() || disabled()" (click)="thumbnailInput.click()" type="button">
         <mat-icon>upload_file</mat-icon>
     </button>
-    <button class="delete-button" mat-icon-button [disabled]="!uploadedFile()" (click)="onThumbnailDeleted()">
+    <button class="delete-button" mat-icon-button [disabled]="!uploadedFile()" (click)="onThumbnailDeleted()"
+        type="button">
         <mat-icon>delete</mat-icon>
     </button>
     <div class="flex"></div>

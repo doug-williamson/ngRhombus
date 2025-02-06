@@ -17,6 +17,9 @@ import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.componen
 import { MatListModule } from '@angular/material/list';
 import { IBlog } from '../../models/blog';
 import { NgRhombusBlogPostThumbnailService } from '../../public-api';
+import { MatDialog } from '@angular/material/dialog';
+import { NgRhombusBlogDeletePostComponent } from '../dialogs/delete-post/delete-post.component';
+import { NgRhombusBlogConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
@@ -32,8 +35,8 @@ export class NgRhombusBlogAddEditComponent {
 	contentData = signal<string>('');
 	blogPostForm!: FormGroup;
 
+	dialog = inject(MatDialog);
 	thumbnailService = inject(NgRhombusBlogPostThumbnailService);
-
 	formBuilder = inject(FormBuilder);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
@@ -76,6 +79,7 @@ export class NgRhombusBlogAddEditComponent {
 		this.blogPostForm.patchValue({
 			thumbnail: downloadUrl
 		});
+		this.blogPostForm.markAsDirty();
 	}
 
 	onFileDeleted() {
@@ -85,17 +89,50 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onCancelClick() {
-		// Display modal to confirm that all changes are about to be lost
-		if (this.blogPostForm.dirty) {
+		if (this.blogPost()) {
+			// EDIT form
+			if (this.blogPostForm.dirty) {
+				const dialogRef = this.dialog.open(NgRhombusBlogConfirmationComponent, {
+					data: {
+						header: 'Cancel Revision',
+						query: 'Are you sure? You will lose your revision(s).'
+					}
+				});
 
-		}
-		if (this.blogPostForm.getRawValue().thumbnail) {
-			this.thumbnailService.deleteImage(this.blogPostForm.getRawValue().thumbnail).then(() => {
-				this.onFileDeleted();
+				dialogRef.afterClosed().subscribe(result => {
+					if (result) {
+						this.cancelEvent.emit();
+					}
+				});
+			} else {
 				this.cancelEvent.emit();
-			});
+			}
+		} else {
+			// CREATE form
+			debugger;
+			if (this.blogPostForm.dirty) {
+				const dialogRef = this.dialog.open(NgRhombusBlogConfirmationComponent, {
+					data: {
+						header: 'Cancel Create',
+						query: 'Are you sure? You will lose your progress.'
+					}
+				});
+
+				dialogRef.afterClosed().subscribe(result => {
+					if (result) {
+						if (this.blogPostForm.getRawValue().thumbnail) {
+							this.thumbnailService.deleteImage(this.blogPostForm.getRawValue().thumbnail).then(() => {
+								this.onFileDeleted();
+								this.cancelEvent.emit();
+							});
+						}
+						this.cancelEvent.emit();
+					}
+				});
+			} else {
+				this.cancelEvent.emit();
+			}
 		}
-		this.cancelEvent.emit();
 	}
 
 	onSubmit() {

@@ -1,9 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { NgRhombusBlogAddEditComponent } from '../../../../../../ng-rhombus/src/lib/blog/components/form/form.component';
 import { Router } from '@angular/router';
-import { IBlog } from '../../../../../../ng-rhombus/src/lib/blog/models/blog';
-import { NgRhombusBlogService } from '../../../../../../ng-rhombus/src/lib/blog/public-api';
-import { WrapperService } from '../../../../../../ng-rhombus/src/lib/shell/services/wrapper.service';
+import { NgRhombusBlogAddEditComponent, WrapperService, NgRhombusBlogService, IBlog } from '../../../../../../ng-rhombus';
 
 @Component({
   selector: 'ng-rhombus-admin-add',

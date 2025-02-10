@@ -13,11 +13,6 @@ import { CommonModule } from '@angular/common';
 import { WrapperService } from '../../services/wrapper.service';
 import { MatButtonModule } from '@angular/material/button';
 
-export interface Breadcrumb {
-  label: string;
-  url: string;
-}
-
 @Component({
   selector: 'ng-rhombus-wrapper',
   imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],

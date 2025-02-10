@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgRhombusLoginComponent } from '../../../../../ng-rhombus/src/public-api';
+import { NgRhombusLoginComponent } from '../../../../../ng-rhombus';
 
 @Component({
   selector: 'app-login',

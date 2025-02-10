@@ -1,6 +1,5 @@
 import { Component, effect, inject } from '@angular/core';
-import { NgRhombusNavItem, NgRhombusWrapperComponent } from '../../../../../ng-rhombus/src/public-api';
-import { WrapperService } from '../../../../../ng-rhombus/src/lib/shell/services/wrapper.service';
+import { NgRhombusNavItem, NgRhombusWrapperComponent, WrapperService } from '../../../../../ng-rhombus';
 
 @Component({
 	selector: 'app-wrapper',

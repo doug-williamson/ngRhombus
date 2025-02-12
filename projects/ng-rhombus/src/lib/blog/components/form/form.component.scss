@@ -21,9 +21,9 @@
 
 .blog-form {
     display: flex;
-    height: 100%;
+    height: calc(100% - 24px);
     flex-direction: column;
-    padding: 24px;
+    padding: 12px;
 }
 
 .blog-preview {

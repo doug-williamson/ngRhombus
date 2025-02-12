@@ -136,6 +136,7 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onSubmit() {
+		debugger;
 		if (this.blogPostForm.invalid) {
 			return;
 		}

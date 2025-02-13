@@ -109,7 +109,6 @@ export class NgRhombusBlogAddEditComponent {
 			}
 		} else {
 			// CREATE form
-			debugger;
 			if (this.blogPostForm.dirty) {
 				const dialogRef = this.dialog.open(NgRhombusBlogConfirmationComponent, {
 					data: {
@@ -136,7 +135,6 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onSubmit() {
-		debugger;
 		if (this.blogPostForm.invalid) {
 			return;
 		}

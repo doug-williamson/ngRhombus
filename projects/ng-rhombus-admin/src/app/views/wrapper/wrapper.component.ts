@@ -1,5 +1,6 @@
 import { Component, effect, inject } from '@angular/core';
 import { NgRhombusNavItem, NgRhombusWrapperComponent, WrapperService } from '../../../../../ng-rhombus';
+import { NgRhombusAdminAppStore } from '../../app.store';
 
 @Component({
 	selector: 'app-wrapper',
@@ -11,6 +12,7 @@ export class WrapperComponent {
 	title = 'Rhombus Software | Admin';
 	routeCollection: NgRhombusNavItem[] | undefined;
 
+	appStore = inject(NgRhombusAdminAppStore);
 	wrapperService = inject(WrapperService);
 
 	ngOnInit() {

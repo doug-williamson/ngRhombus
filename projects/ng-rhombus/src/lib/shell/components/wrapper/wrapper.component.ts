@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, computed } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, computed, input } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Subject, takeUntil } from 'rxjs';
 import { NgRhombusHeaderComponent } from '../header/header.component';
@@ -12,10 +12,11 @@ import { NgRhombusNavItem } from '../nav-list/nav-list';
 import { CommonModule } from '@angular/common';
 import { WrapperService } from '../../services/wrapper.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'ng-rhombus-wrapper',
-  imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
+  imports: [CommonModule, MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatProgressBarModule, MatToolbarModule, RouterModule, NgRhombusHeaderComponent, NgRhombusNavListComponent],
   providers: [WrapperService],
   templateUrl: './wrapper.component.html',
   styleUrl: './wrapper.component.scss'
@@ -25,6 +26,8 @@ export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
   destroyed = new Subject<void>();
   isMobile: boolean = false;
   currentScreenSize?: string;
+
+  isLoading = input<boolean>(false);
 
   breadcrumbs = computed(() => { return this.wrapperService.breadcrumbs() });
 

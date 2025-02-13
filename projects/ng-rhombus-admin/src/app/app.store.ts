@@ -1,5 +1,5 @@
 import { inject } from "@angular/core";
-import { NavigationStart, NavigationEnd, NavigationError, Router } from "@angular/router";
+import { NavigationStart, NavigationEnd, NavigationError, Router, ActivationStart, ActivationEnd } from "@angular/router";
 import { patchState, signalStore, withHooks, withMethods, withState } from "@ngrx/signals";
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, tap } from "rxjs";
@@ -28,13 +28,12 @@ export const NgRhombusAdminAppStore = signalStore(
                     tap((event) => {
                         if (event instanceof NavigationStart) {
                             patchState(store, { loading: true });
-                        } else if (
-                            event instanceof NavigationEnd ||
-                            event instanceof NavigationError
-                        ) {
-                            patchState(store, { loading: false });
+                        } else if (event instanceof NavigationEnd) {
+                            setTimeout(() => {
+                                patchState(store, { loading: false });
+                            }, 500)
                         }
-                    })
+                    }),
                 )
             ),
         })

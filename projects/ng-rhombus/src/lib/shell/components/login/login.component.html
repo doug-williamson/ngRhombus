@@ -1,27 +1,38 @@
 <div class="wrapper-container">
-    <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-card class="mat-elevation-z12">
-            <mat-card-title>{{ title() }}</mat-card-title>
+    <mat-card class="mat-elevation-z12">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>{{ title() }}</mat-card-title>
+                <mat-card-subtitle>Administration</mat-card-subtitle>
+            </mat-card-title-group>
 
+        </mat-card-header>
+        <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <mat-label>Email Address</mat-label>
                     <input matInput placeholder="Placeholder" formControlName="email" aria-label="Email Address" />
+                    <mat-icon matSuffix>email</mat-icon>
                     <mat-error align="start">Email Address Required</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" placeholder="Placeholder" formControlName="password"
-                        aria-label="Password" />
+                    <input matInput [type]="hidePassword() ? 'password' : 'text'" placeholder="Placeholder"
+                        formControlName="password" aria-label="Password" />
+                    <button mat-icon-button matSuffix (click)="hidePassword.set(!hidePassword())" type="button"
+                        style="margin-right: 0.25rem;">
+                        <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
                     <mat-error align="start">Password Required</mat-error>
                 </mat-form-field>
             </mat-card-content>
             <mat-card-footer>
-                <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
-                @if (errorMessage() !== '') {
-                <p>{{ errorMessage() }}</p>
-                }
+                <button mat-flat-button class="login-button" type="submit" [disabled]="loading()">
+                    <ng-rhombus-loading-container [loading]="loading()" [size]="20">
+                        Login
+                    </ng-rhombus-loading-container>
+                </button>
             </mat-card-footer>
-        </mat-card>
-    </form>
+        </form>
+    </mat-card>
 </div>

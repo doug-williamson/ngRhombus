@@ -1,33 +1,36 @@
-<form novalidate class="form-wrapper" [formGroup]="blogPostForm">
+<div class="h-full">
+
 	<mat-drawer-container autosize>
 		<mat-drawer-content>
 			<div class="blog-form">
-				<mat-form-field appearance="outline">
-					<mat-label>Title</mat-label>
-					<input matInput placeholder="Placeholder" formControlName="title">
-				</mat-form-field>
-				<mat-form-field appearance="outline">
-					<mat-label>Description</mat-label>
-					<input matInput placeholder="Placeholder" formControlName="description">
-				</mat-form-field>
-				<ng-rhombus-thumbnail-control [thumbnailSrc]="thumbnailSource" [width]="200" [height]="112"
-					[disabled]="blogPost() !== undefined" (onFileUploaded)="onFileUploaded($event)"
-					(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
-				<div class="textarea-class">
-					<mat-form-field class="content-class" appearance="outline">
-						<mat-label>Content</mat-label>
-						<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-							cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30" formControlName="content"
-							(keyup)="onContentChange()"></textarea>
+				<form novalidate class="h-full form-wrapper" [formGroup]="blogPostForm">
+					<mat-form-field>
+						<mat-label>Title</mat-label>
+						<input matInput placeholder="Placeholder" formControlName="title">
 					</mat-form-field>
-				</div>
+					<mat-form-field>
+						<mat-label>Description</mat-label>
+						<input matInput placeholder="Placeholder" formControlName="description">
+					</mat-form-field>
+					<ng-rhombus-thumbnail-control [thumbnailSrc]="thumbnailSource" [width]="200" [height]="112"
+						[disabled]="blogPost() !== undefined" (onFileUploaded)="onFileUploaded($event)"
+						(onFileDeleted)="onFileDeleted()"></ng-rhombus-thumbnail-control>
+					<div class="textarea-class">
+						<mat-form-field class="content-class">
+							<mat-label>Content</mat-label>
+							<textarea matInput required cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+								cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30" formControlName="content"
+								(keyup)="onContentChange()"></textarea>
+						</mat-form-field>
+					</div>
 
-				<div class="button-wrapper">
-					<button mat-raised-button class="cancel-button" (click)="onCancelClick()"
-						type="button">Cancel</button>
-					<button mat-flat-button [disabled]="blogPostForm.invalid" type="button"
-						(click)="onSubmit()">Submit</button>
-				</div>
+					<div class="button-wrapper">
+						<button mat-raised-button class="cancel-button" (click)="onCancelClick()"
+							type="button">Cancel</button>
+						<button mat-flat-button [disabled]="blogPostForm.invalid" type="button"
+							(click)="onSubmit()">Submit</button>
+					</div>
+				</form>
 			</div>
 		</mat-drawer-content>
 		<mat-drawer opened [mode]="'side'" position="end">
@@ -45,4 +48,4 @@
 			</div>
 		</mat-drawer>
 	</mat-drawer-container>
-</form>
+</div>

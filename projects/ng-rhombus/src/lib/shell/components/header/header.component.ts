@@ -2,7 +2,7 @@ import { Component, EventEmitter, inject, input, Input, Output } from '@angular/
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { WrapperService } from '../../services/wrapper.service';
 import { Router } from '@angular/router';
 import { NgRhombusAuthenticationService } from '../../services/authentication.service';
@@ -12,7 +12,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'ng-rhombus-header',
-  imports: [MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule, TitleCasePipe, MatProgressBarModule],
+  imports: [MatButtonModule, MatIconModule, MatMenuModule, MatToolbar, TitleCasePipe, MatProgressBarModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

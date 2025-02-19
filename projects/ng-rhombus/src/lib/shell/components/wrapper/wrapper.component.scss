@@ -37,9 +37,10 @@
     position: relative;
 }
 
-.content {
+.main-sidenav-content {
     // padding: 24px;
-    box-sizing: border-box;
+    // box-sizing: border-box;
+    overflow: hidden;
 }
 
 mat-sidenav-container {

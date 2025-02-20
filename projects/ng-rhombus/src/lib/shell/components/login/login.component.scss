@@ -1,29 +1,5 @@
-.wrapper-container {
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-}
+@use '@angular/material' as mat;
 
 mat-card {
-    // width: 400px;
-    padding: 32px;
-}
-
-mat-card-content {
-    display: flex;
-    flex-direction: column;
-}
-
-mat-card-title {
-    margin-bottom: 24px;
-}
-
-mat-card-footer {
-    display: flex;
-    flex-direction: column;
+    @include mat.elevation(6);
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NgRhombusLoginComponent } from '../../../../../ng-rhombus';
+import { Component, inject, signal } from '@angular/core';
+import { ILoginCredentials, NgRhombusLoginComponent } from '../../../../../ng-rhombus';
+import { NgRhombusAdminAppStore } from '../../app.store';
 
 @Component({
   selector: 'app-login',
@@ -8,5 +9,12 @@ import { NgRhombusLoginComponent } from '../../../../../ng-rhombus';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  title = 'Rhombus Software | Admin'
+  title = 'Rhombus Software'
+
+  loading = signal<boolean>(false);
+  appStore = inject(NgRhombusAdminAppStore);
+
+  onFormSubmit(formData: ILoginCredentials) {
+    this.appStore.login(formData.email, formData.password);
+  }
 }

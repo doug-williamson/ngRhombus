@@ -1,12 +1,12 @@
-<ng-rhombus-header class="header-wrapper" [isMobile]="isMobile" [title]="title"
-    (menuToggled)="sidenav.toggle()"></ng-rhombus-header>
-<mat-sidenav-container class="wrapper-flex">
+<ng-rhombus-header class="header-wrapper" [isMobile]="isMobile" [title]="title" (menuToggled)="sidenav.toggle()"
+    [isLoading]="isLoading()"></ng-rhombus-header>
+<mat-sidenav-container>
     <mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
         <div class="nav-list-wrapper">
             <ng-rhombus-nav-list [routeCollection]="routeCollection"></ng-rhombus-nav-list>
         </div>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="main-sidenav-content">
         <!-- <mat-toolbar class="header-theme">
                 <span class="wrapper-flex">
                     <ng-container *ngFor="let breadcrumb of breadcrumbs()">
@@ -19,5 +19,4 @@
             </mat-toolbar> -->
         <router-outlet #o="outlet"></router-outlet>
     </mat-sidenav-content>
-
 </mat-sidenav-container>

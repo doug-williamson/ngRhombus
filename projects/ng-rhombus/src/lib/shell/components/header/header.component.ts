@@ -1,27 +1,28 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, input, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { WrapperService } from '../../services/wrapper.service';
 import { Router } from '@angular/router';
 import { NgRhombusAuthenticationService } from '../../services/authentication.service';
 import { ThemeService } from '../../services/theme.service';
 import { TitleCasePipe } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
-    selector: 'ng-rhombus-header',
-    imports: [MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule, TitleCasePipe],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+  selector: 'ng-rhombus-header',
+  imports: [MatButtonModule, MatIconModule, MatMenuModule, MatToolbar, TitleCasePipe, MatProgressBarModule],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
 export class NgRhombusHeaderComponent {
-
+  isLoading = input<boolean>(false);
   wrapperService = inject(WrapperService);
-  authService  = inject(NgRhombusAuthenticationService);
+  authService = inject(NgRhombusAuthenticationService);
   protected themeService = inject(ThemeService);
   router = inject(Router);
-  
+
   darkMode = this.wrapperService.darkMode;
   user = this.authService.currentUserProfile;
 
@@ -30,12 +31,12 @@ export class NgRhombusHeaderComponent {
 
   @Input()
   title!: string;
-  
-	@Output() menuToggled = new EventEmitter;
 
-	toggleSidebar() {
-		this.menuToggled.emit();
-	}
+  @Output() menuToggled = new EventEmitter;
+
+  toggleSidebar() {
+    this.menuToggled.emit();
+  }
 
   async logout() {
     await this.authService.logout();

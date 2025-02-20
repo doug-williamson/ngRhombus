@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnInit, output, signal } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -6,22 +6,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { NgRhombusAuthenticationService } from '../../services/authentication.service';
+import { NgRhombusLoadingContainerComponent } from '../loading-container/loading-container.component';
+import { MatIconModule } from '@angular/material/icon';
 
+export interface ILoginCredentials {
+	email: string;
+	password: string;
+}
 
 @Component({
 	selector: 'ng-rhombus-login',
-	imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule],
+	imports: [ReactiveFormsModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, NgRhombusLoadingContainerComponent],
 	templateUrl: './login.component.html',
 	styleUrl: './login.component.scss'
 })
 export class NgRhombusLoginComponent implements OnInit {
-
 	public loginForm!: FormGroup;
 	authorizing: boolean = false;
 
 	title = input<string>('');
+	loading = input<boolean>(false);
+	onSubmit = output<ILoginCredentials>();
 
-	errorMessage = signal<string>('');
+	public hidePassword = signal(true);
 
 	authService = inject(NgRhombusAuthenticationService);
 
@@ -34,17 +41,8 @@ export class NgRhombusLoginComponent implements OnInit {
 		});
 	}
 
-	onSubmit() {
-		const rawForm = this.loginForm.getRawValue();
-		this.authService.login(rawForm.email, rawForm.password)
-			.subscribe({
-				next: () => {
-					this.errorMessage.set('');
-					this.router.navigateByUrl('/');
-				},
-				error: (err) => {
-					this.errorMessage.set(err.code)
-				}
-			});
+	onSubmitForm() {
+		const rawForm: ILoginCredentials = this.loginForm.getRawValue();
+		this.onSubmit.emit(rawForm);
 	}
 }

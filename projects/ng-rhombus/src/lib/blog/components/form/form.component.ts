@@ -13,17 +13,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { NgRhombusBlogThumbnailComponent } from '../thumbnail/thumbnail.component';
 import { MatListModule } from '@angular/material/list';
 import { IBlog } from '../../models/blog';
 import { NgRhombusBlogPostThumbnailService } from '../../public-api';
 import { MatDialog } from '@angular/material/dialog';
-import { NgRhombusBlogDeletePostComponent } from '../dialogs/delete-post/delete-post.component';
 import { NgRhombusBlogConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, NgRhombusBlogThumbnailComponent, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })
@@ -40,11 +38,27 @@ export class NgRhombusBlogAddEditComponent {
 	formBuilder = inject(FormBuilder);
 
 	@ViewChild('autosize') autosize?: CdkTextareaAutosize;
-	@ViewChild('blogPost') blogPostPreview!: ElementRef
+	@ViewChild('blogPost') blogPostPreview!: ElementRef;
+
+	markdown = `## Markdown __rulez__!
+	---
+	
+	### Syntax highlight
+	\`\`\`typescript
+	const language = 'typescript';
+	\`\`\`
+	
+	### Lists
+	1. Ordered list
+	2. Another bullet point
+	   - Unordered list
+	   - Another unordered bullet
+	
+	### Blockquote
+	> Blockquote to the max`;
 
 	constructor() {
 		effect(() => {
-			console.log(this.blogPost())
 			if (this.blogPost()) {
 				this.blogPostForm.patchValue({
 					title: this.blogPost()?.title,
@@ -58,7 +72,6 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	ngOnInit(): void {
-		console.log(this.blogPost());
 		this.blogPostForm = this.formBuilder.group({
 			title: [this.blogPost()?.title, Validators.required],
 			description: [this.blogPost()?.description, Validators.required],
@@ -109,7 +122,6 @@ export class NgRhombusBlogAddEditComponent {
 			}
 		} else {
 			// CREATE form
-			debugger;
 			if (this.blogPostForm.dirty) {
 				const dialogRef = this.dialog.open(NgRhombusBlogConfirmationComponent, {
 					data: {
@@ -136,7 +148,6 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	onSubmit() {
-		debugger;
 		if (this.blogPostForm.invalid) {
 			return;
 		}

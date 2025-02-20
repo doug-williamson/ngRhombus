@@ -19,10 +19,16 @@
     ));
 }
 
-.flex {
-  flex: 1 1 auto;
-}
+// .flex {
+//   flex: 1 1 auto;
+// }
 
-.logout-button {
-  margin-left: 6px;
+// .logout-button {
+//   margin-left: 6px;
+// }
+
+.app-progress-bar {
+  position: absolute;
+  @include mat.progress-bar-overrides((active-indicator-color: var(--mat-sys-primary), track-color: var(--mat-sys-surface-variant), ));
+  @include mat.elevation(10);
 }

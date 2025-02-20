@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgRhombusNavItem, NgRhombusWrapperComponent } from '../../../ng-rhombus/src/public-api';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
     animations: []
 })
 export class AppComponent {
-	
+
 }

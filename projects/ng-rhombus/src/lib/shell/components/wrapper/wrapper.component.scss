@@ -1,34 +1,48 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+// // Custom Theming for Angular Material
+// // For more information: https://material.angular.io/guide/theming
+// @use '@angular/material' as mat;
 
-.header-theme {
-    @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary),
-            container-text-color: var(--mat-sys-on-primary),
-        ));
+// .header-theme {
+//     @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary),
+//             container-text-color: var(--mat-sys-on-primary),
+//         ));
 
-    @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary),
-        ));
-}
+//     @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary),
+//         ));
+// }
 
-.wrapper-flex {
-    flex: 1;
-}
+// .wrapper-flex {
+//     flex: 1;
+// }
 
-.header-wrapper {
+// .header-wrapper {
+//     position: relative;
+//     z-index: 5;
+// }
+
+// mat-sidenav-container {
+//     height: calc(100vh - 64px);
+// }
+
+// mat-sidenav-content {
+//     // padding: 12px;
+//     box-sizing: border-box;
+// }
+
+// .nav-list-wrapper {
+//     // padding: 12px;
+// }
+
+:host {
     position: relative;
-    z-index: 5;
+}
+
+.main-sidenav-content {
+    // padding: 24px;
+    // box-sizing: border-box;
+    overflow: hidden;
 }
 
 mat-sidenav-container {
     height: calc(100vh - 64px);
-}
-
-mat-sidenav-content {
-    padding: 24px;
-    box-sizing: border-box;
-}
-
-.nav-list-wrapper {
-    // padding: 12px;
 }

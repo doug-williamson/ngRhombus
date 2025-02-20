@@ -40,7 +40,6 @@ export class ThumbnailControlComponent {
 
     this.thumbnailService.uploadImage(file.name, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadUrl) => {
-        console.log('DownloadUrl: ', downloadUrl);
         this.uploadedFile.set(downloadUrl);
         this.onFileUploaded.emit(downloadUrl);
       })

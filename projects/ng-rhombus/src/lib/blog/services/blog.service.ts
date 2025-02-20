@@ -41,7 +41,6 @@ export class NgRhombusBlogService {
     const docSnap = await getDoc(blogPostDocumentRef);
     if (docSnap.exists()) {
       const docData = { ...docSnap.data(), id: id } as IBlog;
-      console.log('Doug data: ', docData);
       this.selectedBlogPost.set(docData);
       return docData;
     } else {
@@ -61,7 +60,6 @@ export class NgRhombusBlogService {
   }
 
   async updateBlogPost(blogPost: IBlog) {
-    console.log(blogPost);
     const blogPostDocumentRef = doc(this.firestore, 'blog', blogPost.id);
     updateDoc(blogPostDocumentRef, {
       title: blogPost.title,

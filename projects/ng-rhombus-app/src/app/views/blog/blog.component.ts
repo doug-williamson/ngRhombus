@@ -25,6 +25,5 @@ export class BlogComponent {
 
   openDialog() {
     // const dialogRef = this.dialog.open()
-    console.log('Doug')
   }
 }

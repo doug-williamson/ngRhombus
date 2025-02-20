@@ -59,7 +59,6 @@ export class NgRhombusBlogAddEditComponent {
 
 	constructor() {
 		effect(() => {
-			console.log(this.blogPost())
 			if (this.blogPost()) {
 				this.blogPostForm.patchValue({
 					title: this.blogPost()?.title,
@@ -73,7 +72,6 @@ export class NgRhombusBlogAddEditComponent {
 	}
 
 	ngOnInit(): void {
-		console.log(this.blogPost());
 		this.blogPostForm = this.formBuilder.group({
 			title: [this.blogPost()?.title, Validators.required],
 			description: [this.blogPost()?.description, Validators.required],

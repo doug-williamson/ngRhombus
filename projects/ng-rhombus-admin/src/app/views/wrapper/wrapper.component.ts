@@ -36,7 +36,6 @@ export class WrapperComponent {
 	}
 
 	clickedAddNewEvent() {
-		console.log('Clicked Add New button')
 		this.wrapperService.clickedCreateNew();
 	}
 }

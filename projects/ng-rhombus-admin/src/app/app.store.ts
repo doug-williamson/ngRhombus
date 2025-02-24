@@ -41,11 +41,13 @@ export const NgRhombusAdminAppStore = signalStore(
                 } finally {
                     setTimeout(() => {
                         patchState(store, { loading: false });
-                    }, 1000)
+                    }, 500)
                 }
             },
             logout: async () => {
+                patchState(store, { loading: true });
                 await authService.logout();
+                patchState(store, { loading: false });
                 router.navigate(['/login']);
             },
             startLoading: () => {
@@ -60,9 +62,7 @@ export const NgRhombusAdminAppStore = signalStore(
                         if (event instanceof NavigationStart) {
                             patchState(store, { loading: true });
                         } else if (event instanceof NavigationEnd) {
-                            setTimeout(() => {
-                                patchState(store, { loading: false });
-                            }, 500)
+                            patchState(store, { loading: false });
                         }
                     }),
                 )

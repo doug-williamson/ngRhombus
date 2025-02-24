@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, input, Input, output, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -23,6 +23,8 @@ export class NgRhombusHeaderComponent {
   protected themeService = inject(ThemeService);
   router = inject(Router);
 
+  logOut = output<void>();
+
   darkMode = this.wrapperService.darkMode;
   user = this.authService.currentUserProfile;
 
@@ -38,8 +40,7 @@ export class NgRhombusHeaderComponent {
     this.menuToggled.emit();
   }
 
-  async logout() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/login');
+  logout() {
+    this.logOut.emit();
   }
 }

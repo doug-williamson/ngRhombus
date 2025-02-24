@@ -38,4 +38,8 @@ export class WrapperComponent {
 	clickedAddNewEvent() {
 		this.wrapperService.clickedCreateNew();
 	}
+
+	logout() {
+		this.appStore.logout();
+	}
 }

@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, computed, input } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, output, computed, input } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Subject, takeUntil } from 'rxjs';
 import { NgRhombusHeaderComponent } from '../header/header.component';
@@ -28,6 +28,7 @@ export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
   currentScreenSize?: string;
 
   isLoading = input<boolean>(false);
+  logout = output<void>();
 
   breadcrumbs = computed(() => { return this.wrapperService.breadcrumbs() });
 
@@ -67,5 +68,8 @@ export class NgRhombusWrapperComponent implements OnInit, OnDestroy {
 
   clickedCreateNew() {
     this.clickAddNewEvent.emit();
+  }
+  logOut() {
+    this.logout.emit();
   }
 }

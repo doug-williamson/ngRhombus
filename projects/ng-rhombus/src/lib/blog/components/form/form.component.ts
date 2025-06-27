@@ -6,7 +6,6 @@ import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-contro
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { CommonModule } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
@@ -18,10 +17,11 @@ import { IBlog } from '../../models/blog';
 import { NgRhombusBlogPostThumbnailService } from '../../public-api';
 import { MatDialog } from '@angular/material/dialog';
 import { NgRhombusBlogConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, MatDividerModule, MarkdownModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, MatDividerModule, MarkdownComponent, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })
@@ -42,18 +42,18 @@ export class NgRhombusBlogAddEditComponent {
 
 	markdown = `## Markdown __rulez__!
 	---
-	
+
 	### Syntax highlight
 	\`\`\`typescript
 	const language = 'typescript';
 	\`\`\`
-	
+
 	### Lists
 	1. Ordered list
 	2. Another bullet point
-	   - Unordered list
-	   - Another unordered bullet
-	
+	- Unordered list
+	- Another unordered bullet
+
 	### Blockquote
 	> Blockquote to the max`;
 

@@ -13,10 +13,7 @@ export const routes: Routes = [
     },
     {
         path: 'blog',
-        loadComponent: () => import('./views/blog/blog.component').then(m => m.BlogComponent),
-        data: {
-            breadcrumb: 'Blog'
-        }
+        loadChildren: () => import('./views/blog/blog.routes').then(routes => routes.BLOG_ROUTES),
     },
     {
         path: 'about',

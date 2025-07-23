@@ -1,1 +1,8 @@
-<p>list works!</p>
+<mat-nav-list>
+    @for (blogPost of dataSource(); track blogPost.id) {
+    <mat-list-item [routerLink]="['/blog', blogPost.id]">
+        <span matListItemTitle>{{ blogPost.title }}</span>
+        <span matListItemLine>{{ blogPost.description }}</span>
+    </mat-list-item>
+    }
+</mat-nav-list>

@@ -5,14 +5,14 @@ import { NgRhombusAppAppStore } from "../../app.store";
 
 
 type BlogState = {
-    blogPosts: IBlog[];
-    blogPost: IBlog,
+    blogPosts: IBlog[] | undefined,
+    blogPost: IBlog | undefined,
     loading: boolean;
 }
 
 const initialBlogState: BlogState = {
-    blogPosts: [],
-    blogPost: new IBlog(),
+    blogPosts: undefined,
+    blogPost: undefined,
     loading: false
 }
 
@@ -34,6 +34,12 @@ export const NgRhombusAppBlogStore = signalStore(
                 patchState(store, { loading: true });
 
                 const post = await blogService.fetchBlogPost(id);
+                patchState(store, { blogPost: post, loading: false });
+            },
+            async loadLatest() {
+                patchState(store, { loading: true });
+
+                const post = await blogService.fetchLatestBlogPost();
                 patchState(store, { blogPost: post, loading: false });
             }
         })

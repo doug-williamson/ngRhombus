@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { NgRhombusBlogPostComponent, NgRhombusBlogService, WrapperService } from '../../../../../../ng-rhombus/src/public-api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgRhombusAppBlogStore } from '../blog.store';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'ng-rhombus-app-blog-post',
-  imports: [NgRhombusBlogPostComponent],
+  imports: [MatProgressSpinnerModule, NgRhombusBlogPostComponent],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })

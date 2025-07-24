@@ -1,23 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { NgRhombusBlogListComponent, NgRhombusBlogPostThumbnailService, NgRhombusBlogService, WrapperService } from '../../../../../../ng-rhombus/src/public-api';
+import { NgRhombusBlogListComponent, NgRhombusBlogService } from '../../../../../../ng-rhombus/src/public-api';
 import { NgRhombusAppBlogStore } from '../blog.store';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @Component({
   selector: 'ng-rhombus-app-blog-list',
-  imports: [NgRhombusBlogListComponent],
+  imports: [MatProgressSpinnerModule, NgRhombusBlogListComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
 export class NgRhombusAppBlogListComponent {
-  wrapperService = inject(WrapperService);
   blogService = inject(NgRhombusBlogService);
   blogStore = inject(NgRhombusAppBlogStore);
-  thumbnailService = inject(NgRhombusBlogPostThumbnailService)
 
-  router = inject(Router);
   dialog = inject(MatDialog);
 
   ngOnInit(): void {

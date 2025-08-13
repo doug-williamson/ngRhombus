@@ -11,13 +11,10 @@ export const routes: Routes = [
             breadcrumb: 'Home'
         },
     },
-    {
-        path: 'blog',
-        loadComponent: () => import('./views/blog/blog.component').then(m => m.BlogComponent),
-        data: {
-            breadcrumb: 'Blog'
-        }
-    },
+	{
+		path: 'blog',
+		loadChildren: () => import('./views/blog/blog.routes').then(routes => routes.BLOG_ROUTES),
+	},
     {
         path: 'about',
         loadComponent: () => import('./views/about/about.component').then(m => m.AboutComponent),

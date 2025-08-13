@@ -11,7 +11,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { Auth, connectAuthEmulator, getAuth, provideAuth } from '@angular/fire/auth';
 import { connectStorageEmulator, getStorage, provideStorage, Storage } from '@angular/fire/storage';
 import { provideMarkdown } from 'ngx-markdown';
-import { environment } from '../../../ng-rhombus-admin/src/environments/environment';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -13,7 +13,7 @@
     "publish:library": "npm publish --access=public ./dist/doug-williamson/ng-rhombus",
     "build:app": "ng build ngRhombusApp",
     "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js",
-    "emulator-admin": "firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977"
+    "emulator": "lsof -ti:8080 | xargs kill -9;  firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977"
   },
   "private": true,
   "dependencies": {

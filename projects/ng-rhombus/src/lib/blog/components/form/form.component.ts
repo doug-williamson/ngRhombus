@@ -14,14 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { IBlog } from '../../models/blog';
-import { NgRhombusBlogPostThumbnailService } from '../../public-api';
+import { NgRhombusBlogPostComponent, NgRhombusBlogPostThumbnailService } from '../../public-api';
 import { MatDialog } from '@angular/material/dialog';
 import { NgRhombusBlogConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
-import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, MatDividerModule, MarkdownComponent, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, MatDividerModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, NgRhombusBlogPostComponent],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })

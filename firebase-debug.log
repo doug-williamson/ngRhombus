@@ -63,6 +63,7 @@ Dev App Server is now running.
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
+<<<<<<< HEAD
 [debug] [2025-08-12T22:15:02.743Z] Aug 12, 2025 6:15:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
  {"metadata":{"emulator":{"name":"firestore"},"message":"Aug 12, 2025 6:15:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
@@ -506,3 +507,134 @@ INFO: Detected non-HTTP/2 connection.
 [debug] [2025-08-13T00:46:02.390Z] Aug 12, 2025 8:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
  {"metadata":{"emulator":{"name":"firestore"},"message":"Aug 12, 2025 8:46:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+=======
+[debug] [2025-07-09T19:05:24.940Z] Error: ENOENT: no such file or directory, open 'C:\Users\dougl\AppData\Local\Temp\firebase\storage\blobs\e414682d-3d0b-426b-b425-95c151b71b58'
+    at openSync (node:fs:581:18)
+    at Persistence.readBytes (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\storage\persistence.js:36:36)
+    at StorageLayer.getBytes (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\storage\files.js:89:38)
+    at StorageLayer.getObject (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\storage\files.js:74:49)
+    at C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\storage\apis\firebase.js:76:54
+    at Layer.handle [as handle_request] (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\express\lib\router\index.js:284:15
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-09T21:15:29.523Z] ----------------------------------------------------------------------
+[debug] [2025-07-09T21:15:29.524Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977
+[debug] [2025-07-09T21:15:29.524Z] CLI Version:   13.29.1
+[debug] [2025-07-09T21:15:29.524Z] Platform:      win32
+[debug] [2025-07-09T21:15:29.525Z] Node Version:  v20.11.1
+[debug] [2025-07-09T21:15:29.525Z] Time:          Wed Jul 09 2025 17:15:29 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-07-09T21:15:29.525Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-09T21:15:29.527Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-07-09T21:15:29.591Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-09T21:15:29.591Z] > authorizing via signed-in user (douglasmwilliamson@gmail.com)
+[debug] [2025-07-09T21:15:29.699Z] java version "23.0.1" 2024-10-15
+
+[debug] [2025-07-09T21:15:29.699Z] Java(TM) SE Runtime Environment (build 23.0.1+11-39)
+Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
+
+[debug] [2025-07-09T21:15:29.724Z] Parsed Java major version: 23
+[info] i  emulators: Starting emulators: auth, firestore, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, storage"}}
+[debug] [2025-07-09T21:15:29.732Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-09T21:15:29.732Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-09T21:15:29.732Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-09T21:15:29.732Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-09T21:15:29.733Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-09T21:15:29.733Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-07-09T21:15:29.735Z] [hub] writing locator at C:\Users\dougl\AppData\Local\Temp\hub-rhombus-78977.json
+[info] i  firestore: Importing data from C:\GitHub\ngRhombus\test-data\firestore_export\firestore_export.overall_export_metadata {"metadata":{"emulator":{"name":"firestore"},"message":"Importing data from C:\\GitHub\\ngRhombus\\test-data\\firestore_export\\firestore_export.overall_export_metadata"}}
+[debug] [2025-07-09T21:15:29.745Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-07-09T21:15:29.745Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-07-09T21:15:29.745Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\dougl\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","rhombus-78977","--seed_from_export","C:\\GitHub\\ngRhombus\\test-data\\firestore_export\\firestore_export.overall_export_metadata","--rules","C:\\GitHub\\ngRhombus\\firestore.rules","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\dougl\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"rhombus-78977\",\"--seed_from_export\",\"C:\\\\GitHub\\\\ngRhombus\\\\test-data\\\\firestore_export\\\\firestore_export.overall_export_metadata\",\"--rules\",\"C:\\\\GitHub\\\\ngRhombus\\\\firestore.rules\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2025-07-09T21:15:29.807Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-07-09T21:15:29.807Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[info] i  auth: Importing config from C:\GitHub\ngRhombus\test-data\auth_export\config.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing config from C:\\GitHub\\ngRhombus\\test-data\\auth_export\\config.json"}}
+[info] i  auth: Importing accounts from C:\GitHub\ngRhombus\test-data\auth_export\accounts.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing accounts from C:\\GitHub\\ngRhombus\\test-data\\auth_export\\accounts.json"}}
+[debug] [2025-07-09T21:15:34.600Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-07-09T21:15:35.142Z] Temp file directory for storage emulator: C:\Users\dougl\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\dougl\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2025-07-09T21:15:35.155Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2025-07-22T12:05:27.120Z] ----------------------------------------------------------------------
+[debug] [2025-07-22T12:05:27.121Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dougl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977
+[debug] [2025-07-22T12:05:27.122Z] CLI Version:   13.29.1
+[debug] [2025-07-22T12:05:27.122Z] Platform:      win32
+[debug] [2025-07-22T12:05:27.122Z] Node Version:  v20.11.1
+[debug] [2025-07-22T12:05:27.122Z] Time:          Tue Jul 22 2025 08:05:27 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-07-22T12:05:27.122Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-22T12:05:27.124Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-07-22T12:05:27.191Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-22T12:05:27.191Z] > authorizing via signed-in user (douglasmwilliamson@gmail.com)
+[debug] [2025-07-22T12:05:27.339Z] java version "23.0.1" 2024-10-15
+
+[debug] [2025-07-22T12:05:27.339Z] Java(TM) SE Runtime Environment (build 23.0.1+11-39)
+Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
+
+[debug] [2025-07-22T12:05:27.377Z] Parsed Java major version: 23
+[info] i  emulators: Starting emulators: auth, firestore, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, storage"}}
+[debug] [2025-07-22T12:05:27.385Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-22T12:05:27.385Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-22T12:05:27.385Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-22T12:05:27.385Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-22T12:05:27.385Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-22T12:05:27.385Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-07-22T12:05:27.388Z] [hub] writing locator at C:\Users\dougl\AppData\Local\Temp\hub-rhombus-78977.json
+[info] i  firestore: Importing data from C:\GitHub\ngRhombus\test-data\firestore_export\firestore_export.overall_export_metadata {"metadata":{"emulator":{"name":"firestore"},"message":"Importing data from C:\\GitHub\\ngRhombus\\test-data\\firestore_export\\firestore_export.overall_export_metadata"}}
+[debug] [2025-07-22T12:05:27.397Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-07-22T12:05:27.397Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-07-22T12:05:27.397Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\dougl\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","rhombus-78977","--seed_from_export","C:\\GitHub\\ngRhombus\\test-data\\firestore_export\\firestore_export.overall_export_metadata","--rules","C:\\GitHub\\ngRhombus\\firestore.rules","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8080} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\dougl\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"rhombus-78977\",\"--seed_from_export\",\"C:\\\\GitHub\\\\ngRhombus\\\\test-data\\\\firestore_export\\\\firestore_export.overall_export_metadata\",\"--rules\",\"C:\\\\GitHub\\\\ngRhombus\\\\firestore.rules\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8080}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2025-07-22T12:05:27.432Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-07-22T12:05:27.432Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] +  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[info] i  auth: Importing config from C:\GitHub\ngRhombus\test-data\auth_export\config.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing config from C:\\GitHub\\ngRhombus\\test-data\\auth_export\\config.json"}}
+[info] i  auth: Importing accounts from C:\GitHub\ngRhombus\test-data\auth_export\accounts.json {"metadata":{"emulator":{"name":"auth"},"message":"Importing accounts from C:\\GitHub\\ngRhombus\\test-data\\auth_export\\accounts.json"}}
+[debug] [2025-07-22T12:05:32.046Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2025-07-22T12:05:32.610Z] Temp file directory for storage emulator: C:\Users\dougl\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\dougl\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2025-07-22T12:05:32.626Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+>>>>>>> bf6c7c8009d2a8b38d1d2929e30c294d0ad71b90

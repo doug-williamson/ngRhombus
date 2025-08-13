@@ -27,15 +27,9 @@
 	</div>
 
 	<div class="flex flex-col w-1/2 p-4 overflow-y-auto">
-		<mat-card>
-			<mat-card-header>
-				<mat-card-title>{{ blogPostForm.getRawValue().title }}</mat-card-title>
-				<mat-card-subtitle>{{ blogPostForm.getRawValue().description }}</mat-card-subtitle>
-			</mat-card-header>
-			<img [src]="blogPostForm.getRawValue().thumbnail" />
-			<mat-card-content>
-				<markdown class="prose" [data]="contentData()" />
-			</mat-card-content>
-		</mat-card>
+		<ng-rhombus-blog-post [title]="blogPostForm.get('title')?.value"
+			[description]="blogPostForm.get('description')?.value" [thumbnail]="thumbnailSource"
+			[content]="blogPostForm.get('content')?.value">
+		</ng-rhombus-blog-post>
 	</div>
 </div>

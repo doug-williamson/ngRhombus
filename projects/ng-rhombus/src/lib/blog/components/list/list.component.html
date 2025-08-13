@@ -1,4 +1,5 @@
 <mat-nav-list>
+<<<<<<< HEAD
 	@for (blogPost of dataSource(); track blogPost.id) {
 		<mat-list-item (click)="goToRoute.emit(blogPost.id)">
 			<h3 matListItemTitle>{{ blogPost.title }}</h3>
@@ -6,4 +7,13 @@
 			<p matListItemMeta>{{ blogPost.timestamp.toMillis() | date: 'MMMM d, y' }}</p>
 		</mat-list-item>
 	}
+=======
+    @for (blogPost of dataSource(); track blogPost.id) {
+    <mat-list-item [routerLink]="['/blog', blogPost.id]">
+        <span matListItemTitle>{{ blogPost.title }}</span>
+        <span matListItemLine>{{ blogPost.description }}</span>
+        <span matListItemLine>{{ blogPost.timestamp.toMillis() | date: 'MMMM d, y' }}</span>
+    </mat-list-item>
+    }
+>>>>>>> bf6c7c8009d2a8b38d1d2929e30c294d0ad71b90
 </mat-nav-list>

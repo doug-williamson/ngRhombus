@@ -56,17 +56,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-<<<<<<< HEAD
 				"fileReplacements": [
                 {
                   "replace": "projects/ng-rhombus-app/src/environments/environment.ts",
                   "with": "projects/ng-rhombus-app/src/environments/environment.development.ts"
-=======
-              "fileReplacements": [
-                {
-                  "replace": "projects/ng-rhombus-admin/src/environments/environment.ts",
-                  "with": "projects/ng-rhombus-admin/src/environments/environment.development.ts"
->>>>>>> bf6c7c8009d2a8b38d1d2929e30c294d0ad71b90
                 }
               ]
             }

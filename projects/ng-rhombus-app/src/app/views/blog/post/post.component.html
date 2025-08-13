@@ -1,15 +1,1 @@
-<<<<<<< HEAD
-<p>post works!</p>
 <ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
-=======
-<div class="p-4">
-    @if (blogStore.blogPost() !== undefined) {
-    <ng-rhombus-blog-post [title]="blogStore.blogPost()!.title" [description]="blogStore.blogPost()!.description"
-        [thumbnail]="blogStore.blogPost()!.thumbnail" [content]="blogStore.blogPost()!.content">
-    </ng-rhombus-blog-post>
-    } @else {
-    <mat-progress-spinner></mat-progress-spinner>
-    }
-
-</div>
->>>>>>> bf6c7c8009d2a8b38d1d2929e30c294d0ad71b90

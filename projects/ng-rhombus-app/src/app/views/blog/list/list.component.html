@@ -1,0 +1,7 @@
+@if (blogStore.blogPosts() !== undefined) {
+<ng-rhombus-blog-list [dataSource]="blogService.blogPosts()"></ng-rhombus-blog-list>
+} @else {
+<div class="spinner-backdrop">
+    <mat-spinner></mat-spinner>
+</div>
+}

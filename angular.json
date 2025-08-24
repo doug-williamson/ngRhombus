@@ -55,7 +55,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+				"fileReplacements": [
+                {
+                  "replace": "projects/ng-rhombus-app/src/environments/environment.ts",
+                  "with": "projects/ng-rhombus-app/src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -167,10 +173,8 @@
               }
             },
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/ng-rhombus-admin/public"
-              }
+				"projects/ng-rhombus-admin/src/favicon.ico",
+              	"projects/ng-rhombus-admin/src/assets"
             ],
             "styles": [
               "projects/ng-rhombus-admin/src/theme-colors.scss",

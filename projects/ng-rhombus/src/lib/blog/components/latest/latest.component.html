@@ -1,0 +1,7 @@
+<mat-nav-list>
+    <mat-list-item [routerLink]="['/blog', blogPost()?.id]">
+        <span matListItemTitle>{{ blogPost()?.title }}</span>
+        <span matListItemLine>{{ blogPost()?.description }}</span>
+        <span matListItemLine>{{ blogPost()?.timestamp?.toMillis() | date: 'MMMM d, y' }}</span>
+    </mat-list-item>
+</mat-nav-list>

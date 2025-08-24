@@ -5,9 +5,10 @@ import {
   collection,
   deleteDoc,
   doc,
-  docData,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
   setDoc,
   updateDoc
@@ -46,6 +47,18 @@ export class NgRhombusBlogService {
     } else {
       return;
     }
+  }
+
+  async fetchLatestBlogPost() {
+    const latestQuery = query(this.blogCollectionRef, orderBy('timestamp', 'desc'), limit(1));
+    const snapshot = await getDocs(latestQuery);
+    if (!snapshot.empty) {
+      const doc = snapshot.docs[0];
+      const latestPost = { ...doc.data(), id: doc.id } as IBlog;
+      this.selectedBlogPost.set(latestPost);
+      return latestPost;
+    }
+    return undefined;
   }
 
   async createBlogPost(blogPost: IBlog) {

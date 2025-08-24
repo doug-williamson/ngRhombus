@@ -21,7 +21,7 @@ import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, MatDividerModule, MarkdownComponent, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule],
+	imports: [MatListModule, MatDividerModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, MarkdownComponent],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })

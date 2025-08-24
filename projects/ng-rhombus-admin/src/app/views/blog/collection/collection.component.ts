@@ -15,8 +15,6 @@ import { NgRhombusBlogTableComponent, WrapperService, NgRhombusBlogService, NgRh
 	styleUrl: './collection.component.scss'
 })
 export class NgRhombusAdminBlogCollectionComponent implements OnInit {
-	destroyed = new Subject<void>();
-
 	wrapperService = inject(WrapperService);
 	blogService = inject(NgRhombusBlogService);
 	blogStore = inject(NgRhombusAdminBlogStore);

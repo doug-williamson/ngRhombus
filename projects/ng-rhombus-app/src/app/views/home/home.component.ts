@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgRhombusBlogPostLatestComponent, NgRhombusBlogService } from '../../../../../ng-rhombus/src/public-api';
+import { NgRhombusAppBlogStore } from '../blog/blog.store';
+import { MatDialog } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-    selector: 'app-home',
-    imports: [],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss'
+  selector: 'app-home',
+  imports: [MatCardModule, MatToolbarModule, NgRhombusBlogPostLatestComponent],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  fillerContent = Array.from(
-    {length: 50},
-    () =>
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-  );
+  blogService = inject(NgRhombusBlogService);
+  blogStore = inject(NgRhombusAppBlogStore);
+
+  dialog = inject(MatDialog);
+
+  ngOnInit(): void {
+    if (this.blogService.blogPosts.length === 0) {
+      this.blogStore.loadLatest();
+    }
+  }
 }

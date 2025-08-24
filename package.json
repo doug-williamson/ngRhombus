@@ -13,7 +13,7 @@
     "publish:library": "npm publish --access=public ./dist/doug-williamson/ng-rhombus",
     "build:app": "ng build ngRhombusApp",
     "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js",
-    "emulator-admin": "firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977"
+    "emulator": "lsof -ti:8080 | xargs kill -9;  firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +36,7 @@
     "marked": "^15.0.6",
     "ngx-markdown": "^19.0.0",
     "postcss": "^8.5.2",
+    "prismjs": "^1.30.0",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.0.6",
     "tslib": "^2.3.0",
@@ -45,6 +46,7 @@
     "@angular-devkit/build-angular": "^19.1.8",
     "@angular/cli": "^19.1.8",
     "@angular/compiler-cli": "^19.1.7",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",

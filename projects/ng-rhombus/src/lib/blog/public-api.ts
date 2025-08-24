@@ -3,8 +3,10 @@
  */
 
 export * from './components/list/list.component';
+export * from './components/latest/latest.component';
 export * from './components/table/table.component';
 export * from './components/form/form.component';
+export * from './components/post/post.component';
 export * from './components/dialogs/delete-post/delete-post.component';
 
 export * from './services/blog.service';

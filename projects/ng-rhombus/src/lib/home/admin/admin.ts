@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -13,7 +13,5 @@ export class NgRhombusHomeAdminComponent implements OnInit {
 	formBuilder = inject(FormBuilder);
 
 	ngOnInit(): void {
-		this.homeAdminForm = this.formBuilder.group({
-			title: [''],
 	}
 }

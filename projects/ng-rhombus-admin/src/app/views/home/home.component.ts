@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { NgRhombusHomeAdminComponent } from '../../../../../ng-rhombus/src/public-api';
+import { Component, inject } from '@angular/core';
+import { NgRhombusHomeAdminComponent, WrapperService } from '../../../../../ng-rhombus/src/public-api';
 import { IHome } from '../../../../../ng-rhombus/src/lib/home/models/home';
+import { NgRhombusHomeService } from '../../../../../ng-rhombus/src/lib/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,9 @@ import { IHome } from '../../../../../ng-rhombus/src/lib/home/models/home';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  homeService = inject(NgRhombusHomeService);
+  wrapperService = inject(WrapperService)
+
   onCancelEvent() {
     // this.routeToBlogCollection();
   }
@@ -19,5 +23,9 @@ export class HomeComponent {
     //   this.wrapperService.openSnackbar('Blog Post added!');
     //   this.routeToBlogCollection();
     // });
+    this.homeService.saveOrUpdateHomeDocument(submittedHomeAdmin).then(() => {
+      // display 'Home Admin Data Saved' alert, redirect back to collection
+      this.wrapperService.openSnackbar('Home Admin Data saved!');
+    });
   }
 }

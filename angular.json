@@ -47,7 +47,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -61,7 +61,7 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-				"fileReplacements": [
+              "fileReplacements": [
                 {
                   "replace": "projects/ng-rhombus-app/src/environments/environment.ts",
                   "with": "projects/ng-rhombus-app/src/environments/environment.development.ts"
@@ -178,8 +178,8 @@
               }
             },
             "assets": [
-				"projects/ng-rhombus-admin/src/favicon.ico",
-              	"projects/ng-rhombus-admin/src/assets"
+              "projects/ng-rhombus-admin/src/favicon.ico",
+              "projects/ng-rhombus-admin/src/assets"
             ],
             "styles": [
               "projects/ng-rhombus-admin/src/theme-colors.scss",

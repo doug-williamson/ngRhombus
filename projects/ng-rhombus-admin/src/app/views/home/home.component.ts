@@ -14,10 +14,10 @@ export class HomeComponent {
   }
 
   onSubmitEvent(submittedHomeAdmin: IHome) {
-    this.blogService.createBlogPost(submittedBlogPost).then(() => {
-      // display 'New Blog Post Added' alert, redirect back to collection
-      this.wrapperService.openSnackbar('Blog Post added!');
-      this.routeToBlogCollection();
-    });
+    // this.blogService.createBlogPost(submittedBlogPost).then(() => {
+    //   // display 'New Blog Post Added' alert, redirect back to collection
+    //   this.wrapperService.openSnackbar('Blog Post added!');
+    //   this.routeToBlogCollection();
+    // });
   }
 }

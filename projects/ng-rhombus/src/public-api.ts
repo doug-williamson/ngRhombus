@@ -3,4 +3,5 @@
  */
 
 export * from './lib/shell/public-api';
-export * from './lib/blog/public-api';
+export * from './lib/blog/public-api'
+export * from './lib/home/public-api';

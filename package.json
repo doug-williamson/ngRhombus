@@ -5,7 +5,7 @@
     "ng": "ng",
     "start:app": "ng serve ngRhombusApp --port 4201",
     "start:admin": "ng serve ngRhombusAdmin --port 4202",
-    "build:app": "ng build ngRhombusApp",
+    "build:app": "ng build ngRhombusApp --configuration development",
     "build:admin": "ng build ngRhombusAdmin",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -15,6 +15,8 @@
     "bundle-report": "ng build ngRhombusApp --source-map && source-map-explorer dist/ng-rhombus-app/browser/*.js",
     "emulator:mac": "lsof -ti:8080 | xargs kill -9;  firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977",
     "emulator:win": "firebase emulators:start --only firestore,auth,storage --import test-data --export-on-exit test-data --project rhombus-78977",
+    "dev:ssr:watch": "ng build ngRhombusApp --configuration development --watch",
+    "dev:ssr:serve": "node --watch --enable-source-maps dist/ng-rhombus-app/server/server.mjs",
     "serve:ssr:ngRhombusApp": "node dist/ng-rhombus-app/server/server.mjs"
   },
   "private": true,

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NgRhombusHomeAdminComponent, WrapperService } from '../../../../../ng-rhombus/src/public-api';
 import { IHome } from '../../../../../ng-rhombus/src/lib/home/models/home';
 import { NgRhombusHomeService } from '../../../../../ng-rhombus/src/lib/home/home.service';
@@ -9,9 +9,13 @@ import { NgRhombusHomeService } from '../../../../../ng-rhombus/src/lib/home/hom
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   homeService = inject(NgRhombusHomeService);
   wrapperService = inject(WrapperService)
+
+  ngOnInit(): void {
+    void this.homeService.fetchTopHomeDocument();
+  }
 
   onCancelEvent() {
     // this.routeToBlogCollection();

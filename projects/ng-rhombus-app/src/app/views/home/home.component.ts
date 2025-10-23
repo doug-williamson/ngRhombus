@@ -18,8 +18,8 @@ export class HomeComponent {
   dialog = inject(MatDialog);
 
   ngOnInit(): void {
-    if (this.blogService.blogPosts.length === 0) {
-      this.blogStore.loadLatest();
-    }
+    // if (this.blogService.blogPosts.length === 0) {
+    //   this.blogStore.loadLatest();
+    // }
   }
 }

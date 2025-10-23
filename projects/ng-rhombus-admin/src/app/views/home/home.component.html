@@ -1,1 +1,5 @@
-<ng-rhombus-home-admin (cancelEvent)="onCancelEvent()" (submitEvent)="onSubmitEvent($event)"></ng-rhombus-home-admin>
+<ng-rhombus-home-admin
+  [formAdminData]="homeService.homeAdminData()"
+  (cancelEvent)="onCancelEvent()"
+  (submitEvent)="onSubmitEvent($event)">
+</ng-rhombus-home-admin>

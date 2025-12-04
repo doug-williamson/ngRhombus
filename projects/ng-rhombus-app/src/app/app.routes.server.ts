@@ -10,7 +10,8 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'about', renderMode: RenderMode.Server },
 
   // Dynamic blog detail stays server-rendered on demand (no prerender params needed):
-  // { path: 'blog/:id', renderMode: RenderMode.Server },
+  { path: 'blog', renderMode: RenderMode.Client },
+  { path: 'blog/:id', renderMode: RenderMode.Server },
 
   // Fallback: SSR all other routes on demand
   { path: '**', renderMode: RenderMode.Server }

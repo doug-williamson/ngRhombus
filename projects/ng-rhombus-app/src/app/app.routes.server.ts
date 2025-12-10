@@ -6,10 +6,12 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   // Example static routes you may want to prerender at build time:
   { path: '', renderMode: RenderMode.Server },
-  { path: 'home', renderMode: RenderMode.Server },
-  { path: 'about', renderMode: RenderMode.Server },
+  // { path: 'home', renderMode: RenderMode.Server },
+  // { path: 'about', renderMode: RenderMode.Server },
+  { path: 'socials', renderMode: RenderMode.Server },
 
   // Dynamic blog detail stays server-rendered on demand (no prerender params needed):
+  // { path: 'blog', renderMode: RenderMode.Client },
   // { path: 'blog/:id', renderMode: RenderMode.Server },
 
   // Fallback: SSR all other routes on demand

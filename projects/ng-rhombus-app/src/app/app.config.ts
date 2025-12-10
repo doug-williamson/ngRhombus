@@ -28,21 +28,21 @@ export const appConfig: ApplicationConfig = {
     provideAuth(() => {
       const auth: Auth = getAuth();
       if (!environment.production) {
-        connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: false });
+        connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });
       }
       return auth;
     }),
     provideFirestore(() => {
       const firestore: Firestore = getFirestore();
       if (!environment.production) {
-        connectFirestoreEmulator(firestore, 'localhost', 8080);
+        connectFirestoreEmulator(firestore, '127.0.0.1', 8080);
       }
       return firestore;
     }),
     provideStorage(() => {
       const storage: Storage = getStorage();
       if (!environment.production) {
-        connectStorageEmulator(storage, 'localhost', 9199);
+        connectStorageEmulator(storage, '127.0.0.1', 9199);
       }
       return storage;
     }),

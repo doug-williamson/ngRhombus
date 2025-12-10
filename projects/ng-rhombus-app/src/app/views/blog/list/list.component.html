@@ -1,5 +1,6 @@
 @if (blogStore.blogPosts() !== undefined) {
-<ng-rhombus-blog-list [dataSource]="blogService.blogPosts()"></ng-rhombus-blog-list>
+<ng-rhombus-blog-list [dataSource]="blogService.blogPosts()"
+    (goToRoute)="routeToBlogPost($event)"></ng-rhombus-blog-list>
 } @else {
 <div class="spinner-backdrop">
     <mat-spinner></mat-spinner>

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgRhombusBlogListComponent, NgRhombusBlogService } from '../../../../../../ng-rhombus/src/public-api';
 import { NgRhombusAppBlogStore } from '../blog.store';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,14 +13,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './list.component.scss'
 })
 export class NgRhombusAppBlogListComponent {
+
   blogService = inject(NgRhombusBlogService);
   blogStore = inject(NgRhombusAppBlogStore);
 
-  dialog = inject(MatDialog);
+  router = inject(Router);
 
   ngOnInit(): void {
     if (this.blogService.blogPosts.length === 0) {
       this.blogStore.loadAll();
     }
+  }
+
+  routeToBlogPost(id: string) {
+    this.router.navigateByUrl(`/blog/${id}`);
   }
 }

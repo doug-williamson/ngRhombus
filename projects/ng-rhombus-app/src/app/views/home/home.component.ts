@@ -4,6 +4,7 @@ import { NgRhombusBlogPostLatestComponent, NgRhombusBlogService } from '../../..
 import { NgRhombusAppBlogStore } from '../blog/blog.store';
 import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,15 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  blogService = inject(NgRhombusBlogService);
+export class NgRhombusAppHomeComponent {
   blogStore = inject(NgRhombusAppBlogStore);
+  blogService = inject(NgRhombusBlogService);
 
   dialog = inject(MatDialog);
 
   ngOnInit(): void {
-    // if (this.blogService.blogPosts.length === 0) {
-    //   this.blogStore.loadLatest();
-    // }
+    if (this.blogService.blogPosts.length === 0) {
+      this.blogStore.loadLatest();
+    }
   }
 }

@@ -12,9 +12,16 @@ export const WRAPPER_ROUTES: Routes = [
             },
             {
                 path: 'home',
-                loadComponent: () => import('../home/home.component').then(m => m.HomeComponent),
+                loadComponent: () => import('../home/home.component').then(m => m.NgRhombusAdminHomeComponent),
                 data: {
                     breadcrumb: 'Home'
+                }
+            },
+            {
+                path: 'socials',
+                loadComponent: () => import('../socials/socials.component').then(m => m.NgRhombusAdminSocialsComponent),
+                data: {
+                    breadcrumb: 'Socials'
                 }
             },
             {

@@ -10,7 +10,11 @@ import { DatePipe } from '@angular/common';
   styleUrl: './list.component.scss'
 })
 export class NgRhombusBlogListComponent {
-  	@Output() goToRoute = new EventEmitter<string>();
+  @Output() goToRoute = new EventEmitter<string>();
 
-	dataSource = input<IBlog[]>([]);
+  dataSource = input<IBlog[]>([]);
+
+  goToBlogPost(id: string) {
+    this.goToRoute.emit(id);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, output } from '@angular/core';
+import { Component, OnInit, effect, inject, input, output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,13 +17,23 @@ export class NgRhombusHomeAdminComponent implements OnInit {
   cancelEvent = output<void>();
   submitEvent = output<IHome>();
 
-  homeAdminForm!: FormGroup
-  formBuilder = inject(FormBuilder);
+  homeAdminForm!: FormGroup;
+  private fb = inject(FormBuilder);
 
   ngOnInit(): void {
-    this.homeAdminForm = this.formBuilder.group({
-      title: [this.formAdminData()?.title, Validators.required],
-      description: [this.formAdminData()?.description, Validators.required],
+    // build once
+    this.homeAdminForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      // add other fields here...
+    });
+
+    // react to input changes (runs when data arrives)
+    effect(() => {
+      const data = this.formAdminData();
+      if (data) {
+        this.homeAdminForm.patchValue(data, { emitEvent: false });
+      }
     });
   }
 

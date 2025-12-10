@@ -29,6 +29,7 @@ export class NgRhombusHomeService {
     async fetchTopHomeDocument() {
         const topQuery = query(this.homeAdminRef, limit(1));
         const snapshot = await getDocs(topQuery);
+
         if (!snapshot.empty) {
             const doc = snapshot.docs[0];
             const topHome = { ...doc.data(), id: doc.id } as IHome;

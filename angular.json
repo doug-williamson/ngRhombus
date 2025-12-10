@@ -32,7 +32,7 @@
             "styles": [
               "projects/ng-rhombus-app/src/theme-colors.scss",
               "projects/ng-rhombus-app/src/custom-theme.scss",
-              "projects/ng-rhombus-app/src/styles.scss"
+              "projects/ng-rhombus-app/src/styles.css"
             ],
             "scripts": [],
             "server": "projects/ng-rhombus-app/src/main.server.ts",

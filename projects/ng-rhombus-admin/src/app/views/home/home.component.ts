@@ -9,7 +9,7 @@ import { NgRhombusHomeService } from '../../../../../ng-rhombus/src/lib/home/hom
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class NgRhombusAdminHomeComponent implements OnInit {
   homeService = inject(NgRhombusHomeService);
   wrapperService = inject(WrapperService)
 
@@ -22,13 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmitEvent(submittedHomeAdmin: IHome) {
-    // this.blogService.createBlogPost(submittedBlogPost).then(() => {
-    //   // display 'New Blog Post Added' alert, redirect back to collection
-    //   this.wrapperService.openSnackbar('Blog Post added!');
-    //   this.routeToBlogCollection();
-    // });
     this.homeService.saveOrUpdateHomeDocument(submittedHomeAdmin).then(() => {
-      // display 'Home Admin Data Saved' alert, redirect back to collection
       this.wrapperService.openSnackbar('Home Admin Data saved!');
     });
   }

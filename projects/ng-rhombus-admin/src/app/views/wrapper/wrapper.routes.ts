@@ -18,6 +18,13 @@ export const WRAPPER_ROUTES: Routes = [
                 }
             },
             {
+                path: 'socials',
+                loadComponent: () => import('../socials/socials.component').then(m => m.NgRhombusAdminSocialsComponent),
+                data: {
+                    breadcrumb: 'Socials'
+                }
+            },
+            {
                 path: 'blog',
                 loadChildren: () => import('../blog/blog.routes').then(routes => routes.BLOG_ROUTES),
             },

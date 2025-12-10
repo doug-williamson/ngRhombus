@@ -2,24 +2,31 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'home', pathMatch: 'full',
+        path: '', redirectTo: 'socials', pathMatch: 'full',
     },
     {
-        path: 'home',
-        loadComponent: () => import('./views/home/home.component').then(m => m.NgRhombusAppHomeComponent),
+        path: 'socials',
+        loadComponent: () => import('./views/socials/socials.component').then(m => m.NgRhombusAppSocialsComponent),
         data: {
-            breadcrumb: 'Home'
-        },
-    },
-    {
-        path: 'blog',
-        loadChildren: () => import('./views/blog/blog.routes').then(routes => routes.BLOG_ROUTES),
-    },
-    {
-        path: 'about',
-        loadComponent: () => import('./views/about/about.component').then(m => m.AboutComponent),
-        data: {
-            breadcrumb: 'About'
+            breadcrumb: 'Socials'
         }
-    }
+    },
+    // {
+    //     path: 'home',
+    //     loadComponent: () => import('./views/home/home.component').then(m => m.NgRhombusAppHomeComponent),
+    //     data: {
+    //         breadcrumb: 'Home'
+    //     },
+    // },
+    // {
+    //     path: 'blog',
+    //     loadChildren: () => import('./views/blog/blog.routes').then(routes => routes.BLOG_ROUTES),
+    // },
+    // {
+    //     path: 'about',
+    //     loadComponent: () => import('./views/about/about.component').then(m => m.AboutComponent),
+    //     data: {
+    //         breadcrumb: 'About'
+    //     }
+    // }
 ];

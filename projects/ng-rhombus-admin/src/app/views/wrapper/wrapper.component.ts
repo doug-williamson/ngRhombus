@@ -23,6 +23,11 @@ export class WrapperComponent {
 				route: 'home'
 			},
 			{
+				label: 'Socials',
+				icon: 'share',
+				route: 'socials'
+			},
+			{
 				label: 'Blog',
 				icon: 'rss_feed',
 				route: 'blog'

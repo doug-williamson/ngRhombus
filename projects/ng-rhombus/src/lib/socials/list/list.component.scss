@@ -1,0 +1,55 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+.social-toolbar {
+    @include mat.toolbar-overrides((container-background-color: var(--mat-sys-surface),
+            container-text-color: var(--mat-sys-on-surface),
+        ));
+
+    @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-surface),
+        ));
+
+    @include mat.elevation(6);
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    min-height: 48px;
+    width: 100%;
+}
+
+.toolbar-list {
+    display: grid;
+    gap: 8px;
+    margin: 12px;
+}
+
+.actionable {
+    cursor: pointer;
+    transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.actionable:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.actionable:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.left {
+    margin-right: 8px;
+}
+
+.center {
+    text-align: center;
+
+}
+
+.right {
+    display: inline-flex;
+    align-items: center;
+}

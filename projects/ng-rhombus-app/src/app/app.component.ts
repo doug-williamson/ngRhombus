@@ -14,21 +14,26 @@ export class AppComponent implements OnInit {
 
 	ngOnInit() {
 		this.routeCollection = [
+			// {
+			// 	label: 'Home',
+			// 	icon: 'home',
+			// 	route: 'home'
+			// },
 			{
-				label: 'Home',
-				icon: 'home',
-				route: 'home'
+				label: 'Socials',
+				icon: 'share',
+				route: 'socials'
 			},
-			{
-				label: 'Blog',
-				icon: 'rss_feed',
-				route: 'blog'
-			},
-			{
-				label: 'About',
-				icon: 'info',
-				route: 'about'
-			},
+			// {
+			// 	label: 'Blog',
+			// 	icon: 'rss_feed',
+			// 	route: 'blog'
+			// },
+			// {
+			// 	label: 'About',
+			// 	icon: 'info',
+			// 	route: 'about'
+			// },
 		];
 	}
 }

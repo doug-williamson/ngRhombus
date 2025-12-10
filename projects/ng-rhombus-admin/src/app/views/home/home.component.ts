@@ -14,7 +14,7 @@ export class NgRhombusAdminHomeComponent implements OnInit {
   wrapperService = inject(WrapperService)
 
   ngOnInit(): void {
-    this.homeService.fetchTopHomeDocument();
+    void this.homeService.fetchTopHomeDocument();
   }
 
   onCancelEvent() {

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, computed, ElementRef, inject, input, output, signal, ViewChild } from '@angular/core';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,7 +10,7 @@ import { NgRhombusBlogDeleteThumbnailComponent } from '../dialogs/delete-thumbna
 
 @Component({
   selector: 'ng-rhombus-thumbnail-control',
-  imports: [CommonModule, MatButtonModule, MatIconModule, NgRhombusBlogThumbnailComponent],
+  imports: [MatButtonModule, MatIconModule, NgRhombusBlogThumbnailComponent],
   templateUrl: './thumbnail-control.component.html',
   styleUrl: './thumbnail-control.component.scss'
 })

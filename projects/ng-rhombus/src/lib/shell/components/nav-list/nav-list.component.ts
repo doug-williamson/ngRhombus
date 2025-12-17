@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { NgRhombusNavItem } from './nav-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
     selector: 'ng-rhombus-nav-list',
-    imports: [CommonModule, RouterModule, MatListModule, MatIconModule, MatTabsModule],
+    imports: [RouterModule, MatListModule, MatIconModule, MatTabsModule],
     templateUrl: './nav-list.component.html',
     styleUrl: './nav-list.component.scss'
 })

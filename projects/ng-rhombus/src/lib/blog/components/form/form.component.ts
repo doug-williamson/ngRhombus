@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ThumbnailControlComponent } from "../thumbnail-control/thumbnail-control.component";
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { CommonModule } from '@angular/common';
+
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +21,7 @@ import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, MatDividerModule, CommonModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, MarkdownComponent],
+	imports: [MatListModule, MatDividerModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, MarkdownComponent],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })

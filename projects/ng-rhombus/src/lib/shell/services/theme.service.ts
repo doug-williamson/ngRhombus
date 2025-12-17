@@ -46,7 +46,8 @@ export class ThemeService {
   }
 
   getThemeFromLocalStorage() {
-    return isPlatformBrowser(this.platformId) ? localStorage.getItem(this.PREFERRED_THEME_COOKIE) as string : "";
+    if (!isPlatformBrowser(this.platformId)) return 'system';
+    return localStorage.getItem(this.PREFERRED_THEME_COOKIE) ?? 'system';
   }
 
   constructor() {

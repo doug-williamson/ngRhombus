@@ -4,10 +4,13 @@
 			<mat-card-title>{{ dataSource()?.title }}</mat-card-title>
 			<mat-card-subtitle>{{ dataSource()?.description }}</mat-card-subtitle>
 		</mat-card-header>
-		<img [src]="dataSource()?.thumbnail" />
+		<img mat-card-image [src]="dataSource()?.thumbnail" />
 		<mat-card-content>
 			<markdown [ngClass]="{ 'prose': true, 'dark:prose-invert': themeService.isDarkMode() }"
 				[data]="dataSource()?.content" />
 		</mat-card-content>
+		<mat-card-footer>
+			<span>Doug Williamson</span>
+		</mat-card-footer>
 	</mat-card>
 </div>

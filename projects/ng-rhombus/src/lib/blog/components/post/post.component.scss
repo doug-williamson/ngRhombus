@@ -1,3 +1,15 @@
+@use '@angular/material' as mat;
+
+.card-image {
+    @include mat.card-overrides((elevated-container-shape: var(--mat-sys-shape-medium) // Example mapping
+        ));
+}
+
 .page {
     margin: 12px 0;
+}
+
+.mat-mdc-card-header,
+.mat-mdc-card-content {
+    padding: 16px;
 }

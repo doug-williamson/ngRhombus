@@ -4,11 +4,11 @@ import { NgRhombusBlogListComponent, NgRhombusBlogService } from '../../../../..
 import { NgRhombusAppBlogStore } from '../blog.store';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'ng-rhombus-app-blog-list',
-  imports: [MatProgressSpinnerModule, NgRhombusBlogListComponent],
+  imports: [MatToolbarModule, MatProgressSpinnerModule, NgRhombusBlogListComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })

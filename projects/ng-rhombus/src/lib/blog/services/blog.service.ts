@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject, signal, Injector, runInInjectionContext } from '@angular/core';
 import {
   CollectionReference,
   Firestore,
@@ -22,13 +22,14 @@ import { NgRhombusBlogPostHelper } from '../helpers/blog-post-helper';
 export class NgRhombusBlogService {
 
   private firestore = inject(Firestore);
+  private injector = inject(Injector);
   private blogCollectionRef = collection(this.firestore, 'blog') as CollectionReference<IBlog>;
 
   blogPosts = signal<IBlog[]>([]);
   selectedBlogPost = signal<IBlog | undefined>(undefined);
 
   async fetchBlogPosts() {
-    const data = await getDocs(this.blogCollectionRef);
+    const data = await runInInjectionContext(this.injector, () => getDocs(this.blogCollectionRef));
     const returnData = [...data.docs.map(d => ({ ...d.data(), id: d.id })) as IBlog[]];
     this.blogPosts.set(returnData);
     return returnData;
@@ -39,7 +40,7 @@ export class NgRhombusBlogService {
     // const docSnap = (await getDoc(blogPostDocumentRef)).data() as IBlog
     // this.selectedBlogPost.set(docSnap);
     // return docSnap;
-    const docSnap = await getDoc(blogPostDocumentRef);
+    const docSnap = await runInInjectionContext(this.injector, () => getDoc(blogPostDocumentRef));
     if (docSnap.exists()) {
       const docData = { ...docSnap.data(), id: id } as IBlog;
       this.selectedBlogPost.set(docData);
@@ -51,7 +52,7 @@ export class NgRhombusBlogService {
 
   async fetchLatestBlogPost() {
     const latestQuery = query(this.blogCollectionRef, orderBy('timestamp', 'desc'), limit(1));
-    const snapshot = await getDocs(latestQuery);
+    const snapshot = await runInInjectionContext(this.injector, () => getDocs(latestQuery));
     if (!snapshot.empty) {
       const doc = snapshot.docs[0];
       const latestPost = { ...doc.data(), id: doc.id } as IBlog;
@@ -63,28 +64,28 @@ export class NgRhombusBlogService {
 
   async createBlogPost(blogPost: IBlog) {
     const blogPostDocumentRef = doc(this.firestore, 'blog', NgRhombusBlogPostHelper.createSlug(blogPost.title));
-    setDoc(blogPostDocumentRef, {
+    await runInInjectionContext(this.injector, () => setDoc(blogPostDocumentRef, {
       title: blogPost.title,
       description: blogPost.description,
       thumbnail: blogPost.thumbnail,
       content: blogPost.content,
       timestamp: new Date()
-    });
+    }));
   }
 
   async updateBlogPost(blogPost: IBlog) {
     const blogPostDocumentRef = doc(this.firestore, 'blog', blogPost.id);
-    updateDoc(blogPostDocumentRef, {
+    await runInInjectionContext(this.injector, () => updateDoc(blogPostDocumentRef, {
       title: blogPost.title,
       description: blogPost.description,
       thumbnail: blogPost.thumbnail,
       content: blogPost.content,
-    })
+    }))
   }
 
 
   deleteBlogPost(id: string) {
     const blogPostDocumentRef = doc(this.firestore, 'blog', id);
-    return deleteDoc(blogPostDocumentRef);
+    return runInInjectionContext(this.injector, () => deleteDoc(blogPostDocumentRef));
   }
 }

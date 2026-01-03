@@ -24,6 +24,15 @@ export class ThemeService {
     this.themes.find((t) => t.name === this.appTheme())
   );
 
+  isDarkMode = computed(() => {
+    const data = this.appTheme();
+    if (data === 'system' || data === 'dark') {
+      return true;
+    }
+
+    return false;
+  });
+
   getThemes() {
     return this.themes;
   }

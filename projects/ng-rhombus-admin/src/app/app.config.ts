@@ -14,12 +14,14 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { connectStorageEmulator, getStorage, provideStorage, Storage } from '@angular/fire/storage';
 import { provideMarkdown } from 'ngx-markdown';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
     provideClientHydration(),
+    provideHttpClient(withFetch()),
     provideStore(),
     provideStoreDevtools({
       maxAge: 25,

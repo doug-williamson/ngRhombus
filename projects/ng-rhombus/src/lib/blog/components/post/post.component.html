@@ -6,7 +6,8 @@
 		</mat-card-header>
 		<img [src]="dataSource()?.thumbnail" />
 		<mat-card-content>
-			<markdown class="prose" [data]="dataSource()?.content" />
+			<markdown [ngClass]="{ 'prose': true, 'dark:prose-invert': themeService.isDarkMode() }"
+				[data]="dataSource()?.content" />
 		</mat-card-content>
 	</mat-card>
 </div>

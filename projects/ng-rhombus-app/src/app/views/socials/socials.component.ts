@@ -3,11 +3,12 @@ import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { NgRhombusSocialsListComponent, NgRhombusSocialsService } from '../../../../../ng-rhombus/src/lib/socials/public-api';
 import { Platform } from '@angular/cdk/platform';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'ng-rhombus-app-socials',
   standalone: true,
-  imports: [NgRhombusSocialsListComponent],
+  imports: [MatToolbarModule, NgRhombusSocialsListComponent],
   templateUrl: './socials.component.html',
   styleUrl: './socials.component.scss'
 })

@@ -1,1 +1,18 @@
-<ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
+<div class="socials-page">
+    @if (blogStore.blogPost() !== undefined) {
+    <mat-toolbar class="header-theme" color="primary">
+        <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span>Back to Blog Posts</span>
+    </mat-toolbar>
+
+    <div>
+        <ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
+    </div>
+    } @else {
+    <div class="spinner-backdrop">
+        <mat-spinner></mat-spinner>
+    </div>
+    }
+</div>

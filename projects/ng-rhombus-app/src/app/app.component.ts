@@ -24,11 +24,11 @@ export class AppComponent implements OnInit {
 				icon: 'share',
 				route: 'socials'
 			},
-			// {
-			// 	label: 'Blog',
-			// 	icon: 'rss_feed',
-			// 	route: 'blog'
-			// },
+			{
+				label: 'Blog',
+				icon: 'rss_feed',
+				route: 'blog'
+			},
 			// {
 			// 	label: 'About',
 			// 	icon: 'info',

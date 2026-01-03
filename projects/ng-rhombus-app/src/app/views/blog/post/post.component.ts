@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { NgRhombusBlogPostComponent, NgRhombusBlogService, WrapperService } from '../../../../../../ng-rhombus/src/public-api';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgRhombusAppBlogStore } from '../blog.store';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'ng-rhombus-app-blog-post',
-  imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatProgressSpinnerModule, NgRhombusBlogPostComponent],
+  imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatProgressSpinnerModule, NgRhombusBlogPostComponent, RouterModule],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })

@@ -32,10 +32,14 @@
 				<mat-card-title>{{ blogPostForm.getRawValue().title }}</mat-card-title>
 				<mat-card-subtitle>{{ blogPostForm.getRawValue().description }}</mat-card-subtitle>
 			</mat-card-header>
-			<img [src]="blogPostForm.getRawValue().thumbnail" />
+			<img mat-card-image [src]="blogPostForm.getRawValue().thumbnail" />
 			<mat-card-content>
-				<markdown class="prose" [data]="contentData()" />
+				<markdown [ngClass]="{ 'prose': true, 'dark:prose-invert': themeService.isDarkMode() }"
+					[data]="contentData()" />
 			</mat-card-content>
+			<mat-card-footer>
+				<span class="flex flex-row-reverse">Doug Williamson</span>
+			</mat-card-footer>
 		</mat-card>
 	</div>
 </div>

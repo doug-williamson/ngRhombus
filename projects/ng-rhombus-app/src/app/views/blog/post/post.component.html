@@ -1,7 +1,8 @@
 <div class="socials-page">
     @if (blogStore.blogPost() !== undefined) {
     <mat-toolbar class="header-theme" color="primary">
-        <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+        <button matIconButton [routerLink]="'/blog'" class="example-icon"
+            aria-label="Example icon-button with menu icon">
             <mat-icon>arrow_back</mat-icon>
         </button>
         <span>Back to Blog Posts</span>

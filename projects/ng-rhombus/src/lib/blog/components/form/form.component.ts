@@ -18,14 +18,18 @@ import { NgRhombusBlogPostThumbnailService } from '../../public-api';
 import { MatDialog } from '@angular/material/dialog';
 import { NgRhombusBlogConfirmationComponent } from '../../dialogs/confirmation/confirmation.component';
 import { MarkdownComponent } from 'ngx-markdown';
+import { ThemeService } from '../../../shell/services/theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
 	selector: 'ng-rhombus-blog-form',
-	imports: [MatListModule, MatDividerModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, MarkdownComponent],
+	imports: [NgClass, MatListModule, MatDividerModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSidenavModule, ReactiveFormsModule, TextFieldModule, ThumbnailControlComponent, MatToolbarModule, MatIconModule, MarkdownComponent],
 	templateUrl: './form.component.html',
 	styleUrl: './form.component.scss'
 })
 export class NgRhombusBlogAddEditComponent {
+	themeService = inject(ThemeService);
+
 	blogPost = input<IBlog | undefined>(undefined);
 	cancelEvent = output<void>();
 	submitEvent = output<IBlog>();

@@ -1,16 +1,15 @@
-<div class="page">
-	<mat-card>
-		<mat-card-header>
-			<mat-card-title>{{ dataSource()?.title }}</mat-card-title>
-			<mat-card-subtitle>{{ dataSource()?.description }}</mat-card-subtitle>
-		</mat-card-header>
-		<img mat-card-image [src]="dataSource()?.thumbnail" />
-		<mat-card-content>
-			<markdown [ngClass]="{ 'prose': true, 'dark:prose-invert': themeService.isDarkMode() }"
-				[data]="dataSource()?.content" />
-		</mat-card-content>
-		<mat-card-footer>
-			<span class="flex flex-row-reverse">Doug Williamson</span>
-		</mat-card-footer>
-	</mat-card>
-</div>
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>{{ dataSource()?.title }}</mat-card-title>
+		<mat-card-title>{{ dataSource()?.description }}</mat-card-title>
+		<mat-card-subtitle>{{ dataSource()?.timestamp?.toMillis() | date: 'MMMM d, y' }}</mat-card-subtitle>
+	</mat-card-header>
+	<img mat-card-image [src]="dataSource()?.thumbnail" />
+	<mat-card-content>
+		<markdown [ngClass]="{ 'prose': true, 'dark:prose-invert': themeService.isDarkMode() }"
+			[data]="dataSource()?.content" />
+	</mat-card-content>
+	<mat-card-footer>
+		<span class="flex flex-row-reverse">Doug Williamson</span>
+	</mat-card-footer>
+</mat-card>

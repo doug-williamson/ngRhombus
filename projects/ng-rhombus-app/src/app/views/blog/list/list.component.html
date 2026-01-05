@@ -1,7 +1,7 @@
 <div class="socials-page">
     @if (blogStore.blogPosts() !== undefined) {
     <mat-toolbar class="header-theme">
-        <span>Socials</span>
+        <span>Blog Posts</span>
     </mat-toolbar>
     <ng-rhombus-blog-list class="list" [dataSource]="blogService.blogPosts()"
         (goToRoute)="routeToBlogPost($event)"></ng-rhombus-blog-list>

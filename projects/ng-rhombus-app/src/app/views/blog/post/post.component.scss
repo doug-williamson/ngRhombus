@@ -10,7 +10,8 @@
 .socials-page {
     display: flex;
     flex-direction: column;
-    margin: 12px;
+    margin: 12px auto; // keep vertical margin, center horizontally
+    max-width: 550px;
 }
 
 .example-icon {
@@ -25,6 +26,10 @@
     @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary-container),
         ));
 
+    @include mat.elevation(6);
+}
+
+.blog-post {
     @include mat.elevation(6);
 }
 

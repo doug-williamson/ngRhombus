@@ -8,6 +8,12 @@
     flex: 0 0 250px;
     max-width: 250px;
     margin: 12px;
+
+    @include mat.list-overrides((list-item-container-color: var(--mat-sys-primary-container),
+            list-item-label-text-color: var(--mat-sys-on-primary-container),
+            list-item-hover-label-text-color: var(--mat-sys-on-primary-container),
+            list-item-focus-label-text-color: var(--mat-sys-on-primary-container),
+        ));
 }
 
 .selected-menu-item {
@@ -20,4 +26,14 @@
 
 .mdc-list-item {
     // border-radius: 0 !important;
+}
+
+/* Space out each list item */
+a[mat-list-item] {
+    margin-bottom: 12px;
+}
+
+/* Optional: no margin after the last item */
+a[mat-list-item]:last-child {
+    margin-bottom: 0;
 }

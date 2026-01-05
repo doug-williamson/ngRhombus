@@ -2,16 +2,18 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
 .socials-page {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    margin: 12px;
-
-    ng-rhombus-socials-table {
-        flex-grow: 1;
-        overflow: auto;
-    }
+    margin: 12px auto; // keep vertical margin, center horizontally
+    min-width: 550px;
+    max-width: 550px;
+    @include mat.elevation(6);
 }
 
 .header-theme {
@@ -22,5 +24,5 @@
     @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary-container),
         ));
 
-    @include mat.elevation(6);
+
 }

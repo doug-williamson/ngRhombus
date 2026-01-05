@@ -10,7 +10,6 @@
     @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-surface),
         ));
 
-    @include mat.elevation(6);
 
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -22,7 +21,6 @@
 .toolbar-list {
     display: grid;
     gap: 8px;
-    margin: 12px;
 }
 
 .actionable {

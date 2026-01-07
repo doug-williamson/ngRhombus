@@ -7,49 +7,6 @@
     flex-direction: column;
 }
 
-.socials-page {
-    display: flex;
-    flex-direction: column;
-    margin: 12px auto; // keep vertical margin, center horizontally
-    max-width: 550px;
-}
-
-.example-icon {
-    margin-right: 8px;
-}
-
-.header-theme {
-    @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary-container),
-            container-text-color: var(--mat-sys-on-primary-container),
-        ));
-
-    @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary-container),
-        ));
-
-    @include mat.elevation(6);
-}
-
 .blog-post {
     @include mat.elevation(6);
-}
-
-.spinner-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-}
-
-.post-content {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    padding: 12px;
-
-    background: var(--mat-sys-surface);
-    color: var(--mat-sys-on-surface);
 }

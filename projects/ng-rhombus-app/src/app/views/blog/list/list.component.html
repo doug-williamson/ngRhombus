@@ -1,13 +1,12 @@
-<div class="socials-page">
-    @if (blogStore.blogPosts() !== undefined) {
-    <mat-toolbar class="header-theme">
-        <span>Blog Posts</span>
-    </mat-toolbar>
+@defer {
+<ng-rhombus-page [title]="'Blog Posts'">
     <ng-rhombus-blog-list class="list" [dataSource]="blogService.blogPosts()"
         (goToRoute)="routeToBlogPost($event)"></ng-rhombus-blog-list>
-    } @else {
-    <div class="spinner-backdrop">
-        <mat-spinner></mat-spinner>
-    </div>
-    }
-</div>
+</ng-rhombus-page>
+} @placeholder {
+
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
+} @error {
+<mat-toolbar><span>Failed to load blog posts.</span></mat-toolbar>
+}

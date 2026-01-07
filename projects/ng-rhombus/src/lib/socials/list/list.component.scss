@@ -18,6 +18,14 @@
     width: 100%;
 }
 
+@media (prefers-color-scheme: light) {
+    :host {
+        @include mat.list-overrides((list-item-leading-icon-color: var(--mat-sys-primary),
+                list-item-label-text-color: var(--mat-sys-primary),
+            ));
+    }
+}
+
 .toolbar-list {
     display: grid;
     gap: 8px;

@@ -1,6 +1,11 @@
-<div class="socials-page">
-    <mat-toolbar class="header-theme">
-        <span>Socials</span>
-    </mat-toolbar>
+@defer {
+<ng-rhombus-page [title]="'Socials'">
     <ng-rhombus-socials-list [socials]="socialsService.socials()"></ng-rhombus-socials-list>
-</div>
+</ng-rhombus-page>
+} @placeholder {
+
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
+} @error {
+<span>Failed to load socials.</span>
+}

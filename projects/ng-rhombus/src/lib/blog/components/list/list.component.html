@@ -1,9 +1,13 @@
+@if ((dataSource()).length === 0) {
+<p class="m-6 justify-self-center">No blog posts found.</p>
+} @else {
 <mat-nav-list>
 	@for (blogPost of dataSource(); track blogPost.id) {
-		<mat-list-item (click)="goToRoute.emit(blogPost.id)">
-			<h3 matListItemTitle>{{ blogPost.title }}</h3>
-			<p matListItemLine>{{ blogPost.description }}</p>
-			<p matListItemMeta>{{ blogPost.timestamp.toMillis() | date: 'MMMM d, y' }}</p>
-		</mat-list-item>
+	<mat-list-item (click)="goToRoute.emit(blogPost.id)">
+		<h3 matListItemTitle>{{ blogPost.title }}</h3>
+		<p matListItemLine>{{ blogPost.description }}</p>
+		<p matListItemMeta>{{ blogPost.timestamp.toMillis() | date: 'MMMM d, y' }}</p>
+	</mat-list-item>
 	}
 </mat-nav-list>
+}

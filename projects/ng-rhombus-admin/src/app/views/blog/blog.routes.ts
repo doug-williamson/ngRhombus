@@ -10,14 +10,14 @@ export const BLOG_ROUTES: Routes = [
 	},
 	{
 		path: 'add',
-		loadComponent: () => import('./add/add.component').then(m => m.NgRhombusAdminBlogPostAddComponent),
+		loadComponent: () => import('./details/details.component').then(m => m.NgRhombusAdminBlogPostDetailsComponent),
 		data: {
 			breadcrumb: 'Blog'
 		}
 	},
 	{
 		path: 'edit/:id',
-		loadComponent: () => import('./edit/edit.component').then(m => m.NgRhombusAdminBlogPostEditComponent),
+		loadComponent: () => import('./details/details.component').then(m => m.NgRhombusAdminBlogPostDetailsComponent),
 		data: {
 			breadcrumb: 'Blog'
 		}

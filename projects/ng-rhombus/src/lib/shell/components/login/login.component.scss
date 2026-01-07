@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+mat-card {
+    @include mat.elevation(6);
+}
+
+.login-button {
+    margin: 8px 16px;
+}

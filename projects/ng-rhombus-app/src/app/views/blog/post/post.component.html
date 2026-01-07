@@ -1,0 +1,11 @@
+@defer {
+<ng-rhombus-page [title]="'Back to Blog Posts'" [backLink]="'/blog'">
+    <ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
+</ng-rhombus-page>
+} @placeholder {
+
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
+} @error {
+<mat-toolbar><span>Failed to load blog posts.</span></mat-toolbar>
+}

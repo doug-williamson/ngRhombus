@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <mat-toolbar class="header-theme">
+        <span class="flex">Blog</span>
+        <button mat-icon-button (click)="createNewBlogPost()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-toolbar>
+    <ng-rhombus-blog-table [dataSource]="blogStore.blogPosts()" (editEvent)="routeToBlogPost($event)"
+        (deleteEvent)="onDeleteBlogPost($event)"></ng-rhombus-blog-table>
+</div>

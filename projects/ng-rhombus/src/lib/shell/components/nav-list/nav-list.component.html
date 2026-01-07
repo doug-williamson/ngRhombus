@@ -1,0 +1,7 @@
+<mat-nav-list class="accent-list">
+    @for (link of routeCollection; track link) {
+    <a mat-list-item [routerLink]="link.route" routerLinkActive="selected-menu-item">
+        <span>{{ link.label }}</span>
+    </a>
+    }
+</mat-nav-list>

@@ -1,0 +1,16 @@
+@if ((socials()).length === 0) {
+<p class="m-6 justify-self-center">No socials found.</p>
+} @else {
+<div class="toolbar-list">
+    @for (s of socials(); track s.id) {
+    <mat-toolbar class="social-toolbar actionable" color="primary" role="button" tabindex="0" (click)="openUrl(s.url)"
+        aria-label="Open {{ s.source }} link">
+        <fa-icon [icon]="iconFor(s.source)" class="fa-icon"></fa-icon>
+        <span class="center">{{ s.source }}</span>
+        @if (s.url) {
+        <mat-icon class="right">open_in_new</mat-icon>
+        }
+    </mat-toolbar>
+    }
+</div>
+}

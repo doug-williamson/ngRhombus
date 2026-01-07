@@ -1,0 +1,11 @@
+@defer {
+<ng-rhombus-page [title]="'Socials'">
+    <ng-rhombus-socials-list [socials]="socialsService.socials()"></ng-rhombus-socials-list>
+</ng-rhombus-page>
+} @placeholder {
+
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
+} @error {
+<span>Failed to load socials.</span>
+}

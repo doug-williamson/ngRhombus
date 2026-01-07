@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+.card-image {
+    @include mat.card-overrides((elevated-container-shape: var(--mat-sys-shape-medium) // Example mapping
+        ));
+}
+
+.mat-mdc-card-header,
+.mat-mdc-card-content,
+.mat-mdc-card-footer {
+    padding: 16px;
+}
+
+.mat-mdc-card-title {
+    margin-bottom: 12px;
+}
+
+.mat-mdc-card {
+    border-radius: 0;
+}

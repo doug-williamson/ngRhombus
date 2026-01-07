@@ -1,0 +1,14 @@
+<div class="page">
+    <mat-toolbar class="toolbar" color="primary">
+        @if (backLink()) {
+        <button matIconButton [routerLink]="backLink()" aria-label="Back" class="back-button">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        }
+        <span>{{ title() }}</span>
+    </mat-toolbar>
+
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

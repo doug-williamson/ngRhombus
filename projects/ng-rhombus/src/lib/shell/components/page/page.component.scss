@@ -1,0 +1,29 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    margin: 12px auto;
+    width: min(100% - 24px, 600px);
+    @include mat.elevation(6);
+}
+
+.toolbar {
+    @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary-container),
+            container-text-color: var(--mat-sys-on-primary-container),
+        ));
+
+    @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary-container),
+        ));
+}
+
+.back-button {
+    margin-right: 8px;
+}

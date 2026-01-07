@@ -1,0 +1,36 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+.header-theme {
+  @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary),
+      container-text-color: var(--mat-sys-on-primary),
+    ));
+
+  @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary),
+    ));
+
+  @include mat.elevation(6);
+}
+
+.title {
+  margin-left: 16px;
+}
+
+.selected-theme {
+  @include mat.menu-overrides((item-icon-color: var(--mat-sys-primary),
+      item-label-text-color: var(--mat-sys-primary),
+    ));
+}
+
+// .flex {
+//   flex: 1 1 auto;
+// }
+
+// .logout-button {
+//   margin-left: 6px;
+// }
+
+mat-progress-bar {
+  @include mat.progress-bar-overrides((active-indicator-color: var(--mat-sys-primary), track-color: var(--mat-sys-surface-variant), ));
+}

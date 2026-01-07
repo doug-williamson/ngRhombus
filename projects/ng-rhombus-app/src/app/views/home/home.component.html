@@ -1,0 +1,13 @@
+<div class="home-container">
+    <mat-toolbar class="header-theme">Welcome</mat-toolbar>
+    <mat-card>
+        <mat-card-content>
+            <p>Welcome to the Rhombus application! This is a sample application built with Angular and NgRx.</p>
+            <p>Explore the latest blog posts, check out the features, and enjoy your stay!</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="home-container">
+    <mat-toolbar class="header-theme">Latest Blog Post</mat-toolbar>
+    <ng-rhombus-blog-post-latest [blogPost]="blogStore.blogPost()"></ng-rhombus-blog-post-latest>
+</div>

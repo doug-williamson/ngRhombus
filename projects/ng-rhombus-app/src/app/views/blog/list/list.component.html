@@ -1,0 +1,12 @@
+@defer {
+<ng-rhombus-page [title]="'Blog Posts'">
+    <ng-rhombus-blog-list class="list" [dataSource]="blogService.blogPosts()"
+        (goToRoute)="routeToBlogPost($event)"></ng-rhombus-blog-list>
+</ng-rhombus-page>
+} @placeholder {
+
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
+} @error {
+<mat-toolbar><span>Failed to load blog posts.</span></mat-toolbar>
+}

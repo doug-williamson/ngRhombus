@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+.thumbnail-control-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.flex {
+    flex: 1 1 auto;
+}
+
+.image-placeholder {
+    @include mat.elevation(6);
+}
+
+.delete-button {
+    margin-left: 12px;
+}

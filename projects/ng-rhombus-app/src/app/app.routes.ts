@@ -1,0 +1,32 @@
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+    {
+        path: '', redirectTo: 'socials', pathMatch: 'full',
+    },
+    {
+        path: 'socials',
+        loadComponent: () => import('./views/socials/socials.component').then(m => m.NgRhombusAppSocialsComponent),
+        data: {
+            breadcrumb: 'Socials'
+        }
+    },
+    // {
+    //     path: 'home',
+    //     loadComponent: () => import('./views/home/home.component').then(m => m.NgRhombusAppHomeComponent),
+    //     data: {
+    //         breadcrumb: 'Home'
+    //     },
+    // },
+    {
+        path: 'blog',
+        loadChildren: () => import('./views/blog/blog.routes').then(routes => routes.BLOG_ROUTES),
+    },
+    // {
+    //     path: 'about',
+    //     loadComponent: () => import('./views/about/about.component').then(m => m.AboutComponent),
+    //     data: {
+    //         breadcrumb: 'About'
+    //     }
+    // }
+];

@@ -8,7 +8,7 @@ import { NgRhombusSpinnerComponent } from '../../../shell/public-api';
 
 @Component({
   selector: 'ng-rhombus-blog-post',
-  imports: [DatePipe, NgClass, MarkdownComponent, MatCardModule, NgRhombusSpinnerComponent],
+  imports: [DatePipe, NgClass, MarkdownComponent, MatCardModule],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })

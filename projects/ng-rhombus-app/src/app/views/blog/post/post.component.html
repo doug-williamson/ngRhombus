@@ -1,23 +1,11 @@
 @defer {
-<div class="socials-page">
-    <mat-toolbar class="header-theme" color="primary">
-        <button matIconButton [routerLink]="'/blog'" class="example-icon"
-            aria-label="Example icon-button with menu icon">
-            <mat-icon>arrow_back</mat-icon>
-        </button>
-        <span>Back to Blog Posts</span>
-    </mat-toolbar>
-
-    <div class="blog-post">
-        <ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
-    </div>
-</div>
+<ng-rhombus-page [title]="'Back to Blog Posts'" [backLink]="'/blog'">
+    <ng-rhombus-blog-post [dataSource]="blogStore.blogPost()"></ng-rhombus-blog-post>
+</ng-rhombus-page>
 } @placeholder {
 
-} @loading (minimum 100ms) {
-<div class="spinner-backdrop">
-    <mat-spinner></mat-spinner>
-</div>
+} @loading (minimum 300ms) {
+<ng-rhombus-spinner></ng-rhombus-spinner>
 } @error {
 <mat-toolbar><span>Failed to load blog posts.</span></mat-toolbar>
 }

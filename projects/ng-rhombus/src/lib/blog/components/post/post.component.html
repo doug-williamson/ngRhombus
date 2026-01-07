@@ -1,3 +1,4 @@
+@defer {
 <mat-card>
 	<mat-card-header>
 		<mat-card-title>{{ dataSource()?.title }}</mat-card-title>
@@ -13,3 +14,8 @@
 		<span class="flex flex-row-reverse">Doug Williamson</span>
 	</mat-card-footer>
 </mat-card>
+} @placeholder {
+
+} @error {
+<span>Failed to load blog posts.</span>
+}

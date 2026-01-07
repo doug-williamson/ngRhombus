@@ -3,13 +3,12 @@ import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { NgRhombusSocialsListComponent, NgRhombusSocialsService } from '../../../../../ng-rhombus/src/lib/socials/public-api';
 import { Platform } from '@angular/cdk/platform';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgRhombusPageComponent, NgRhombusSpinnerComponent } from '../../../../../ng-rhombus';
 
 @Component({
   selector: 'ng-rhombus-app-socials',
   standalone: true,
-  imports: [MatToolbarModule, NgRhombusSocialsListComponent, MatProgressSpinnerModule],
+  imports: [NgRhombusPageComponent, NgRhombusSocialsListComponent, NgRhombusSpinnerComponent],
   templateUrl: './socials.component.html',
   styleUrl: './socials.component.scss'
 })

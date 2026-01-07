@@ -7,20 +7,23 @@
     flex-direction: column;
 }
 
-.socials-page {
+.page {
     display: flex;
     flex-direction: column;
-    margin: 12px auto; // keep vertical margin, center horizontally
-    min-width: 550px;
-    max-width: 550px;
+    margin: 12px auto;
+    width: min(100% - 24px, 600px);
     @include mat.elevation(6);
 }
 
-.header-theme {
+.toolbar {
     @include mat.toolbar-overrides((container-background-color: var(--mat-sys-primary-container),
             container-text-color: var(--mat-sys-on-primary-container),
         ));
 
     @include mat.icon-button-overrides((icon-color: var(--mat-sys-on-primary-container),
         ));
+}
+
+.back-button {
+    margin-right: 8px;
 }

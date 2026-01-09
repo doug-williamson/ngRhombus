@@ -21,36 +21,34 @@ export class NgRhombusBlogPostComponent implements OnInit {
 
   ngOnInit() {
     // React to dataSource changes and keep SEO meta up to date
-    effect(() => {
-      const post = this.dataSource();
-      if (!post) {
-        return;
-      }
+    const post = this.dataSource();
+    if (!post) {
+      return;
+    }
 
-      const published = new Date(post.timestamp?.toMillis?.() ?? Date.now()).toISOString();
+    const published = new Date(post.timestamp?.toMillis?.() ?? Date.now()).toISOString();
 
-      // Document title
-      this.#title.setTitle(post.title);
+    // Document title
+    this.#title.setTitle(post.title);
 
-      // Basic meta
-      this.#meta.updateTag({ name: 'description', content: post.description });
+    // Basic meta
+    this.#meta.updateTag({ name: 'description', content: post.description });
 
-      // Open Graph
-      this.#meta.updateTag({ property: 'og:type', content: 'article' });
-      this.#meta.updateTag({ property: 'og:title', content: post.title });
-      this.#meta.updateTag({ property: 'og:description', content: post.description });
-      if (post.thumbnail) {
-        this.#meta.updateTag({ property: 'og:image', content: post.thumbnail });
-      }
-      this.#meta.updateTag({ property: 'article:published_time', content: published });
+    // Open Graph
+    this.#meta.updateTag({ property: 'og:type', content: 'article' });
+    this.#meta.updateTag({ property: 'og:title', content: post.title });
+    this.#meta.updateTag({ property: 'og:description', content: post.description });
+    if (post.thumbnail) {
+      this.#meta.updateTag({ property: 'og:image', content: post.thumbnail });
+    }
+    this.#meta.updateTag({ property: 'article:published_time', content: published });
 
-      // Twitter Card
-      this.#meta.updateTag({ name: 'twitter:card', content: post.thumbnail ? 'summary_large_image' : 'summary' });
-      this.#meta.updateTag({ name: 'twitter:title', content: post.title });
-      this.#meta.updateTag({ name: 'twitter:description', content: post.description });
-      if (post.thumbnail) {
-        this.#meta.updateTag({ name: 'twitter:image', content: post.thumbnail });
-      }
-    });
+    // Twitter Card
+    this.#meta.updateTag({ name: 'twitter:card', content: post.thumbnail ? 'summary_large_image' : 'summary' });
+    this.#meta.updateTag({ name: 'twitter:title', content: post.title });
+    this.#meta.updateTag({ name: 'twitter:description', content: post.description });
+    if (post.thumbnail) {
+      this.#meta.updateTag({ name: 'twitter:image', content: post.thumbnail });
+    }
   }
 }
